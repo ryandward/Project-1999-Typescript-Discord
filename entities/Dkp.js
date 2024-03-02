@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Column, Entity, Index, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
 let Dkp = class Dkp {
     Id;
     DiscordName;
@@ -17,34 +17,34 @@ let Dkp = class Dkp {
     DateJoined;
 };
 __decorate([
-    PrimaryGeneratedColumn({ type: "bigint", name: "id" }),
-    __metadata("design:type", String)
+    PrimaryGeneratedColumn({ type: 'bigint', name: 'id' }),
+    __metadata("design:type", Number)
 ], Dkp.prototype, "Id", void 0);
 __decorate([
-    Column("text", { name: "discord_name", nullable: true }),
-    __metadata("design:type", Object)
+    Column('text', { name: 'discord_name', nullable: true }),
+    __metadata("design:type", String)
 ], Dkp.prototype, "DiscordName", void 0);
 __decorate([
-    Column("bigint", { name: "earned_dkp", nullable: true }),
-    __metadata("design:type", Object)
+    Column('bigint', { name: 'earned_dkp', nullable: true }),
+    __metadata("design:type", Number)
 ], Dkp.prototype, "EarnedDkp", void 0);
 __decorate([
-    Column("bigint", { name: "spent_dkp", nullable: true }),
-    __metadata("design:type", Object)
+    Column('bigint', { name: 'spent_dkp', nullable: true }),
+    __metadata("design:type", Number)
 ], Dkp.prototype, "SpentDkp", void 0);
 __decorate([
-    Column("text", { name: "discord_id", nullable: true }),
-    __metadata("design:type", Object)
+    Column('text', { name: 'discord_id', nullable: true }),
+    __metadata("design:type", String)
 ], Dkp.prototype, "DiscordId", void 0);
 __decorate([
-    Column("timestamp without time zone", {
-        name: "date_joined",
+    Column('timestamp without time zone', {
+        name: 'date_joined',
         nullable: true,
     }),
-    __metadata("design:type", Object)
+    __metadata("design:type", Date)
 ], Dkp.prototype, "DateJoined", void 0);
 Dkp = __decorate([
-    Index("idx_17845_dkp_pkey", ["Id"], { unique: true }),
-    Entity("dkp", { schema: "public" })
+    Index('idx_17845_dkp_pkey', ['Id'], { unique: true }),
+    Entity('dkp', { schema: 'public' })
 ], Dkp);
 export { Dkp };

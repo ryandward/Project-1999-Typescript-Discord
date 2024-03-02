@@ -1,8 +1,8 @@
 export declare class Dkp {
-    Id: string;
-    DiscordName: string | null;
-    EarnedDkp: string | null;
-    SpentDkp: string | null;
-    DiscordId: string | null;
-    DateJoined: Date | null;
+    Id: number;
+    DiscordName: string;
+    EarnedDkp: number;
+    SpentDkp: number;
+    DiscordId: string;
+    DateJoined: Date;
 }

@@ -2,7 +2,7 @@ import { AutocompleteInteraction, Client, Collection, CommandInteraction, SlashC
 
 export interface Command {
   data: SlashCommandBuilder;
-  execute(interaction: CommandInteraction): Promise<void>;
+  execute?(interaction: CommandInteraction): Promise<void>;
   autocomplete?(interaction: AutocompleteInteraction): Promise<void>;
 }
 

@@ -2,40 +2,39 @@ import { GatewayIntentBits } from 'discord.js';
 import 'dotenv/config';
 import fs from 'node:fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import { initializeDataSource } from './app_data.js';
 import { Command, TSClient } from './types.js';
 
-const baseDir = fileURLToPath(new URL('.', import.meta.url));
+await initializeDataSource();
+
+const __dirname = import.meta.dirname;
 
 const client = new TSClient({ intents: [GatewayIntentBits.Guilds] });
 
-const foldersPath = path.join(baseDir, 'commands');
+const foldersPath = path.join(__dirname, 'commands');
 const commandFolders = fs.readdirSync(foldersPath);
 for (const folder of commandFolders) {
   const commandsPath = path.join(foldersPath, folder);
   const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
   for (const file of commandFiles) {
-    const filePath = path.join(commandsPath, file);
-    const command: Command = await import(filePath);
+    const command: Command = await import(path.join(commandsPath, file));
     if ('data' in command && 'execute' in command) {
       client.commands.set(command.data.name, command);
     }
     else {
       console.log(
-        `[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`,
+        `[WARNING] The command at ${path.join(commandsPath, file)} is missing a required "data" or "execute" property.`,
       );
     }
   }
 }
 
-const eventsPath = path.join(baseDir, 'events');
+const eventsPath = path.join(__dirname, 'events');
 const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
 for (const file of eventFiles) {
-  const filePath = path.join(eventsPath, file);
-  const event = await import(filePath);
+  const event = await import(path.join(eventsPath, file));
   if (event.once) {
     client.once(event.name, (...args) => event.execute(...args));
-
   }
   else {
     client.on(event.name, (...args) => event.execute(...args));

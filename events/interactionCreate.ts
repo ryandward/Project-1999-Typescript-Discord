@@ -9,7 +9,7 @@ export async function execute(interaction: Interaction) {
 
     const command = (interaction.client as TSClient).commands.get(interaction.commandName);
 
-    if (!command) {
+    if (!command || !command.execute) {
       console.error(`No command matching ${interaction.commandName} was found.`);
       return;
     }

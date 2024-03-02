@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Column, Entity, Index, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
 let Census = class Census {
     DiscordId;
     Name;
@@ -18,36 +18,36 @@ let Census = class Census {
     Id;
 };
 __decorate([
-    Column("text", { name: "discord_id" }),
+    Column('text', { name: 'discord_id' }),
     __metadata("design:type", String)
 ], Census.prototype, "DiscordId", void 0);
 __decorate([
-    Column("text", { name: "name" }),
+    Column('text', { name: 'name' }),
     __metadata("design:type", String)
 ], Census.prototype, "Name", void 0);
 __decorate([
-    Column("text", { name: "character_class" }),
+    Column('text', { name: 'character_class' }),
     __metadata("design:type", String)
 ], Census.prototype, "CharacterClass", void 0);
 __decorate([
-    Column("bigint", { name: "level" }),
+    Column('bigint', { name: 'level' }),
     __metadata("design:type", Number)
 ], Census.prototype, "Level", void 0);
 __decorate([
-    Column("text", { name: "status" }),
+    Column('text', { name: 'status' }),
     __metadata("design:type", String)
 ], Census.prototype, "Status", void 0);
 __decorate([
-    Column("text", { name: "time" }),
+    Column('text', { name: 'time' }),
     __metadata("design:type", Date)
 ], Census.prototype, "Time", void 0);
 __decorate([
-    PrimaryGeneratedColumn({ type: "bigint", name: "id" }),
+    PrimaryGeneratedColumn({ type: 'bigint', name: 'id' }),
     __metadata("design:type", String)
 ], Census.prototype, "Id", void 0);
 Census = __decorate([
-    Index("idx_17818_census_pkey", ["Id"], { unique: true }),
-    Index("idx_17818_sqlite_autoindex_census_1", ["Name"], { unique: true }),
-    Entity("census", { schema: "public" })
+    Index('idx_17818_census_pkey', ['Id'], { unique: true }),
+    Index('idx_17818_sqlite_autoindex_census_1', ['Name'], { unique: true }),
+    Entity('census', { schema: 'public' })
 ], Census);
 export { Census };

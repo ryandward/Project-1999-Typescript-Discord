@@ -37,11 +37,11 @@ for (const folder of commandFolders) {
     for (const file of commandFiles) {
         const filePath = path.join(commandsPath, file);
         const command = await import(filePath);
-        if ('data' in command) {
+        if ('data' in command || 'execute' in command) {
             commands.push(command.data.toJSON());
         }
         else {
-            console.log(`[WARNING] The command at ${filePath} is missing a required "data" property.`);
+            console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
         }
     }
 }
@@ -49,7 +49,9 @@ for (const folder of commandFolders) {
     try {
         console.log(`Started refreshing ${commands.length} application (/) commands.`);
         // The put method is used to fully refresh all commands in the guild with the current set
-        const data = await rest.put(Routes.applicationGuildCommands(botSelf, guildId), { body: commands });
+        const data = (await rest.put(Routes.applicationGuildCommands(botSelf, guildId), {
+            body: commands,
+        }));
         console.log(`Successfully reloaded ${data.length} application (/) commands.`);
     }
     catch (error) {

@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Column, Entity, Index, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
 let ClassDefinitions = class ClassDefinitions {
     ClassName;
     CharacterClass;
@@ -15,23 +15,23 @@ let ClassDefinitions = class ClassDefinitions {
     LevelAttained;
 };
 __decorate([
-    Column("text", { name: "class_name" }),
+    Column('text', { name: 'class_name' }),
     __metadata("design:type", String)
 ], ClassDefinitions.prototype, "ClassName", void 0);
 __decorate([
-    Column("text", { name: "character_class" }),
+    Column('text', { name: 'character_class' }),
     __metadata("design:type", String)
 ], ClassDefinitions.prototype, "CharacterClass", void 0);
 __decorate([
-    PrimaryGeneratedColumn({ type: "bigint", name: "id" }),
+    PrimaryGeneratedColumn({ type: 'bigint', name: 'id' }),
     __metadata("design:type", String)
 ], ClassDefinitions.prototype, "Id", void 0);
 __decorate([
-    Column("bigint", { name: "level_attained" }),
+    Column('bigint', { name: 'level_attained' }),
     __metadata("design:type", Number)
 ], ClassDefinitions.prototype, "LevelAttained", void 0);
 ClassDefinitions = __decorate([
-    Index("idx_17834_class_definitions_pkey", ["Id"], { unique: true }),
-    Entity("class_definitions", { schema: "public" })
+    Index('idx_17834_class_definitions_pkey', ['Id'], { unique: true }),
+    Entity('class_definitions', { schema: 'public' })
 ], ClassDefinitions);
 export { ClassDefinitions };

@@ -7,21 +7,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Column, Entity, Index, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
 let Races = class Races {
     Race;
     Id;
 };
 __decorate([
-    Column("text", { name: "race", nullable: true }),
+    Column('text', { name: 'race', nullable: true }),
     __metadata("design:type", Object)
 ], Races.prototype, "Race", void 0);
 __decorate([
-    PrimaryGeneratedColumn({ type: "bigint", name: "id" }),
+    PrimaryGeneratedColumn({ type: 'bigint', name: 'id' }),
     __metadata("design:type", String)
 ], Races.prototype, "Id", void 0);
 Races = __decorate([
-    Index("idx_17797_races_pkey", ["Id"], { unique: true }),
-    Entity("races", { schema: "public" })
+    Index('idx_17797_races_pkey', ['Id'], { unique: true }),
+    Entity('races', { schema: 'public' })
 ], Races);
 export { Races };

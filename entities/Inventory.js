@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Column, Entity, Index, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
 let Inventory = class Inventory {
     Toon;
     Location;
@@ -19,39 +19,39 @@ let Inventory = class Inventory {
     Id;
 };
 __decorate([
-    Column("text", { name: "toon", nullable: true }),
+    Column('text', { name: 'toon', nullable: true }),
     __metadata("design:type", Object)
 ], Inventory.prototype, "Toon", void 0);
 __decorate([
-    Column("text", { name: "location", nullable: true }),
+    Column('text', { name: 'location', nullable: true }),
     __metadata("design:type", Object)
 ], Inventory.prototype, "Location", void 0);
 __decorate([
-    Column("text", { name: "name", nullable: true }),
+    Column('text', { name: 'name', nullable: true }),
     __metadata("design:type", Object)
 ], Inventory.prototype, "Name", void 0);
 __decorate([
-    Column("text", { name: "eq_item_id", nullable: true }),
+    Column('text', { name: 'eq_item_id', nullable: true }),
     __metadata("design:type", Object)
 ], Inventory.prototype, "EqItemId", void 0);
 __decorate([
-    Column("bigint", { name: "quantity", nullable: true }),
+    Column('bigint', { name: 'quantity', nullable: true }),
     __metadata("design:type", Object)
 ], Inventory.prototype, "Quantity", void 0);
 __decorate([
-    Column("bigint", { name: "slots", nullable: true }),
+    Column('bigint', { name: 'slots', nullable: true }),
     __metadata("design:type", Object)
 ], Inventory.prototype, "Slots", void 0);
 __decorate([
-    Column("timestamp without time zone", { name: "time", nullable: true }),
+    Column('timestamp without time zone', { name: 'time', nullable: true }),
     __metadata("design:type", Object)
 ], Inventory.prototype, "Time", void 0);
 __decorate([
-    PrimaryGeneratedColumn({ type: "bigint", name: "id" }),
+    PrimaryGeneratedColumn({ type: 'bigint', name: 'id' }),
     __metadata("design:type", String)
 ], Inventory.prototype, "Id", void 0);
 Inventory = __decorate([
-    Index("idx_17839_inventory_pkey", ["Id"], { unique: true }),
-    Entity("inventory", { schema: "public" })
+    Index('idx_17839_inventory_pkey', ['Id'], { unique: true }),
+    Entity('inventory', { schema: 'public' })
 ], Inventory);
 export { Inventory };

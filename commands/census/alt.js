@@ -1,37 +1,30 @@
 import _ from 'lodash';
-import { declare, declareTemplate, insertUser, suggestCharacterClasses, toonExists, } from './census_functions.js';
-export const data = declareTemplate('alt');
-export async function autocomplete(interaction) {
-    const focusedOption = interaction.options.getFocused(true);
-    if (!focusedOption)
-        return;
-    if (focusedOption.name === 'class') {
-        try {
-            const choices = await suggestCharacterClasses(focusedOption.value);
-            await interaction.respond(choices.map(choice => ({ name: choice.ClassName, value: choice.CharacterClass })));
+import { classMustExist, declare, declareData, insertUser, levelMustBeValid, toonMustNotExist, } from './census_functions.js';
+export const data = await declareData('alt');
+export const execute = async (interaction) => {
+    const { options } = interaction;
+    const name = _.capitalize(options.get('name')?.value);
+    const discordId = interaction.user.id;
+    const characterClass = options.get('class')?.value;
+    const level = options.get('level')?.value;
+    try {
+        let response;
+        await toonMustNotExist(name);
+        await levelMustBeValid(level);
+        await classMustExist(characterClass);
+        const newUserResult = await insertUser(discordId);
+        const newToonResult = await declare(discordId, 'Alt', name, level, characterClass);
+        if (newUserResult) {
+            response = newToonResult + '\n' + newUserResult;
         }
-        catch (error) {
-            console.error('Error in autocomplete:', error);
+        else {
+            response = newToonResult;
+        }
+        return interaction.reply(response);
+    }
+    catch (error) {
+        if (error instanceof Error) {
+            return interaction.reply(error.message);
         }
     }
-}
-export async function execute(interaction) {
-    const { options } = interaction;
-    const discordId = interaction.user.id;
-    const name = _.capitalize(options.get('name')?.value);
-    const level = options.get('level')?.value;
-    const characterClass = options.get('class')?.value;
-    toonExists(name)
-        .then(async () => {
-        const newUser = await insertUser(discordId);
-        let result = await declare(discordId, 'Alt', name, level, characterClass);
-        if (newUser) {
-            result += `\n:moneybag: <@${discordId}> has been added to the DKP database with 5 DKP!`;
-        }
-        await interaction.reply(result);
-    })
-        .catch(async (error) => {
-        await interaction.reply(error.message);
-        return;
-    });
-}
+};

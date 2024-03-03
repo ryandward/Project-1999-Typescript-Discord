@@ -9,7 +9,7 @@ await initializeDataSource();
 
 const __dirname = import.meta.dirname;
 
-const client = new TSClient({ intents: [GatewayIntentBits.Guilds] });
+export const client = new TSClient({ intents: [GatewayIntentBits.Guilds] });
 
 const foldersPath = path.join(__dirname, 'commands');
 const commandFolders = fs.readdirSync(foldersPath);

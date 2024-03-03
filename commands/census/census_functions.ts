@@ -1,28 +1,124 @@
-import { SlashCommandBuilder } from 'discord.js';
-import { FindManyOptions, FindOneOptions, ILike } from 'typeorm';
+import { AutocompleteInteraction, SlashCommandBuilder } from 'discord.js';
+import { FindManyOptions, FindOneOptions, ILike, LessThanOrEqual } from 'typeorm';
 import { AppDataSource } from '../../app_data.js';
 import { ActiveToons } from '../../entities/ActiveToons.js';
 import { Census } from '../../entities/Census.js';
 import { ClassDefinitions } from '../../entities/ClassDefinitions.js';
 import { Dkp } from '../../entities/Dkp.js';
 
-export function declareTemplate(status: string) {
+export async function userMustExist(DiscordId: string) {
+  const user = await AppDataSource.manager.findOne(Dkp, { where: { DiscordId } });
+  if (!user) throw new Error(`:x: <@${DiscordId}> is not in the DKP database.`);
+  return user;
+}
+
+export async function userMustNotExist(DiscordId: string) {
+  const user = await AppDataSource.manager.findOne(Dkp, { where: { DiscordId } });
+  if (user) throw new Error(`:x: <@${DiscordId}> already exists.`);
+  return user;
+}
+
+export async function levelMustBeValid(Level: number) {
+  if (Level < 1 || Level > 60) throw new Error(':x: Level must be between 1 and 60.');
+  return Level;
+}
+
+export async function classMustExist(CharacterClass: string) {
+  const classEntered = await AppDataSource.manager.findOne(ClassDefinitions, {
+    where: { CharacterClass },
+  });
+  if (!classEntered) throw new Error(`:x: ${CharacterClass} is not a valid class.`);
+  return classEntered;
+}
+
+export async function toonMustExist(Name: string) {
+  const toon = await AppDataSource.manager.findOne(Census, { where: { Name } });
+  if (!toon) throw new Error(`:x: ${Name} does not exist, please complete all fields.`);
+  return toon;
+}
+
+export async function toonMustNotExist(Name: string) {
+  const toon = await AppDataSource.manager.findOne(Census, { where: { Name } });
+  if (toon) throw new Error(`:x: ${Name} already exists.`);
+  return toon;
+}
+
+export async function declareData(status: string) {
+  const classNames = await validCharacterClasses();
+
+  console.log(classNames);
+
   return new SlashCommandBuilder()
     .setName(status)
     .setDescription(`Declare character as "${status}"`)
     .addStringOption(option =>
-      option.setName('name').setDescription('The name of the character').setRequired(true),
+      option
+        .setName('name')
+        .setDescription('The name of the character')
+        .setRequired(true)
+        .setMaxLength(24),
     )
     .addNumberOption(option =>
-      option.setName('level').setDescription('The level of the character').setRequired(true),
+      option
+        .setName('level')
+        .setDescription('The level of the character')
+        .setRequired(true)
+        .setMinValue(1)
+        .setMaxValue(60),
     )
     .addStringOption(option =>
       option
         .setName('class')
         .setDescription('The class of the character')
         .setRequired(true)
-        .setAutocomplete(true),
+        .addChoices(...classNames),
     );
+}
+
+export async function declareAutocomplete(interaction: AutocompleteInteraction) {
+  const focusedOption = interaction.options.getFocused(true);
+  if (!focusedOption) return;
+
+  if (focusedOption.name === 'class') {
+    suggestCharacterClasses(focusedOption.value)
+      .then(choices => {
+        interaction.respond(
+          choices.map(choice => ({ name: choice.ClassName, value: choice.CharacterClass })),
+        );
+      })
+      .catch(error => {
+        console.error('Error in autocomplete:', error);
+      });
+  }
+}
+
+export async function suggestCharacterClasses(partialName: string, level?: number) {
+  const options: FindManyOptions = {
+    where: {
+      ClassName: ILike(`%${partialName}%`),
+      LevelAttained: LessThanOrEqual(level ? level : 1),
+    },
+    order: { LevelAttained: 'DESC' },
+    take: 20,
+  };
+
+  return await AppDataSource.manager.find(ClassDefinitions, options);
+}
+
+export async function validCharacterClasses() {
+  const records = await AppDataSource.manager
+    .createQueryBuilder(ClassDefinitions, 'c')
+    .select('c.CharacterClass')
+    .where('c.CharacterClass = c.ClassName')
+    .orderBy('c.CharacterClass')
+    .getMany();
+
+  const classNames = records.map(record => ({
+    name: record.CharacterClass,
+    value: record.CharacterClass,
+  }));
+
+  return classNames;
 }
 
 export async function declare(
@@ -49,41 +145,18 @@ export async function declare(
     });
 }
 
-export async function suggestCharacterClasses(partialName: string) {
-  const options: FindManyOptions = {
-    where: {
-      ClassName: ILike(`%${partialName}%`),
-    },
-    order: { LevelAttained: 'DESC' },
-    take: 20,
-  };
-
-  return await AppDataSource.manager.find(ClassDefinitions, options);
-}
-
 export async function insertUser(DiscordId: string) {
-  // Try to find a user with the given DiscordId
   const user = await AppDataSource.manager.findOne(Dkp, { where: { DiscordId } });
 
   if (!user) {
     const newUser = new Dkp();
     newUser.DiscordId = DiscordId;
     newUser.EarnedDkp = 5;
-
     await AppDataSource.manager.save(newUser);
-    return true;
+    return `:moneybag: <@${user}> has been added to the DKP database with 5 DKP!`;
   }
-
-  // If the user does exist, return it
   return false;
 }
-
-export async function toonExists(Name: string) {
-  const toon = await AppDataSource.manager.findOne(Census, { where: { Name } });
-  if (toon) throw new Error(`:x: ${Name} already exists`);
-  return Name;
-}
-
 
 export async function suggestActiveToons(partialName: string) {
   const options: FindManyOptions = {

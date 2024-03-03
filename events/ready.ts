@@ -2,7 +2,6 @@
 import { Events } from 'discord.js';
 import { TSClient } from '../types';
 
-
 export const name = Events.ClientReady;
 export const once = true;
 

@@ -5,26 +5,22 @@ export const name = Events.InteractionCreate;
 
 export async function execute(interaction: Interaction) {
   if (interaction instanceof CommandInteraction) {
-    if (!interaction.isChatInputCommand()) return;
-
+    // if (!interaction.isChatInputCommand()) return;
     const command = (interaction.client as TSClient).commands.get(interaction.commandName);
 
     if (!command || !command.execute) {
       console.error(`No command matching ${interaction.commandName} was found.`);
       return;
     }
-
     try {
       await command.execute(interaction);
     }
     catch (error) {
       console.error(error);
-      // Error handling remains the same
     }
   }
   else if (interaction instanceof AutocompleteInteraction) {
-    if (!interaction.isAutocomplete()) return;
-
+    // if (!interaction.isAutocomplete()) return;
     const command = (interaction.client as TSClient).commands.get(interaction.commandName);
 
     if (!command || !command.autocomplete) {
@@ -37,7 +33,6 @@ export async function execute(interaction: Interaction) {
     }
     catch (error) {
       console.error(error);
-      // Autocomplete error handling could be similar
     }
   }
 }

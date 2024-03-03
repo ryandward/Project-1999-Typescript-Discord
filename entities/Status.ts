@@ -1,4 +1,4 @@
-import { ViewColumn, ViewEntity } from "typeorm";
+import { ViewColumn, ViewEntity } from 'typeorm';
 
 @ViewEntity({
   expression: `
@@ -7,6 +7,6 @@ import { ViewColumn, ViewEntity } from "typeorm";
   `,
 })
 export class Status {
-  @ViewColumn({ name: "status" })
+  @ViewColumn({ name: 'status' })
   Status: string;
 }

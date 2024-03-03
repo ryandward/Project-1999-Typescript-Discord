@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Column, Entity, Index, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
 let Bank = class Bank {
     Banker;
     Location;
@@ -19,39 +19,39 @@ let Bank = class Bank {
     Id;
 };
 __decorate([
-    Column("text", { name: "banker" }),
+    Column('text', { name: 'banker' }),
     __metadata("design:type", String)
 ], Bank.prototype, "Banker", void 0);
 __decorate([
-    Column("text", { name: "location" }),
+    Column('text', { name: 'location' }),
     __metadata("design:type", String)
 ], Bank.prototype, "Location", void 0);
 __decorate([
-    Column("text", { name: "name" }),
+    Column('text', { name: 'name' }),
     __metadata("design:type", String)
 ], Bank.prototype, "Name", void 0);
 __decorate([
-    Column("text", { name: "eq_item_id" }),
+    Column('text', { name: 'eq_item_id' }),
     __metadata("design:type", String)
 ], Bank.prototype, "EqItemId", void 0);
 __decorate([
-    Column("bigint", { name: "quantity" }),
+    Column('bigint', { name: 'quantity' }),
     __metadata("design:type", Number)
 ], Bank.prototype, "Quantity", void 0);
 __decorate([
-    Column("bigint", { name: "slots" }),
+    Column('bigint', { name: 'slots' }),
     __metadata("design:type", String)
 ], Bank.prototype, "Slots", void 0);
 __decorate([
-    Column("timestamp without time zone", { name: "time" }),
+    Column('timestamp without time zone', { name: 'time' }),
     __metadata("design:type", Date)
 ], Bank.prototype, "Time", void 0);
 __decorate([
-    PrimaryGeneratedColumn({ type: "bigint", name: "id" }),
+    PrimaryGeneratedColumn({ type: 'bigint', name: 'id' }),
     __metadata("design:type", String)
 ], Bank.prototype, "Id", void 0);
 Bank = __decorate([
-    Index("idx_17812_bank_pkey", ["Id"], { unique: true }),
-    Entity("bank", { schema: "public" })
+    Index('idx_17812_bank_pkey', ['Id'], { unique: true }),
+    Entity('bank', { schema: 'public' })
 ], Bank);
 export { Bank };

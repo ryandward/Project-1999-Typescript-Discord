@@ -7,12 +7,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { ViewColumn, ViewEntity } from "typeorm";
+import { ViewColumn, ViewEntity } from 'typeorm';
 let Status = class Status {
     Status;
 };
 __decorate([
-    ViewColumn({ name: "status" }),
+    ViewColumn({ name: 'status' }),
     __metadata("design:type", String)
 ], Status.prototype, "Status", void 0);
 Status = __decorate([

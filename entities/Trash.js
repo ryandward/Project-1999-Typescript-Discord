@@ -7,21 +7,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Column, Entity, Index, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
 let Trash = class Trash {
     Name;
     Id;
 };
 __decorate([
-    Column("text", { name: "name", nullable: true }),
+    Column('text', { name: 'name', nullable: true }),
     __metadata("design:type", Object)
 ], Trash.prototype, "Name", void 0);
 __decorate([
-    PrimaryGeneratedColumn({ type: "bigint", name: "id" }),
+    PrimaryGeneratedColumn({ type: 'bigint', name: 'id' }),
     __metadata("design:type", String)
 ], Trash.prototype, "Id", void 0);
 Trash = __decorate([
-    Index("idx_17802_trash_pkey", ["Id"], { unique: true }),
-    Entity("trash", { schema: "public" })
+    Index('idx_17802_trash_pkey', ['Id'], { unique: true }),
+    Entity('trash', { schema: 'public' })
 ], Trash);
 export { Trash };

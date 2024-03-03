@@ -8,5 +8,7 @@ export const data = new SlashCommandBuilder()
 
 export async function execute(interaction: CommandInteraction) {
   const joinedAt = (interaction.member as GuildMember)?.joinedAt || 'unknown date';
-  await interaction.reply(`This command was run by ${interaction.user.username}, who joined on ${joinedAt}.`);
+  await interaction.reply(
+    `This command was run by ${interaction.user.username}, who joined on ${joinedAt}.`,
+  );
 }

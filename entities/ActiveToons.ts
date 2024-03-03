@@ -8,6 +8,4 @@ import { Census } from './Census.js';
     WHERE status != 'Dropped'
   `,
 })
-
-export class ActiveToons extends Census { }
-
+export class ActiveToons extends Census {}

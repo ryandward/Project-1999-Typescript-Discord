@@ -3,7 +3,10 @@ import 'dotenv/config';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'url';
+import { initializeDataSource } from './app_data.js';
 import { Command } from './types.js';
+
+await initializeDataSource();
 
 function getEnvVar(name: string): string {
   const value = process.env[name];
@@ -47,6 +50,7 @@ for (const folder of commandFolders) {
     const filePath = path.join(commandsPath, file);
     const command: Command = await import(filePath);
     if ('data' in command || 'execute' in command) {
+      console.log(command.data);
       commands.push(command.data.toJSON());
     }
     else {
@@ -57,19 +61,18 @@ for (const folder of commandFolders) {
   }
 }
 
-(async () => {
-  try {
-    console.log(`Started refreshing ${commands.length} application (/) commands.`);
+try {
+  console.log(`Started refreshing ${commands.length} application (/) commands.`);
 
-    // The put method is used to fully refresh all commands in the guild with the current set
-    const data = (await rest.put(Routes.applicationGuildCommands(botSelf, guildId), {
-      body: commands,
-    })) as RESTPostAPIChatInputApplicationCommandsJSONBody[];
+  // The put method is used to fully refresh all commands in the guild with the current set
+  const data = (await rest.put(Routes.applicationGuildCommands(botSelf, guildId), {
+    body: commands,
+  })) as RESTPostAPIChatInputApplicationCommandsJSONBody[];
 
-    console.log(`Successfully reloaded ${data.length} application (/) commands.`);
+  console.log(`Successfully reloaded ${data.length} application (/) commands.`);
+}
+catch (error) {
+  if (error instanceof Error) {
+    console.error(error.message);
   }
-  catch (error) {
-    // And of course, make sure you catch and log any errors!
-    console.error(error);
-  }
-})();
+}

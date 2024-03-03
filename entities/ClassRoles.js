@@ -7,26 +7,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Column, Entity, Index, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
 let ClassRoles = class ClassRoles {
     CharacterClass;
     RoleId;
     Id;
 };
 __decorate([
-    Column("text", { name: "character_class", nullable: true }),
+    Column('text', { name: 'character_class', nullable: true }),
     __metadata("design:type", Object)
 ], ClassRoles.prototype, "CharacterClass", void 0);
 __decorate([
-    Column("bigint", { name: "role_id", nullable: true }),
+    Column('bigint', { name: 'role_id', nullable: true }),
     __metadata("design:type", Object)
 ], ClassRoles.prototype, "RoleId", void 0);
 __decorate([
-    PrimaryGeneratedColumn({ type: "bigint", name: "id" }),
+    PrimaryGeneratedColumn({ type: 'bigint', name: 'id' }),
     __metadata("design:type", String)
 ], ClassRoles.prototype, "Id", void 0);
 ClassRoles = __decorate([
-    Index("idx_17857_class_roles_pkey", ["Id"], { unique: true }),
-    Entity("class_roles", { schema: "public" })
+    Index('idx_17857_class_roles_pkey', ['Id'], { unique: true }),
+    Entity('class_roles', { schema: 'public' })
 ], ClassRoles);
 export { ClassRoles };

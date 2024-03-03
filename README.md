@@ -20,7 +20,7 @@ The EverQuest Discord Bot is a powerful tool designed to enhance the management 
 - **TypeScript**: Leveraging TypeScript's static typing to ensure code reliability and maintainability.
 - **Discord.js**: Utilizing the official Discord.js library to create an interactive bot experience.
 - **TypeORM**: Employing TypeORM for object-relational mapping, compatible with TypeScript for database interactions.
-- **PostgreSQL**: Using PostgreSQL for a robust and scalable database to handle bot and game-related data.
+- **PostgreSQL**: Using PostgreSQL for a robust and scalable database to handle bot and game-related data. The schema has been migrated from SQLite to PostgreSQL, and we are actively working on optimizing it to leverage PostgreSQL's full capabilities.
 - **Elasticsearch**: Integrating Elasticsearch for powerful full-text search capabilities across distributed systems.
 - **MediaWiki**: Incorporating MediaWiki to provide comprehensive documentation and community support.
 

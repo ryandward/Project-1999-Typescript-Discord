@@ -4,9 +4,9 @@ import {
   classMustExist,
   declare,
   declareData,
-  insertUser,
   levelMustBeValid,
   toonMustNotExist,
+  userMustExist,
 } from './census_functions.js';
 
 export const data = await declareData('alt');
@@ -19,23 +19,16 @@ export const execute = async (interaction: CommandInteraction) => {
   const level = options.get('level')?.value as number;
 
   try {
-    let response: string;
-    await toonMustNotExist(name);
+    await userMustExist(discordId);
     await levelMustBeValid(level);
+    await toonMustNotExist(name);
     await classMustExist(characterClass);
-    const newUserResult = await insertUser(discordId);
     const newToonResult = await declare(discordId, 'Alt', name, level, characterClass);
-    if (newUserResult) {
-      response = newToonResult + '\n' + newUserResult;
-    }
-    else {
-      response = newToonResult;
-    }
-    return interaction.reply(response);
+    return interaction.reply(newToonResult);
   }
   catch (error) {
     if (error instanceof Error) {
-      return interaction.reply(error.message);
+      return interaction.reply({ content: error.message, ephemeral: true });
     }
   }
 };

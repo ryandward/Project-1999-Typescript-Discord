@@ -25,7 +25,7 @@ __decorate([
     __metadata("design:type", Object)
 ], Attendance.prototype, "Name", void 0);
 __decorate([
-    Column('timestamp without time zone', { name: 'date', nullable: true }),
+    Column('timestamp without time zone', { name: 'datex', nullable: true }),
     __metadata("design:type", Object)
 ], Attendance.prototype, "Date", void 0);
 __decorate([

@@ -8,7 +8,11 @@ import { Dkp } from '../../entities/Dkp.js';
 
 export async function userMustExist(DiscordId: string) {
   const user = await AppDataSource.manager.findOne(Dkp, { where: { DiscordId } });
-  if (!user) throw new Error(`:x: <@${DiscordId}> is not in the DKP database.`);
+  if (!user) {
+    throw new Error(
+      `:x: <@${DiscordId}> is not in the DKP database. Make sure to declare a main before declaring alts or bots.`,
+    );
+  }
   return user;
 }
 
@@ -45,8 +49,6 @@ export async function toonMustNotExist(Name: string) {
 
 export async function declareData(status: string) {
   const classNames = await validCharacterClasses();
-
-  console.log(classNames);
 
   return new SlashCommandBuilder()
     .setName(status)
@@ -152,8 +154,9 @@ export async function insertUser(DiscordId: string) {
     const newUser = new Dkp();
     newUser.DiscordId = DiscordId;
     newUser.EarnedDkp = 5;
+    newUser.SpentDkp = 0;
     await AppDataSource.manager.save(newUser);
-    return `:moneybag: <@${user}> has been added to the DKP database with 5 DKP!`;
+    return `:moneybag: <@${DiscordId}> has been added to the DKP database with 5 DKP!`;
   }
   return false;
 }

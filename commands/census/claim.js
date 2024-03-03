@@ -1,14 +1,14 @@
 import { SlashCommandBuilder } from 'discord.js';
 import _ from 'lodash';
-import { ILike } from 'typeorm';
+import { Brackets } from 'typeorm';
 import { AppDataSource } from '../../app_data.js';
 import { ActiveToons } from '../../entities/ActiveToons.js';
 export const data = new SlashCommandBuilder()
     .setName('claim')
     .setDescription('Claim ownership of a bot character')
     .addStringOption(option => option
-    .setName('name')
-    .setDescription('The name of the bot character')
+    .setName('bot')
+    .setDescription('The name or class of the bot character')
     .setRequired(true)
     .setAutocomplete(true)
     .setMaxLength(24));
@@ -17,16 +17,22 @@ export async function autocomplete(interaction) {
         const focusedOption = interaction.options.getFocused(true);
         if (!focusedOption)
             return;
-        if (focusedOption.name === 'name') {
-            const choices = {
-                where: {
-                    Name: ILike(`%${focusedOption.value}%`),
-                    Status: 'Bot',
-                },
-                take: 25,
-            };
-            const toons = await AppDataSource.manager.find(ActiveToons, choices);
-            await interaction.respond(toons.map(toon => ({ name: toon.Name, value: toon.Name })));
+        if (focusedOption.name === 'bot') {
+            const searchTerm = focusedOption.value;
+            const bots = await AppDataSource.manager
+                .createQueryBuilder(ActiveToons, 'toon')
+                .where('toon.Status = :status', { status: 'Bot' })
+                .andWhere(new Brackets(qb => {
+                qb.where('toon.Name ILIKE :search', { search: `%${searchTerm}%` }).orWhere('toon.CharacterClass ILIKE :search', { search: `%${searchTerm}%` });
+            }))
+                .orderBy('toon.Level', 'DESC')
+                .take(25)
+                .getMany();
+            const responses = bots.map(bot => ({
+                name: `${bot.Level} ${bot.CharacterClass}: ${bot.Name}`,
+                value: bot.Name,
+            }));
+            await interaction.respond(responses);
         }
     }
     catch (error) {
@@ -36,7 +42,7 @@ export async function autocomplete(interaction) {
 export const execute = async (interaction) => {
     try {
         const { options } = interaction;
-        const name = _.capitalize(options.get('name')?.value);
+        const name = _.capitalize(options.get('bot')?.value);
         const discordId = interaction.user.id;
         const toon = await AppDataSource.manager.findOne(ActiveToons, {
             where: { Name: name, Status: 'Bot' },
@@ -52,7 +58,7 @@ export const execute = async (interaction) => {
     }
     catch (error) {
         if (error instanceof Error) {
-            return interaction.reply(error.message);
+            return interaction.reply({ content: error.message, ephemeral: true });
         }
     }
 };

@@ -35,7 +35,7 @@ export const execute = async (interaction: CommandInteraction) => {
   }
   catch (error) {
     if (error instanceof Error) {
-      return interaction.reply(error.message);
+      return interaction.reply({ content: error.message, ephemeral: true });
     }
   }
 };

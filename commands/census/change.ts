@@ -5,11 +5,9 @@ import { AppDataSource } from '../../app_data.js';
 import { ActiveToons } from '../../entities/ActiveToons.js';
 import { Status } from '../../entities/Status.js';
 
-async function validStatuses() {
-  return (await AppDataSource.manager.find(Status)).filter(status => status.Status !== 'Dropped');
-}
-
-const statuses = await validStatuses();
+const activeStatuses = (await AppDataSource.manager.find(Status)).filter(
+  status => status.Status !== 'Dropped',
+);
 
 export const data = new SlashCommandBuilder()
   .setName('change')
@@ -27,7 +25,7 @@ export const data = new SlashCommandBuilder()
       .setName('status')
       .setDescription('The new status of the character')
       .setRequired(true)
-      .addChoices(...statuses.map(status => ({ name: status.Status, value: status.Status }))),
+      .addChoices(...activeStatuses.map(status => ({ name: status.Status, value: status.Status }))),
   );
 
 export async function autocomplete(interaction: AutocompleteInteraction) {
@@ -68,19 +66,47 @@ export const execute = async (interaction: CommandInteraction) => {
       throw new Error(`:x: ${name} does not exist.`);
     }
     else {
+      if (status === 'Main') {
+        const currentMains = await AppDataSource.manager.find(ActiveToons, {
+          where: { DiscordId: discordId, Status: 'Main' },
+        });
+        for (const main of currentMains) {
+          await AppDataSource.manager.update(
+            ActiveToons,
+            { DiscordId: discordId, Name: main.Name },
+            { Status: 'Alt' },
+          );
+        }
+      }
+      else {
+        const currentMains = await AppDataSource.manager.find(ActiveToons, {
+          where: { DiscordId: discordId, Status: 'Main' },
+        });
+        if (currentMains.length <= 1 && toon.Status === 'Main') {
+          throw new Error(
+            `:x: Cannot change \`${name}\` to \`${status}\` without another \`Main\`.`,
+          );
+        }
+      }
       await AppDataSource.manager.update(
         ActiveToons,
         { DiscordId: discordId, Name: name },
         { Status: status },
       );
-      return interaction.reply(
+      await interaction.reply(
         `:white_check_mark: \`${name}\`'s status has been changed to \`${status}\`.`,
       );
+      if (status === 'Bot') {
+        await interaction.followUp({
+          content: ':warning: Disclaimer: Toons declared as bots can be claimed by other members.',
+          ephemeral: true,
+        });
+      }
     }
   }
   catch (error) {
     if (error instanceof Error) {
-      return interaction.reply(error.message);
+      return interaction.reply({ content: error.message, ephemeral: true });
     }
   }
 };

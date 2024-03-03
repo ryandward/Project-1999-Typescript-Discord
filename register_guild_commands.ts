@@ -50,7 +50,6 @@ for (const folder of commandFolders) {
     const filePath = path.join(commandsPath, file);
     const command: Command = await import(filePath);
     if ('data' in command || 'execute' in command) {
-      console.log(command.data);
       commands.push(command.data.toJSON());
     }
     else {

@@ -33,9 +33,7 @@ export async function autocomplete(interaction) {
     catch (error) {
         console.error('Error in autocomplete:', error);
     }
-    ;
 }
-;
 export const execute = async (interaction) => {
     try {
         const { options } = interaction;
@@ -54,8 +52,7 @@ export const execute = async (interaction) => {
     }
     catch (error) {
         if (error instanceof Error) {
-            return interaction.reply(error.message);
+            return interaction.reply({ content: error.message, ephemeral: true });
         }
     }
-    ;
 };

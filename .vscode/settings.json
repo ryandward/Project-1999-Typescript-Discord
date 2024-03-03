@@ -1,5 +1,5 @@
 {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    // "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.formatOnSave": true,
     "eslint.validate": [
         "javascript",
@@ -16,5 +16,13 @@
     "files.exclude": {
         "**/*.js": true,
         "**/*.js.map": true
-    }
+    },
+    "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
+    "editor.fontSize": 14,
+    "editor.fontLigatures": true,
+    "editor.fontWeight": "400",
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": "explicit",
+    "editor.cursorStyle": "line",
+    "editor.cursorWidth": 4
 }

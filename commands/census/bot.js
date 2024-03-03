@@ -13,12 +13,15 @@ export const execute = async (interaction) => {
         await toonMustNotExist(name);
         await classMustExist(characterClass);
         const newToonResult = await declare(discordId, 'Bot', name, level, characterClass);
-        return interaction.reply(newToonResult);
+        await interaction.reply(newToonResult);
+        return interaction.followUp({
+            content: ':warning: Disclaimer: Toons declared as bots can be claimed by other members.',
+            ephemeral: true,
+        });
     }
     catch (error) {
         if (error instanceof Error) {
-            return interaction.reply(error.message);
+            return interaction.reply({ content: error.message, ephemeral: true });
         }
     }
-    ;
 };

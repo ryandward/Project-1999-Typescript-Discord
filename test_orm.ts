@@ -10,9 +10,7 @@ export async function getClassNamesWithLevelAttainedOne() {
     .orderBy('classDefinitions.CharacterClass')
     .getRawMany();
 
-  const classNames = records.map(
-    (record) => record.classDefinitions_character_class,
-  );
+  const classNames = records.map(record => record.classDefinitions_character_class);
   return classNames;
 }
 // Extract the CharacterClass names from the records

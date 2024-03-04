@@ -23,7 +23,7 @@
     "yo": "^5.0.0"
   },
   "devDependencies": {
-    "@stylistic/eslint-plugin-js": "^1.6.2",
+    "@stylistic/eslint-plugin-js": "^1.6.3",
     "@types/express": "^4.17.21",
     "@types/lodash": "^4.14.202",
     "@typescript-eslint/eslint-plugin": "^7.0.2",

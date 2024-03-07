@@ -46,7 +46,7 @@ export async function execute(interaction) {
         }
         const statusOrder = ['Main', 'Alt', 'Bot', 'Dropped'];
         const embed = new EmbedBuilder()
-            .setTitle(':book: Record of Toons in the Ex Astra Census')
+            .setTitle(':busts_in_silhouette: Census Record')
             .setDescription(`<@${discordId}>\n<t:${Math.floor(Date.now() / 1000)}:R>`)
             .setColor('Green');
         const embedBuilder = statusOrder.reduce((currentEmbed, status) => {

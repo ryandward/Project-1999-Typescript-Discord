@@ -27,11 +27,10 @@ export async function autocomplete(interaction: AutocompleteInteraction) {
         .createQueryBuilder(ActiveToons, 'toon')
         .where('toon.Status = :status', { status: 'Bot' })
         .andWhere(
-          new Brackets(qb => {
-            qb.where('toon.Name ILIKE :search', { search: `%${searchTerm}%` }).orWhere(
-              'toon.CharacterClass ILIKE :search',
-              { search: `%${searchTerm}%` },
-            );
+          new Brackets(query => {
+            query
+              .where('toon.Name ILIKE :search', { search: `%${searchTerm}%` })
+              .orWhere('toon.CharacterClass ILIKE :search', { search: `%${searchTerm}%` });
           }),
         )
         .orderBy('toon.Level', 'DESC')

@@ -68,7 +68,7 @@ export async function execute(interaction: CommandInteraction) {
     const statusOrder = ['Main', 'Alt', 'Bot', 'Dropped'];
 
     const embed = new EmbedBuilder()
-      .setTitle(':book: Record of Toons in the Ex Astra Census')
+      .setTitle(':busts_in_silhouette: Census Record')
       .setDescription(`<@${discordId}>\n<t:${Math.floor(Date.now() / 1000)}:R>`)
       .setColor('Green');
 
@@ -81,7 +81,6 @@ export async function execute(interaction: CommandInteraction) {
       }
 
       const sortedToons = toonsWithStatus.sort((a, b) => b.Level - a.Level);
-
       const sortedToonNames = formatField(sortedToons.map(toon => toon.Name));
       const sortedToonClasses = formatField(sortedToons.map(toon => toon.CharacterClass));
       const sortedToonLevels = formatField(sortedToons.map(toon => toon.Level.toString()));

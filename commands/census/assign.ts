@@ -1,18 +1,18 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { AutocompleteInteraction, CommandInteraction } from 'discord.js';
+import _ from 'lodash';
+import { FindManyOptions, ILike } from 'typeorm';
 import { AppDataSource } from '../../app_data.js';
+import { Census } from '../../entities/Census.js';
 import { Status } from '../../entities/Status.js';
 import {
   classMustExist,
+  declare,
+  insertUser,
   levelMustBeValid,
   toonMustNotExist,
   validCharacterClasses,
-  declare,
-  insertUser,
 } from './census_functions.js';
-import _ from 'lodash';
-import { FindManyOptions, ILike, Not } from 'typeorm';
-import { Census } from '../../entities/Census.js';
 
 const classNames = await validCharacterClasses();
 
@@ -21,9 +21,9 @@ export async function getActiveStatuses() {
 }
 const activeStatuses = await getActiveStatuses();
 
-export async function statusMustBeActive(Status: string) {
-  const statusEntered = activeStatuses.find(status => status.Status === Status);
-  if (!statusEntered) throw new Error(`:x: ${Status} is not a valid active status.`);
+export async function statusMustBeActive(inputStatus: string) {
+  const statusEntered = activeStatuses.find(status => status.Status === inputStatus);
+  if (!statusEntered) throw new Error(`:x: ${inputStatus} is not a valid active status.`);
   return statusEntered;
 }
 

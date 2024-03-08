@@ -19,7 +19,7 @@
     },
     "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
     "editor.fontSize": 14,
-    "editor.fontLigatures": true,
+    "editor.fontFamily": "'CommitMono', 'monospace', monospace",
     "editor.fontWeight": "400",
     "editor.cursorBlinking": "smooth",
     "editor.cursorSmoothCaretAnimation": "explicit",

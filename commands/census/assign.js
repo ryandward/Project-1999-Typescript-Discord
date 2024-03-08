@@ -1,19 +1,19 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
-import { AppDataSource } from '../../app_data.js';
-import { Status } from '../../entities/Status.js';
-import { classMustExist, levelMustBeValid, toonMustNotExist, validCharacterClasses, declare, insertUser, } from './census_functions.js';
 import _ from 'lodash';
 import { ILike } from 'typeorm';
+import { AppDataSource } from '../../app_data.js';
 import { Census } from '../../entities/Census.js';
+import { Status } from '../../entities/Status.js';
+import { classMustExist, declare, insertUser, levelMustBeValid, toonMustNotExist, validCharacterClasses, } from './census_functions.js';
 const classNames = await validCharacterClasses();
 export async function getActiveStatuses() {
     return (await AppDataSource.manager.find(Status)).filter(status => status.Status !== 'Dropped');
 }
 const activeStatuses = await getActiveStatuses();
-export async function statusMustBeActive(Status) {
-    const statusEntered = activeStatuses.find(status => status.Status === Status);
+export async function statusMustBeActive(inputStatus) {
+    const statusEntered = activeStatuses.find(status => status.Status === inputStatus);
     if (!statusEntered)
-        throw new Error(`:x: ${Status} is not a valid active status.`);
+        throw new Error(`:x: ${inputStatus} is not a valid active status.`);
     return statusEntered;
 }
 export const data = new SlashCommandBuilder()

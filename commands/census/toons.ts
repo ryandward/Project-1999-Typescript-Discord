@@ -52,7 +52,6 @@ export async function execute(interaction: CommandInteraction) {
     let toonsData: ActiveToons[];
 
     if (!options.get('user') && !options.get('name')) {
-      // get the user's toons
       discordId = interaction.user.id as string;
       toonsData = await returnAllActiveToonsByDiscordId(discordId);
     }

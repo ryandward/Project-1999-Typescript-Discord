@@ -1,5 +1,7 @@
+import axios from 'axios';
 import { EmbedBuilder, SlashCommandBuilder, } from 'discord.js';
 import _ from 'lodash';
+import puppeteer from 'puppeteer';
 import { AppDataSource } from '../../app_data.js';
 import { Bank } from '../../entities/Bank.js';
 export const data = new SlashCommandBuilder()
@@ -23,12 +25,12 @@ export async function autocomplete(interaction) {
             const items = await AppDataSource.manager
                 .createQueryBuilder(Bank, 'item')
                 .select('item.name', 'Name')
-                .addSelect('COUNT(Name)', 'Count')
+                .addSelect('SUM(item.quantity)', 'Count')
                 .where('Name ILIKE :searchTerm', { searchTerm })
                 .groupBy('Name')
                 .limit(10)
                 .getRawMany();
-            await interaction.respond(items.map(item => ({
+            return await interaction.respond(items.map(item => ({
                 name: `(${item.Count}x) ${item.Name}`,
                 value: item.Name,
             })));
@@ -44,7 +46,6 @@ export async function execute(interaction) {
     try {
         const { options } = interaction;
         if (!options.get('item')) {
-            // get the user's toons
             throw new Error('You must provide an item to find.');
         }
         else {
@@ -52,27 +53,40 @@ export async function execute(interaction) {
             const itemData = await AppDataSource.manager.find(Bank, {
                 where: { Name: itemName },
             });
-            const bankers = itemData.map(banker => banker.Banker);
-            const uniqueBankers = [...new Set(bankers)];
+            const isStack = itemData.some(item => item.Quantity > 1);
+            const bankers = itemData.map(item => item.Banker);
             const embed = new EmbedBuilder()
                 .setTitle(':bank: Bank Record')
                 .setDescription(`**${itemName}**\n<t:${Math.floor(Date.now() / 1000)}:R>`)
                 .setColor('Green');
-            const embedBuilder = uniqueBankers.reduce((currentEmbed, banker) => {
+            const embedBuilder = [...new Set(bankers)].reduce((currentEmbed, banker) => {
                 const itemsOnBankers = itemData.filter(item => item.Banker === banker);
                 const sortedItems = itemsOnBankers.sort((a, b) => a.Location.localeCompare(b.Location));
                 const sortedItemLocations = formatField(sortedItems.map(item => _.replace(item.Location, '-', ' ')));
-                const sortedItemQuantities = formatField(sortedItems.map(item => item.Quantity.toString()));
                 if (sortedItems.length === 0) {
                     return currentEmbed;
                 }
-                return currentEmbed.addFields({
-                    name: banker,
+                currentEmbed.addFields({
+                    name: `:bust_in_silhouette: ${banker}`,
                     value: `${sortedItems.length} matching item(s).`,
                     inline: false,
-                }, { name: ':mag: Location', value: sortedItemLocations, inline: true }, { name: ':moneybag: Quantity', value: sortedItemQuantities, inline: true });
+                }, { name: ':mag: Location', value: sortedItemLocations, inline: true });
+                if (isStack) {
+                    currentEmbed.addFields({
+                        name: ':money_bag: Stack',
+                        value: formatField(sortedItems.map(item => item.Quantity.toString())),
+                        inline: true,
+                    });
+                }
+                return currentEmbed;
             }, embed);
-            await interaction.reply({ embeds: [embedBuilder] });
+            const screenshotPath = await captureScreenshot(itemName);
+            if (screenshotPath === null) {
+                await interaction.reply({ embeds: [embedBuilder] });
+            }
+            else {
+                await interaction.reply({ embeds: [embedBuilder], files: [screenshotPath] });
+            }
         }
     }
     catch (error) {
@@ -80,4 +94,37 @@ export async function execute(interaction) {
             await interaction.reply(`Error in execute: ${error.message}`);
         }
     }
+}
+async function getItemUrl(itemName) {
+    // Standardize the item name to ensure cache consistency
+    const standardizedItemName = itemName.replace('Song: ', '').replace('Spell: ', '');
+    const baseUrl = 'http://localhost/mediawiki/api.php';
+    const searchParams = new URLSearchParams({
+        action: 'query',
+        prop: 'info',
+        inprop: 'url',
+        titles: standardizedItemName,
+        format: 'json',
+    });
+    const searchResponse = await axios.get(baseUrl, { params: searchParams });
+    // Return the 'fullurl' property of the page
+    return (searchResponse.data.query.pages[Object.keys(searchResponse.data.query.pages)[0]].fullurl || null);
+}
+async function captureScreenshot(itemName) {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    const itemUrl = await getItemUrl(itemName);
+    if (itemUrl === null) {
+        return null;
+    }
+    await page.goto(itemUrl);
+    const element = await page.$('#mw-content-text > div.mw-parser-output > div.itembg > div');
+    if (element !== null) {
+        await element.screenshot({ path: 'element.png' });
+    }
+    else {
+        console.log('No element found with the given selector.');
+    }
+    await browser.close();
+    return 'element.png';
 }

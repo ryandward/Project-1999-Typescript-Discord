@@ -1,14 +1,20 @@
-import axios from 'axios';
+import * as Canvas from '@napi-rs/canvas';
 import {
+  AttachmentBuilder,
   AutocompleteInteraction,
   CommandInteraction,
   EmbedBuilder,
   SlashCommandBuilder,
 } from 'discord.js';
 import _ from 'lodash';
-import puppeteer from 'puppeteer';
 import { AppDataSource } from '../../app_data.js';
 import { Bank } from '../../entities/Bank.js';
+import {
+  getImageUrl,
+  getItemStatsText,
+  getSpellDescription,
+  getSpellLevels,
+} from './item_functions.js';
 
 export const data = new SlashCommandBuilder()
   .setName('find')
@@ -70,14 +76,71 @@ export async function execute(interaction: CommandInteraction) {
         where: { Name: itemName },
       });
 
-      const isStack = itemData.some(item => item.Quantity > 1);
+      // check if the itemName is a spell or a song
+      let itemText: string | null | undefined = '';
 
+      if (itemName.startsWith('Spell: ') || itemName.startsWith('Song: ')) {
+        const spellLevels = await getSpellLevels(itemName);
+        const spellDescription = await getSpellDescription(itemName);
+        itemText = `${spellLevels}\n\n${spellDescription}`;
+        // wrap newlines every 50 characters, but don't break words
+      }
+      else {
+        itemText = await getItemStatsText(itemName);
+      }
+
+      if (!itemText) {
+        await interaction.reply('Item not found.');
+        return;
+      }
+
+      itemText = itemText?.replace(/\[\[[^\]]*\|([^\]]+)\]\]/g, '$1');
+      itemText = itemText?.replace(/(.{1,45})(\s|$)/g, '$1\n');
+      const lineHeight = 25;
+      const lines = itemText.split('\n');
+      const textHeight = lines.length * lineHeight;
+      const padding = 50;
+      const canvasHeight = _.max([textHeight + padding, 200]) as number;
+      const canvas = Canvas.createCanvas(700, canvasHeight);
+      const context = canvas.getContext('2d');
+
+      const background = await Canvas.loadImage('./images/stars.png');
+      context.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+      const imageUrl = await getImageUrl(itemName);
+
+      if (imageUrl) {
+        try {
+          const icon = await Canvas.loadImage(imageUrl);
+
+          context.drawImage(icon, canvas.width - 100, 25, 75, 75);
+          if (itemText) {
+            context.font = `${lineHeight}px sans-serif`;
+            context.fillStyle = '#ffffff';
+            lines.forEach((line, i) => {
+              context.fillText(line, 25, 25 + i * lineHeight + 25);
+            });
+          }
+        }
+        catch (error) {
+          console.error('Failed to load image:', error);
+          return;
+        }
+      }
+
+      const attachment = new AttachmentBuilder(await canvas.encode('png'), {
+        name: 'item-stats-image.png',
+      });
+
+      const isStack = itemData.some(item => item.Quantity > 1);
       const bankers = itemData.map(item => item.Banker);
 
       const embed = new EmbedBuilder()
         .setTitle(':bank: Bank Record')
         .setDescription(`**${itemName}**\n<t:${Math.floor(Date.now() / 1000)}:R>`)
-        .setColor('Green');
+        .setColor('Green')
+        .setImage('attachment://item-stats-image.png');
+
       const embedBuilder = [...new Set(bankers)].reduce((currentEmbed: EmbedBuilder, banker) => {
         const itemsOnBankers = itemData.filter(item => item.Banker === banker);
         const sortedItems = itemsOnBankers.sort((a, b) => a.Location.localeCompare(b.Location));
@@ -107,13 +170,7 @@ export async function execute(interaction: CommandInteraction) {
         return currentEmbed;
       }, embed);
 
-      const screenshotPath = await captureScreenshot(itemName);
-      if (screenshotPath === null) {
-        await interaction.reply({ embeds: [embedBuilder] });
-      }
-      else {
-        await interaction.reply({ embeds: [embedBuilder], files: [screenshotPath] });
-      }
+      await interaction.reply({ embeds: [embedBuilder], files: [attachment] });
     }
   }
   catch (error) {
@@ -121,58 +178,4 @@ export async function execute(interaction: CommandInteraction) {
       await interaction.reply(`Error in execute: ${error.message}`);
     }
   }
-}
-
-interface MediaWikiResponse {
-  query: {
-    pages: {
-      [key: string]: {
-        fullurl?: string;
-        revisions?: [{ '*': string }];
-        imageinfo?: [{ url: string }];
-      };
-    };
-  };
-}
-
-async function getItemUrl(itemName: string): Promise<string | null> {
-  // Standardize the item name to ensure cache consistency
-  const standardizedItemName = itemName.replace('Song: ', '').replace('Spell: ', '');
-
-  const baseUrl = 'http://localhost/mediawiki/api.php';
-  const searchParams = new URLSearchParams({
-    action: 'query',
-    prop: 'info',
-    inprop: 'url',
-    titles: standardizedItemName,
-    format: 'json',
-  });
-
-  const searchResponse = await axios.get<MediaWikiResponse>(baseUrl, { params: searchParams });
-
-  // Return the 'fullurl' property of the page
-  return (
-    searchResponse.data.query.pages[Object.keys(searchResponse.data.query.pages)[0]].fullurl || null
-  );
-}
-async function captureScreenshot(itemName: string) {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  const itemUrl = await getItemUrl(itemName);
-  if (itemUrl === null) {
-    return null;
-  }
-  await page.goto(itemUrl);
-
-  const element = await page.$('#mw-content-text > div.mw-parser-output > div.itembg > div');
-  if (element !== null) {
-    await element.screenshot({ path: 'element.png' });
-  }
-  else {
-    console.log('No element found with the given selector.');
-  }
-
-  await browser.close();
-
-  return 'element.png';
 }

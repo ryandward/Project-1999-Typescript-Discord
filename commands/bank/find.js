@@ -69,13 +69,13 @@ export async function execute(interaction) {
                 return;
             }
             itemText = itemText?.replace(/\[\[[^\]]*\|([^\]]+)\]\]/g, '$1');
-            itemText = itemText?.replace(/(.{1,45})(\s|$)/g, '$1\n');
+            itemText = itemText?.replace(/(.{1,35})(\s|$)/g, '$1\n');
             const lineHeight = 25;
             const lines = itemText.split('\n');
             const textHeight = lines.length * lineHeight;
             const padding = 50;
-            const canvasHeight = _.max([textHeight + padding, 200]);
-            const canvas = Canvas.createCanvas(700, canvasHeight);
+            const canvasHeight = _.max([textHeight + padding / 2, 200]);
+            const canvas = Canvas.createCanvas(715, canvasHeight);
             const context = canvas.getContext('2d');
             const background = await Canvas.loadImage('./images/stars.png');
             context.drawImage(background, 0, 0, canvas.width, canvas.height);
@@ -83,12 +83,38 @@ export async function execute(interaction) {
             if (imageUrl) {
                 try {
                     const icon = await Canvas.loadImage(imageUrl);
-                    context.drawImage(icon, canvas.width - 100, 25, 75, 75);
+                    context.fillStyle = 'rgba(255, 255, 255, 0.1)';
+                    // Assume pad is defined somewhere above
+                    const iconPadding = padding / 2;
+                    // Calculate the icon size and position
+                    const iconSize = 85;
+                    // Calculate the background size and position
+                    const bgSize = iconSize + 2 * iconPadding;
+                    const bgX = canvas.width - bgSize - padding / 2;
+                    const bgY = padding / 2;
+                    // Calculate the icon position from the background position
+                    const iconX = bgX + iconPadding;
+                    const iconY = bgY + iconPadding;
+                    // Define the corner radius
+                    const cornerRadius = 10;
+                    // Start a new path
+                    context.beginPath();
+                    // Draw the rounded rectangle
+                    context.moveTo(bgX + cornerRadius, bgY);
+                    context.arcTo(bgX + bgSize, bgY, bgX + bgSize, bgY + bgSize, cornerRadius);
+                    context.arcTo(bgX + bgSize, bgY + bgSize, bgX, bgY + bgSize, cornerRadius);
+                    context.arcTo(bgX, bgY + bgSize, bgX, bgY, cornerRadius);
+                    context.arcTo(bgX, bgY, bgX + bgSize, bgY, cornerRadius);
+                    context.closePath();
+                    // Fill the path
+                    context.fill();
+                    // Draw the icon on top of the gray rectangle
+                    context.drawImage(icon, iconX, iconY, iconSize, iconSize);
                     if (itemText) {
                         context.font = `${lineHeight}px sans-serif`;
                         context.fillStyle = '#ffffff';
                         lines.forEach((line, i) => {
-                            context.fillText(line, 25, 25 + i * lineHeight + 25);
+                            context.fillText(line.trim(), 25, 25 + i * lineHeight + 25);
                         });
                     }
                 }

@@ -10,6 +10,7 @@ import _ from 'lodash';
 import { AppDataSource } from '../../app_data.js';
 import { Bank } from '../../entities/Bank.js';
 import {
+  formatField,
   getImageUrl,
   getItemStatsText,
   getSpellDescription,
@@ -26,10 +27,6 @@ export const data = new SlashCommandBuilder()
       .setRequired(true)
       .setAutocomplete(true),
   );
-
-export function formatField(field: string[]): string {
-  return '```\n' + field.join('\n') + '\n```';
-}
 
 export async function autocomplete(interaction: AutocompleteInteraction) {
   try {
@@ -96,15 +93,17 @@ export async function execute(interaction: CommandInteraction) {
 
       itemText = itemText?.replace(/\[\[[^\]]*\|([^\]]+)\]\]/g, '$1');
       itemText = itemText?.replace(/(.{1,45})(\s|$)/g, '$1\n');
+
       const lineHeight = 25;
+      const padding = 50;
       const lines = itemText.split('\n');
       const textHeight = lines.length * lineHeight;
-      const padding = 50;
       const canvasHeight = _.max([textHeight + padding, 200]) as number;
       const canvas = Canvas.createCanvas(700, canvasHeight);
       const context = canvas.getContext('2d');
 
       const background = await Canvas.loadImage('./images/stars.png');
+
       context.drawImage(background, 0, 0, canvas.width, canvas.height);
 
       const imageUrl = await getImageUrl(itemName);
@@ -112,7 +111,6 @@ export async function execute(interaction: CommandInteraction) {
       if (imageUrl) {
         try {
           const icon = await Canvas.loadImage(imageUrl);
-
           context.drawImage(icon, canvas.width - 100, 25, 75, 75);
           if (itemText) {
             context.font = `${lineHeight}px sans-serif`;

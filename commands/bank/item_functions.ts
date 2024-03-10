@@ -13,6 +13,9 @@ interface MediaWikiResponse {
   };
 }
 
+export function formatField(field: string[]): string {
+  return '```\n' + field.join('\n') + '\n```';
+}
 export async function getImageUrl(itemName: string): Promise<string | null> {
   // Standardize the item name to ensure cache consistency
   const standardizedItemName = itemName.replace('Song: ', '').replace('Spell: ', '');

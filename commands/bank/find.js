@@ -3,7 +3,7 @@ import { AttachmentBuilder, EmbedBuilder, SlashCommandBuilder, } from 'discord.j
 import _ from 'lodash';
 import { AppDataSource } from '../../app_data.js';
 import { Bank } from '../../entities/Bank.js';
-import { getImageUrl, getItemStatsText, getSpellDescription, getSpellLevels, } from './item_functions.js';
+import { formatField, getImageUrl, getItemStatsText, getSpellDescription, getSpellLevels, } from './item_functions.js';
 export const data = new SlashCommandBuilder()
     .setName('find')
     .setDescription('Find an item in the guild bank.')
@@ -12,9 +12,6 @@ export const data = new SlashCommandBuilder()
     .setDescription('Item name to search for')
     .setRequired(true)
     .setAutocomplete(true));
-export function formatField(field) {
-    return '```\n' + field.join('\n') + '\n```';
-}
 export async function autocomplete(interaction) {
     try {
         const focusedOption = interaction.options.getFocused(true);
@@ -71,9 +68,9 @@ export async function execute(interaction) {
             itemText = itemText?.replace(/\[\[[^\]]*\|([^\]]+)\]\]/g, '$1');
             itemText = itemText?.replace(/(.{1,45})(\s|$)/g, '$1\n');
             const lineHeight = 25;
+            const padding = 50;
             const lines = itemText.split('\n');
             const textHeight = lines.length * lineHeight;
-            const padding = 50;
             const canvasHeight = _.max([textHeight + padding, 200]);
             const canvas = Canvas.createCanvas(700, canvasHeight);
             const context = canvas.getContext('2d');

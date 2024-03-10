@@ -1,5 +1,8 @@
 import axios from 'axios';
 import puppeteer from 'puppeteer';
+export function formatField(field) {
+    return '```\n' + field.join('\n') + '\n```';
+}
 export async function getImageUrl(itemName) {
     // Standardize the item name to ensure cache consistency
     const standardizedItemName = itemName.replace('Song: ', '').replace('Spell: ', '');

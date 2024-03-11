@@ -3,7 +3,7 @@ import { AttachmentBuilder, EmbedBuilder, SlashCommandBuilder, } from 'discord.j
 import _ from 'lodash';
 import { AppDataSource } from '../../app_data.js';
 import { Bank } from '../../entities/Bank.js';
-import { getImageUrl, getItemStatsText, getSpellDescription, getSpellLevels, } from './item_functions.js';
+import { getImageUrl, getSpellDescription, getStatsBlock } from './item_functions.js';
 export const data = new SlashCommandBuilder()
     .setName('find')
     .setDescription('Find an item in the guild bank.')
@@ -56,19 +56,18 @@ export async function execute(interaction) {
             // check if the itemName is a spell or a song
             let itemText = '';
             if (itemName.startsWith('Spell: ') || itemName.startsWith('Song: ')) {
-                const spellLevels = await getSpellLevels(itemName);
-                const spellDescription = await getSpellDescription(itemName);
-                itemText = `${spellLevels}\n\n${spellDescription}`;
-                // wrap newlines every 50 characters, but don't break words
+                // const spellLevels = await getSpellLevels(itemName);
+                itemText = await getSpellDescription(itemName);
             }
             else {
-                itemText = await getItemStatsText(itemName);
+                itemText = await getStatsBlock(itemName);
             }
             if (!itemText) {
                 await interaction.reply('Item not found.');
                 return;
             }
             itemText = itemText?.replace(/\[\[[^\]]*\|([^\]]+)\]\]/g, '$1');
+            itemText = itemText?.replace(/[[\]*]/g, '');
             itemText = itemText?.replace(/(.{1,35})(\s|$)/g, '$1\n');
             const lineHeight = 25;
             const lines = itemText.split('\n');

@@ -74,30 +74,32 @@ export async function getItemUrl(itemName) {
     // Return the 'fullurl' property of the page
     return (searchResponse.data.query.pages[Object.keys(searchResponse.data.query.pages)[0]].fullurl || null);
 }
-export async function getItemStatsText(itemName) {
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    const itemUrl = await getItemUrl(itemName);
-    if (itemUrl) {
-        await page.goto(itemUrl);
-    }
-    else {
-        console.error('Item URL is null');
-        await browser.close();
-        return null;
-    }
-    // Primary stats element
-    const statsElement = await page.$('#mw-content-text > div.mw-parser-output > div.itembg > div > p');
-    if (!statsElement) {
-        console.log('No stats element found with the given selector. Attempting fallback...');
-        return 'No stats found';
-    }
-    else {
-        const statsText = await page.evaluate(element => element.textContent || '', statsElement);
-        await browser.close();
-        return statsText.trim();
-    }
-}
+// export async function getItemStatsText(itemName: string): Promise<string | null> {
+//   const browser = await puppeteer.launch();
+//   const page = await browser.newPage();
+//   const itemUrl = await getItemUrl(itemName);
+//   if (itemUrl) {
+//     await page.goto(itemUrl);
+//   }
+//   else {
+//     console.error('Item URL is null');
+//     await browser.close();
+//     return null;
+//   }
+//   // Primary stats element
+//   const statsElement = await page.$(
+//     '#mw-content-text > div.mw-parser-output > div.itembg > div > p',
+//   );
+//   if (!statsElement) {
+//     console.log('No stats element found with the given selector. Attempting fallback...');
+//     return 'No stats found';
+//   }
+//   else {
+//     const statsText = await page.evaluate(element => element.textContent || '', statsElement);
+//     await browser.close();
+//     return statsText.trim();
+//   }
+// }
 export async function getSpellLevels(spellName) {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
@@ -144,13 +146,52 @@ export async function getSpellDescription(spellName) {
             console.log(searchResponse.data);
             return null;
         }
-        const spellDescription = pageData.revisions[0]['*'].match(/description\s*=\s*(.*)/);
-        if (spellDescription) {
-            return spellDescription[1];
+        let spellText = '';
+        const matchClasses = pageData.revisions[0]['*'].match(/classes\s*=\s*([\s\S]*?)(?=\n\|)/);
+        const matchDesc = pageData.revisions[0]['*'].match(/description\s*=\s*([\s\S]*?)(?=\n\|)/);
+        if (matchClasses) {
+            spellText += matchClasses[1];
         }
         else {
             return null;
         }
+        if (matchDesc) {
+            spellText += '\n\n' + matchDesc[1];
+        }
+        // get rid of all html elements, i.e. anything between < and >
+        return spellText.replace(/<[^>]*>/g, '');
+    }
+    catch (error) {
+        console.error('Error fetching spell description:', error);
+        return null;
+    }
+}
+export async function getStatsBlock(itemName) {
+    // Standardize the item name to ensure cache consistency
+    // If not in cache, proceed to fetch the image URL
+    const baseUrl = 'http://localhost/mediawiki/api.php';
+    const searchParams = new URLSearchParams({
+        action: 'query',
+        prop: 'revisions',
+        titles: itemName,
+        rvprop: 'content',
+        format: 'json',
+    });
+    try {
+        const searchResponse = await axios.get(baseUrl, { params: searchParams });
+        const pageId = Object.keys(searchResponse.data.query.pages)[0];
+        const pageData = searchResponse.data.query.pages[pageId];
+        if (!pageData.revisions) {
+            console.log(searchResponse.data);
+            return null;
+        }
+        const matchStatsBlock = pageData.revisions[0]['*'].match(/statsblock\s*=\s*([\s\S]*?)(?=\n\||\}{2})/);
+        if (!matchStatsBlock) {
+            return null;
+        }
+        // get rid of all html elements, i.e. anything between < and >
+        const statsBlock = matchStatsBlock[1].replace(/<[^>]*>/g, '');
+        return statsBlock;
     }
     catch (error) {
         console.error('Error fetching spell description:', error);

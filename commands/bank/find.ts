@@ -9,12 +9,7 @@ import {
 import _ from 'lodash';
 import { AppDataSource } from '../../app_data.js';
 import { Bank } from '../../entities/Bank.js';
-import {
-  getImageUrl,
-  getItemStatsText,
-  getSpellDescription,
-  getSpellLevels,
-} from './item_functions.js';
+import { getImageUrl, getSpellDescription, getStatsBlock } from './item_functions.js';
 
 export const data = new SlashCommandBuilder()
   .setName('find')
@@ -80,13 +75,11 @@ export async function execute(interaction: CommandInteraction) {
       let itemText: string | null | undefined = '';
 
       if (itemName.startsWith('Spell: ') || itemName.startsWith('Song: ')) {
-        const spellLevels = await getSpellLevels(itemName);
-        const spellDescription = await getSpellDescription(itemName);
-        itemText = `${spellLevels}\n\n${spellDescription}`;
-        // wrap newlines every 50 characters, but don't break words
+        // const spellLevels = await getSpellLevels(itemName);
+        itemText = await getSpellDescription(itemName);
       }
       else {
-        itemText = await getItemStatsText(itemName);
+        itemText = await getStatsBlock(itemName);
       }
 
       if (!itemText) {
@@ -95,6 +88,7 @@ export async function execute(interaction: CommandInteraction) {
       }
 
       itemText = itemText?.replace(/\[\[[^\]]*\|([^\]]+)\]\]/g, '$1');
+      itemText = itemText?.replace(/[[\]*]/g, '');
       itemText = itemText?.replace(/(.{1,35})(\s|$)/g, '$1\n');
 
       const lineHeight = 25;
@@ -115,7 +109,6 @@ export async function execute(interaction: CommandInteraction) {
           const icon = await Canvas.loadImage(imageUrl);
           context.fillStyle = 'rgba(255, 255, 255, 0.1)';
 
-          // Assume pad is defined somewhere above
           const iconPadding = padding / 2;
 
           // Calculate the icon size and position

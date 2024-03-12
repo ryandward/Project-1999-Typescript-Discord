@@ -49,7 +49,7 @@ export async function execute(interaction: CommandInteraction) {
     const { options } = interaction;
 
     let discordId = interaction.user.id as string;
-    let toonsData: ActiveToons[];
+    let toonsData: ActiveToons[] = [];
 
     if (!options.get('user') && !options.get('name')) {
       discordId = interaction.user.id as string;
@@ -62,6 +62,12 @@ export async function execute(interaction: CommandInteraction) {
     else if (options.get('name')) {
       toonsData = await returnAllActiveToonsByName(options.get('name')?.value as string);
       discordId = toonsData[0].DiscordId;
+    }
+
+    if (toonsData.length === 0) {
+      throw new Error(
+        ':x: No toons found. Make sure to use autocomplete to find the toon you are looking for.',
+      );
     }
 
     const statusOrder = ['Main', 'Alt', 'Bot', 'Dropped'];

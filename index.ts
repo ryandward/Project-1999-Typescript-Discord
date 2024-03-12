@@ -1,15 +1,13 @@
-import { GatewayIntentBits } from 'discord.js';
 import 'dotenv/config';
 import fs from 'node:fs';
 import path from 'path';
 import { initializeDataSource } from './app_data.js';
-import { Command, TSClient } from './types.js';
+import { client } from './client.js';
+import { Command } from './types.js';
 
 await initializeDataSource();
 
 const __dirname = import.meta.dirname;
-
-export const client = new TSClient({ intents: [GatewayIntentBits.Guilds] });
 
 const foldersPath = path.join(__dirname, 'commands');
 const commandFolders = fs.readdirSync(foldersPath);

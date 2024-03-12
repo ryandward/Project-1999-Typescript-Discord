@@ -108,18 +108,20 @@ export const execute = async (interaction: CommandInteraction) => {
       statusMustBeActive(status),
     ]);
 
-    const newUserResult = await insertUser(discordId);
-    if (newUserResult) {
+    let newUserResult = await insertUser(discordId);
+
+    if (newUserResult && status !== 'Main') {
       status = 'Main';
-    }
-    const newToonResult = await declare(discordId, status, name, level, characterClass);
-    if (newUserResult) {
-      response =
+      newUserResult =
         newUserResult +
         '\n' +
-        newToonResult +
-        '\n' +
-        `:warning: <@${discordId}>'s \`${name}\` was declared as \`Main\` since none was found.`;
+        `:warning: <@${discordId}>'s \`${name}\` was declared as \`Main\` since no \`Main\` was found.`;
+    }
+
+    const newToonResult = await declare(discordId, status, name, level, characterClass);
+
+    if (newUserResult) {
+      response = newUserResult + '\n' + newToonResult;
     }
     else {
       response = newToonResult;

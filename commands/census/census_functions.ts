@@ -1,10 +1,13 @@
-import { AutocompleteInteraction, SlashCommandBuilder } from 'discord.js';
+import { AutocompleteInteraction, ChannelType, SlashCommandBuilder, TextChannel } from 'discord.js';
+import 'dotenv/config';
 import { FindManyOptions, FindOneOptions, ILike, LessThanOrEqual } from 'typeorm';
 import { AppDataSource } from '../../app_data.js';
+import { client } from '../../client.js';
 import { ActiveToons } from '../../entities/ActiveToons.js';
 import { Census } from '../../entities/Census.js';
 import { ClassDefinitions } from '../../entities/ClassDefinitions.js';
 import { Dkp } from '../../entities/Dkp.js';
+import { DiscordRoleManager } from '../../services/role_manager.js';
 
 export async function userMustExist(DiscordId: string) {
   const user = await AppDataSource.manager.findOne(Dkp, { where: { DiscordId } });
@@ -149,6 +152,7 @@ export async function declare(
 
 export async function insertUser(DiscordId: string) {
   const user = await AppDataSource.manager.findOne(Dkp, { where: { DiscordId } });
+  const roleManager = new DiscordRoleManager();
 
   if (!user) {
     const newUser = new Dkp();
@@ -156,7 +160,31 @@ export async function insertUser(DiscordId: string) {
     newUser.EarnedDkp = 5;
     newUser.SpentDkp = 0;
     await AppDataSource.manager.save(newUser);
-    return `:moneybag: <@${DiscordId}> has been added to the DKP database with 5 DKP!`;
+
+    // Get the guild and the member
+    const guildId = process.env.GUILD_ID;
+
+    if (!guildId) {
+      throw new Error('GUILD_ID is not set in the environment');
+    }
+
+    await roleManager.addRoleToUser(guildId, DiscordId, 'Probationary Member');
+
+    // send a message to channel # 884164383498965042
+    client.channels.fetch('884164383498965042').then(channel => {
+      if (channel && channel.type === ChannelType.GuildText) {
+        (channel as TextChannel).send(
+          `<@${DiscordId}> is now a Probationary Member!` +
+            '\n' +
+            'Use `/toons` `user` to get more info or to promote.',
+        );
+      }
+      else {
+        console.error('Channel not found or not a text-based channel');
+      }
+    });
+
+    return `:moneybag: <@${DiscordId}> has been added to the DKP database with 5 DKP and is now a Probationary Member!`;
   }
   return false;
 }

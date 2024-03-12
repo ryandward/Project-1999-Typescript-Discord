@@ -70,7 +70,7 @@ export async function execute(interaction: CommandInteraction) {
       userDkp = await AppDataSource.manager.findOne(Dkp, { where: { DiscordId } });
     }
     if (!userDkp) {
-      throw new Error('No DKP found for this user.');
+      throw new Error(`No DKP found for this <@${DiscordId}>.`);
     }
 
     if (!DiscordId) {
@@ -104,6 +104,10 @@ export async function execute(interaction: CommandInteraction) {
   catch (error) {
     if (error instanceof Error) {
       console.error('Error in execute:', error);
+      return interaction.reply({
+        content: error.message,
+        ephemeral: true,
+      });
     }
   }
 }

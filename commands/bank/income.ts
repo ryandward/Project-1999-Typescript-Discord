@@ -1,0 +1,47 @@
+import { CommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
+import { AppDataSource } from '../../app_data.js';
+import { Plat } from '../../entities/Plat.js';
+
+export const data = new SlashCommandBuilder()
+  .setName('income')
+  .setDescription('Record an income transaction')
+  .addIntegerOption(option =>
+    option.setName('amount').setDescription('The amount of the income').setRequired(true),
+  )
+  .addStringOption(option =>
+    option
+      .setName('description')
+      .setDescription('A description of the transaction')
+      .setRequired(true)
+      .setMaxLength(255),
+  );
+
+export async function execute(interaction: CommandInteraction) {
+  try {
+    const { options } = interaction;
+    const amount = options.get('amount')?.value as number;
+    const description = options.get('description')?.value as string;
+    const discordId = interaction.user.id;
+
+    const plat = new Plat();
+    plat.DiscordId = discordId;
+    plat.Amount = amount;
+    plat.Description = description;
+
+    await AppDataSource.manager.save(plat);
+
+    const embed = new EmbedBuilder()
+      .setTitle('Income Ledger Entry')
+      .setDescription(`<@${discordId}> recorded an income.`)
+      .addFields(
+        { name: ':scroll: Description', value: `\`\`\`${description}\`\`\`` },
+        { name: ':moneybag: Plat', value: `\`\`\`${amount.toString()}\`\`\`` },
+      )
+      .setColor('Green');
+
+    await interaction.reply({ embeds: [embed] });
+  }
+  catch (error) {
+    console.error('Error in income:', error);
+  }
+}

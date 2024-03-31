@@ -58,11 +58,17 @@ export const execute = async (interaction: CommandInteraction) => {
     const newLevel = level ? level : Number(toon.Level) + 1;
 
     await levelMustBeValid(newLevel);
-    await AppDataSource.manager.update(
+    const updateResult = await AppDataSource.manager.update(
       ActiveToons,
       { DiscordId: discordId, Name: name },
       { Level: newLevel },
     );
+
+    if (updateResult.affected === 0) {
+      throw new Error(
+        `:x: No record was updated for \`${name}\`. Make sure you own this character or ask an officer for help.`,
+      );
+    }
 
     return interaction.reply(
       `${level ? ':arrow_double_up:' : ':arrow_up:'} \`${name}\`'s level has been ${level ? 'set to' : 'incremented to'} \`${newLevel}\`!`,

@@ -4,6 +4,7 @@ import {
   EmbedBuilder,
   SlashCommandBuilder,
 } from 'discord.js';
+import _ from 'lodash';
 import { FindManyOptions, ILike } from 'typeorm';
 import { AppDataSource } from '../../app_data.js';
 import { ActiveToons } from '../../entities/ActiveToons.js';
@@ -86,7 +87,7 @@ export async function execute(interaction: CommandInteraction) {
       }
 
       const sortedToons = toonsWithStatus.sort((a, b) => b.Level - a.Level);
-      const sortedToonNames = formatField(sortedToons.map(toon => toon.Name));
+      const sortedToonNames = formatField(sortedToons.map(toon => _.capitalize(toon.Name)));
       const sortedToonClasses = formatField(sortedToons.map(toon => toon.CharacterClass));
       const sortedToonLevels = formatField(sortedToons.map(toon => toon.Level.toString()));
 

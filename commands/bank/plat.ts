@@ -15,7 +15,9 @@ export async function execute(interaction: CommandInteraction) {
 
     const embed = new EmbedBuilder()
       .setTitle('Guild Plat Balance')
-      .setDescription(`The current guild plat balance is **${totalBalance.total}** plat.`)
+      .setDescription(
+        `The current guild plat balance is **${parseInt(totalBalance.total).toLocaleString()}** plat.`,
+      )
       .setColor('Blue');
 
     await interaction.reply({ embeds: [embed] });

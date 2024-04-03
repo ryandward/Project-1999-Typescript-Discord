@@ -18,6 +18,15 @@ export const data = new SlashCommandBuilder()
 
 export async function execute(interaction: CommandInteraction) {
   try {
+    // Check if the member has the required roles
+    const member = await interaction.guild?.members.fetch(interaction.user.id);
+    const hasPermission = member?.roles.cache.some(
+      role => role.name === 'Officer' || role.name === 'Treasurer',
+    );
+    if (!hasPermission) {
+      throw new Error('You do not have permission to use this command.');
+    }
+
     const { options } = interaction;
     const amount = options.get('amount')?.value as number;
     const description = options.get('description')?.value as string;
@@ -43,5 +52,9 @@ export async function execute(interaction: CommandInteraction) {
   }
   catch (error) {
     console.error('Error in income:', error);
+    await interaction.reply({
+      content: 'An error occurred while processing your command.',
+      ephemeral: true,
+    });
   }
 }

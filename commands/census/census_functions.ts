@@ -220,5 +220,6 @@ export async function returnAllActiveToonsByDiscordId(userId: string) {
 }
 
 export function formatField(field: string[]): string {
-  return '```\n' + field.join('\n') + '\n```';
+  const monoField = field.map(item => `\`${item}\``);
+  return '\n' + monoField.join('\n') + '\n';
 }

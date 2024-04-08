@@ -24,6 +24,7 @@ export async function getImageUrl(itemName: string): Promise<string | null> {
     titles: standardizedItemName,
     rvprop: 'content',
     format: 'json',
+    redirects: 'true',
   });
 
   try {
@@ -58,6 +59,7 @@ export async function getImageUrl(itemName: string): Promise<string | null> {
       titles: `File:${filename}`,
       iiprop: 'url',
       format: 'json',
+      redirects: 'true',
     });
 
     const imageInfoResponse = await axios.get<MediaWikiResponse>(baseUrl, {
@@ -94,6 +96,7 @@ export async function getItemUrl(itemName: string): Promise<string | null> {
     inprop: 'url',
     titles: standardizedItemName,
     format: 'json',
+    redirects: 'true',
   });
 
   const searchResponse = await axios.get<MediaWikiResponse>(baseUrl, { params: searchParams });
@@ -116,6 +119,7 @@ export async function getSpellDescription(spellName: string): Promise<string | n
     titles: standardizedItemName,
     rvprop: 'content',
     format: 'json',
+    redirects: 'true',
   });
 
   try {
@@ -160,6 +164,7 @@ export async function getStatsBlock(itemName: string): Promise<string | null> {
     titles: itemName,
     rvprop: 'content',
     format: 'json',
+    redirects: 'true',
   });
 
   try {

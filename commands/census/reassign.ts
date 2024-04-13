@@ -7,6 +7,7 @@ import { Census } from '../../entities/Census.js';
 import { Status } from '../../entities/Status.js';
 import {
   classMustExist,
+  formatField,
   levelMustBeValid,
   toonMustExist,
   userMustExist,
@@ -134,18 +135,21 @@ export const execute = async (interaction: CommandInteraction) => {
     );
 
     if (updateToonResult) {
+      const previous = [name, previousLevel.toString(), previousStatus, previousCharacterClass];
+      const updated = [name, level.toString(), status, characterClass];
+
       const embed = new EmbedBuilder()
-        .setTitle(':dizzy: Character Update')
+        .setTitle(':fast_forward: Character Update')
         .setColor('Green')
         .addFields(
           {
             name: 'Previous',
-            value: `<@${previousDiscordId}>\n${name}\n${previousLevel}\n${previousStatus}\n${previousCharacterClass}`,
+            value: `<@${previousDiscordId}>` + '\n' + formatField(previous),
             inline: true,
           },
           {
             name: 'Updated',
-            value: `<@${discordId}>\n${name}\n${level}\n${status}\n${characterClass}`,
+            value: `<@${discordId}>` + '\n' + formatField(updated),
             inline: true,
           },
         );

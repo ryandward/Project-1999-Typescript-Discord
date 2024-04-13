@@ -7,8 +7,6 @@ import { Census } from '../../entities/Census.js';
 import { Status } from '../../entities/Status.js';
 import {
   classMustExist,
-  declare,
-  insertUser,
   levelMustBeValid,
   toonMustExist,
   userMustExist,
@@ -29,7 +27,7 @@ export async function statusMustBeActive(inputStatus: string) {
 }
 
 export const data = new SlashCommandBuilder()
-  .setName('reassign or manage')
+  .setName('reassign')
   .setDescription('reassign or manage a toon to a discord user')
 
   .addUserOption(option =>
@@ -48,9 +46,7 @@ export const data = new SlashCommandBuilder()
   .addStringOption(option =>
     option
       .setName('name')
-      .setDescription(
-        'The name of the toon to reassign or manage. Autocomplete should not match any toons.',
-      )
+      .setDescription('The name of the toon to reassign or manage.')
       .setRequired(true)
       .setAutocomplete(true)
       .setMaxLength(24),
@@ -98,10 +94,9 @@ export const execute = async (interaction: CommandInteraction) => {
     if (!member || !member.permissions.has(['ManageGuild'])) {
       throw new Error('You do not have permission to use this command.');
     }
-    let response: string;
     const { options } = interaction;
 
-    let status = options.get('status')?.value as string;
+    const status = options.get('status')?.value as string;
     const discordId = options.get('user')?.value as string;
     const name = _.capitalize(options.get('name')?.value as string);
     const characterClass = options.get('class')?.value as string;
@@ -119,25 +114,19 @@ export const execute = async (interaction: CommandInteraction) => {
       statusMustBeActive(status),
     ]);
 
-    let newUserResult = await insertUser(discordId);
+    // update the toon with the new status
 
-    if (newUserResult && status !== 'Main') {
-      status = 'Main';
-      newUserResult =
-        newUserResult +
-        '\n' +
-        `:warning: <@${discordId}>'s \`${name}\` was declared as \`Main\` since no \`Main\` was found.`;
-    }
+    const updateToonResult = await AppDataSource.manager.update(
+      Census,
+      { Name: name },
+      { Status: status, DiscordId: discordId, CharacterClass: characterClass, Level: level },
+    );
 
-    const newToonResult = await declare(discordId, status, name, level, characterClass);
-
-    if (newUserResult) {
-      response = newUserResult + '\n' + newToonResult;
+    if (updateToonResult) {
+      return interaction.reply(
+        `:white_check_mark: <@${discordId}>'s \`${name}\` is now a level \`${level}\` \`${status}\` \`${characterClass}\`!`,
+      );
     }
-    else {
-      response = newToonResult;
-    }
-    return interaction.reply(response);
   }
   catch (error) {
     if (error instanceof Error) {

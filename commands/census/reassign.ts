@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
-import { AutocompleteInteraction, CommandInteraction } from 'discord.js';
+import { AutocompleteInteraction, CommandInteraction, EmbedBuilder } from 'discord.js';
 import _ from 'lodash';
 import { FindManyOptions, ILike } from 'typeorm';
 import { AppDataSource } from '../../app_data.js';
@@ -114,8 +114,19 @@ export const execute = async (interaction: CommandInteraction) => {
       statusMustBeActive(status),
     ]);
 
-    // update the toon with the new status
+    // load the previous toon data
+    const toon = await AppDataSource.manager.findOne(Census, { where: { Name: name } });
+    if (!toon) {
+      throw new Error(`:x: ${name} does not exist.`);
+    }
 
+    // format the previous toon data:
+    const previousStatus = toon.Status;
+    const previousDiscordId = toon.DiscordId;
+    const previousCharacterClass = toon.CharacterClass;
+    const previousLevel = toon.Level;
+
+    // update the toon with the new status
     const updateToonResult = await AppDataSource.manager.update(
       Census,
       { Name: name },
@@ -123,9 +134,23 @@ export const execute = async (interaction: CommandInteraction) => {
     );
 
     if (updateToonResult) {
-      return interaction.reply(
-        `:white_check_mark: <@${discordId}>'s \`${name}\` is now a level \`${level}\` \`${status}\` \`${characterClass}\`!`,
-      );
+      const embed = new EmbedBuilder()
+        .setTitle(':dizzy: Character Update')
+        .setColor('Green')
+        .addFields(
+          {
+            name: 'Previous',
+            value: `<@${previousDiscordId}>\n${name}\n${previousLevel}\n${previousStatus}\n${previousCharacterClass}`,
+            inline: true,
+          },
+          {
+            name: 'Updated',
+            value: `<@${discordId}>\n${name}\n${level}\n${status}\n${characterClass}`,
+            inline: true,
+          },
+        );
+
+      await interaction.reply({ embeds: [embed] });
     }
   }
   catch (error) {

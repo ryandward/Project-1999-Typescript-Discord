@@ -9,7 +9,7 @@ import {
 import _ from 'lodash';
 import { AppDataSource } from '../../app_data.js';
 import { Bank } from '../../entities/Bank.js';
-import { getImageUrl, getSpellDescription, getStatsBlock } from './item_functions.js';
+import { formatField, getImageUrl, getSpellDescription, getStatsBlock } from './item_functions.js';
 
 export const data = new SlashCommandBuilder()
   .setName('find')
@@ -21,10 +21,6 @@ export const data = new SlashCommandBuilder()
       .setRequired(true)
       .setAutocomplete(true),
   );
-
-export function formatField(field: string[]): string {
-  return '```\n' + field.join('\n') + '\n```';
-}
 
 export async function autocomplete(interaction: AutocompleteInteraction) {
   try {
@@ -83,7 +79,7 @@ export async function execute(interaction: CommandInteraction) {
       }
 
       if (!itemText) {
-        await interaction.reply('Item not found.');
+        await interaction.reply({ content: 'Item not found.', ephemeral: true });
         return;
       }
 

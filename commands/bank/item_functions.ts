@@ -1,5 +1,9 @@
 import axios from 'axios';
 
+export function formatField(field: string[]): string {
+  const monoField = field.map(item => `\`${item}\``);
+  return '\n' + monoField.join('\n') + '\n';
+}
 interface MediaWikiResponse {
   query: {
     pages: {

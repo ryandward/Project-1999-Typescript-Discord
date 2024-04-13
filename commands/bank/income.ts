@@ -18,12 +18,8 @@ export const data = new SlashCommandBuilder()
 
 export async function execute(interaction: CommandInteraction) {
   try {
-    // Check if the member has the required roles
     const member = await interaction.guild?.members.fetch(interaction.user.id);
-    const hasPermission = member?.roles.cache.some(
-      role => role.name === 'Officer' || role.name === 'Treasurer',
-    );
-    if (!hasPermission) {
+    if (!member || !member.permissions.has(['ManageGuild'])) {
       throw new Error('You do not have permission to use this command.');
     }
 

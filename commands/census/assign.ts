@@ -88,6 +88,10 @@ export async function autocomplete(interaction: AutocompleteInteraction) {
 
 export const execute = async (interaction: CommandInteraction) => {
   try {
+    const member = await interaction.guild?.members.fetch(interaction.user.id);
+    if (!member || !member.permissions.has(['ManageGuild'])) {
+      throw new Error('You do not have permission to use this command.');
+    }
     let response: string;
     const { options } = interaction;
 

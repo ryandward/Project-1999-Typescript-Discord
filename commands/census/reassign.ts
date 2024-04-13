@@ -135,11 +135,11 @@ export const execute = async (interaction: CommandInteraction) => {
     );
 
     if (updateToonResult) {
-      const previous = [name, previousLevel.toString(), previousStatus, previousCharacterClass];
-      const updated = [name, level.toString(), status, characterClass];
+      const previous = [previousStatus, previousCharacterClass, previousLevel.toString()];
+      const updated = [status, characterClass, level.toString()];
 
       const embed = new EmbedBuilder()
-        .setTitle(':fast_forward: Character Update')
+        .setTitle(`:fast_forward: Character Update for ${name}`)
         .setColor('Green')
         .addFields(
           {

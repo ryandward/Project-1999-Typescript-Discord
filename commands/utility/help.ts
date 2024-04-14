@@ -10,6 +10,7 @@ export const data = new SlashCommandBuilder()
   .setDescription('Lists all commands and their descriptions.');
 
 export const execute = async (interaction: CommandInteraction) => {
+  const member = await interaction.guild?.members.fetch(interaction.user.id);
   const commandsPath = path.join(__dirname, '..');
   const commandFolders = fs.readdirSync(commandsPath);
   const embeds: EmbedBuilder[] = [];
@@ -24,6 +25,9 @@ export const execute = async (interaction: CommandInteraction) => {
         const filePath = path.join(folderPath, file);
         try {
           const command = await import(filePath);
+          if (command.permissions && !member?.permissions.has(command.permissions)) {
+            continue;
+          }
           if (command.data && command.data.name && command.data.description) {
             commands.push(command);
           }

@@ -7,7 +7,7 @@ const __dirname = import.meta.dirname;
 
 export const data = new SlashCommandBuilder()
   .setName('help')
-  .setDescription('Lists all commands and their descriptions.');
+  .setDescription('Commands available for Ex Astra guild management system.');
 
 export const execute = async (interaction: CommandInteraction) => {
   const member = await interaction.guild?.members.fetch(interaction.user.id);
@@ -47,7 +47,7 @@ export const execute = async (interaction: CommandInteraction) => {
           embed.addFields({
             name: `/${command.data.name}`,
             value: command.data.description,
-            inline: false,
+            inline: true,
           });
         });
 

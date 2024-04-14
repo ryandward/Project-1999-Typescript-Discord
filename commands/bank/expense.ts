@@ -2,6 +2,8 @@ import { CommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.j
 import { AppDataSource } from '../../app_data.js';
 import { Plat } from '../../entities/Plat.js';
 
+export const permissions = 'ManageGuild';
+
 export const data = new SlashCommandBuilder()
   .setName('expense')
   .setDescription('Record an expense transaction')
@@ -20,7 +22,7 @@ export async function execute(interaction: CommandInteraction) {
   try {
     // Check if the member has the required roles
     const member = await interaction.guild?.members.fetch(interaction.user.id);
-    if (!member || !member.permissions.has(['ManageGuild'])) {
+    if (!member || !member.permissions.has([permissions])) {
       throw new Error('You do not have permission to use this command.');
     }
 

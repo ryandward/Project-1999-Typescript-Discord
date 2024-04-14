@@ -16,6 +16,8 @@ import {
 
 const classNames = await validCharacterClasses();
 
+export const permissions = 'ManageGuild';
+
 export async function getActiveStatuses() {
   return (await AppDataSource.manager.find(Status)).filter(status => status.Status !== 'Dropped');
 }
@@ -92,7 +94,7 @@ export async function autocomplete(interaction: AutocompleteInteraction) {
 export const execute = async (interaction: CommandInteraction) => {
   try {
     const member = await interaction.guild?.members.fetch(interaction.user.id);
-    if (!member || !member.permissions.has(['ManageGuild'])) {
+    if (!member || !member.permissions.has([permissions])) {
       throw new Error('You do not have permission to use this command.');
     }
     const { options } = interaction;

@@ -1,4 +1,9 @@
-import { AutocompleteInteraction, CommandInteraction, SlashCommandBuilder } from 'discord.js';
+import {
+  AutocompleteInteraction,
+  CommandInteraction,
+  GuildMember,
+  SlashCommandBuilder,
+} from 'discord.js';
 import _ from 'lodash';
 import { FindManyOptions, ILike } from 'typeorm';
 import { AppDataSource } from '../../app_data.js';
@@ -69,7 +74,12 @@ export async function execute(interaction: CommandInteraction): Promise<void> {
   const toonName = _.capitalize(options.get('toon')?.value as string);
   const accountName = options.get('account')?.value as string;
 
+  const member = interaction.member as GuildMember;
   try {
+    const hasPermission = member?.roles.cache.some(role => role.name === 'Officer');
+    if (!hasPermission) {
+      throw new Error('You do not have permission to use this command.');
+    }
     let sharedToon = await AppDataSource.manager.findOne(SharedToons, {
       where: { Name: toonName },
       relations: ['Account'],

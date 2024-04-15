@@ -1,4 +1,9 @@
-import { AutocompleteInteraction, CommandInteraction, SlashCommandBuilder } from 'discord.js';
+import {
+  AutocompleteInteraction,
+  CommandInteraction,
+  GuildMember,
+  SlashCommandBuilder,
+} from 'discord.js';
 import { FindManyOptions, ILike } from 'typeorm';
 import { AppDataSource } from '../../app_data.js';
 import { SharedAccounts } from '../../entities/SharedAccounts.js';
@@ -20,7 +25,12 @@ export const data = new SlashCommandBuilder()
   );
 
 export async function autocomplete(interaction: AutocompleteInteraction) {
+  const member = interaction.member as GuildMember;
   try {
+    const hasPermission = member?.roles.cache.some(role => role.name === 'Officer');
+    if (!hasPermission) {
+      throw new Error('You do not have permission to use this command.');
+    }
     const focusedOption = interaction.options.getFocused(true);
     if (!focusedOption) return;
 

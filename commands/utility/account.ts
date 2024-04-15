@@ -106,6 +106,9 @@ export async function execute(interaction: CommandInteraction) {
         content: `Account: \`${account}\`\nPassword: \`${sharedAccount.Password}\``,
         ephemeral: true,
       });
+      await interaction.followUp({
+        content: `:information_source: <@${interaction.user.id}> accessed the password for account \`${account}\`.`,
+      });
     }
   }
   catch (error) {

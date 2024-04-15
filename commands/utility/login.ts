@@ -137,6 +137,11 @@ export async function execute(interaction: CommandInteraction): Promise<void> {
         content: `Toon: \`${toonName}\`\nAccount: \`${accountInfo.Account}\`\nPassword: \`${accountInfo.Password ?? 'N/A'}\``,
         ephemeral: true,
       });
+
+      await interaction.followUp({
+        content: `:information_source: <@${member.id}> accessed account information for \`${toonName}\`.`,
+        ephemeral: false,
+      });
     }
     else {
       throw new Error(

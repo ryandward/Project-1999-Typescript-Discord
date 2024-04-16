@@ -26,8 +26,7 @@ export const data = new SlashCommandBuilder()
 export async function autocomplete(interaction: AutocompleteInteraction) {
   const member = interaction.member as GuildMember;
   try {
-    const hasPermission = member?.roles.cache.some(memberRole => memberRole.name === 'Officer');
-    if (!hasPermission) {
+    if (!member?.roles.cache.some(memberRole => memberRole.name === 'Officer')) {
       throw new Error('You do not have permission to use this command.');
     }
     const focusedOption = interaction.options.getFocused(true);
@@ -59,8 +58,7 @@ export async function execute(interaction: CommandInteraction): Promise<void> {
   const password = options.get('password')?.value as string | undefined;
   const role = options.get('role')?.value as string | undefined;
   const member = interaction.member as GuildMember;
-  const hasPermission = member?.roles.cache.some(memberRole => memberRole.name === 'Officer');
-  if (!hasPermission) {
+  if (!member?.roles.cache.some(memberRole => memberRole.name === 'Officer')) {
     throw new Error('You do not have permission to use this command.');
   }
 

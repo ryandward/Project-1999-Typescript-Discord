@@ -25,7 +25,7 @@ export const data = new SlashCommandBuilder()
   .addStringOption(option =>
     option
       .setName('account')
-      .setDescription('The nameof the account')
+      .setDescription('WARNING: Assigns a toon to an account. Do not use to view account info.')
       .setRequired(false)
       .setAutocomplete(true),
   );
@@ -76,9 +76,9 @@ export async function execute(interaction: CommandInteraction): Promise<void> {
 
   const member = interaction.member as GuildMember;
   try {
-    const hasPermission = member?.roles.cache.some(role => role.name === 'Officer');
-    if (!hasPermission) {
-      throw new Error('You do not have permission to use this command.');
+    // Check if the user has permission to set account information
+    if (accountName && !member?.roles.cache.some(role => role.name === 'Officer')) {
+      throw new Error('You do not have permission to set account information.');
     }
     let sharedToon = await AppDataSource.manager.findOne(SharedToons, {
       where: { Name: toonName },
@@ -124,17 +124,24 @@ export async function execute(interaction: CommandInteraction): Promise<void> {
       console.log(sharedToon);
 
       // Display the linked account info
-      if (!sharedToon.Account) {
-        throw new Error(`Toon \`${toonName}\` is not linked to any account.`);
-      }
       const accountInfo = await AppDataSource.manager.findOneBy(SharedAccounts, {
         Account: sharedToon.Account.Account,
       });
+
+      const displayPermissions = accountInfo?.Role;
+      if (displayPermissions && !member?.roles.cache.some(role => role.id === displayPermissions)) {
+        throw new Error('You do not have permission to view this account information.');
+      }
+
+      if (!sharedToon.Account) {
+        throw new Error(`Toon \`${toonName}\` is not linked to any account.`);
+      }
+
       if (!accountInfo) {
         throw new Error(`Account information for \`${toonName}\` could not be retrieved.`);
       }
       await interaction.reply({
-        content: `Toon: \`${toonName}\`\nAccount: \`${accountInfo.Account}\`\nPassword: \`${accountInfo.Password ?? 'N/A'}\``,
+        content: `Toon: \`${toonName}\`\nAccount: \`${accountInfo.Account}\`\nPassword: \`${accountInfo.Password ?? 'N/A'}\`\nRole: <@&${accountInfo.Role ?? 'N/A'}>`,
         ephemeral: true,
       });
 

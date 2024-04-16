@@ -14,20 +14,19 @@ export const data = new SlashCommandBuilder()
   .setName('account')
   .setDescription('Get or set login information for a shared account')
   .addStringOption(option =>
-    option
-      .setName('account')
-      .setDescription('The name of the account')
-      .setRequired(true)
-      .setAutocomplete(true),
+    option.setName('account').setDescription('Account name').setRequired(true).setAutocomplete(true),
   )
   .addStringOption(option =>
-    option.setName('password').setDescription('The password for the account').setRequired(false),
+    option.setName('password').setDescription('SET the password').setRequired(false),
+  )
+  .addRoleOption(option =>
+    option.setName('role').setDescription('SET the required role').setRequired(false),
   );
 
 export async function autocomplete(interaction: AutocompleteInteraction) {
   const member = interaction.member as GuildMember;
   try {
-    const hasPermission = member?.roles.cache.some(role => role.name === 'Officer');
+    const hasPermission = member?.roles.cache.some(memberRole => memberRole.name === 'Officer');
     if (!hasPermission) {
       throw new Error('You do not have permission to use this command.');
     }
@@ -54,66 +53,65 @@ export async function autocomplete(interaction: AutocompleteInteraction) {
   }
 }
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: CommandInteraction): Promise<void> {
   const { options } = interaction;
-  const account = options.get('account')?.value as string;
-  const password = options.get('password')?.value as string;
+  const account = options.get('account')?.value as string | undefined;
+  const password = options.get('password')?.value as string | undefined;
+  const role = options.get('role')?.value as string | undefined;
+  const member = interaction.member as GuildMember;
+  const hasPermission = member?.roles.cache.some(memberRole => memberRole.name === 'Officer');
+  if (!hasPermission) {
+    throw new Error('You do not have permission to use this command.');
+  }
+
+  if (!account) {
+    await interaction.reply({ content: 'Error: Account name must be provided.', ephemeral: true });
+    return;
+  }
 
   try {
-    if (password) {
-      // Set or change the account/password combo
-      let sharedAccount: SharedAccounts | null = await AppDataSource.manager.findOneBy(
-        SharedAccounts,
-        {
-          Account: account,
-        },
-      );
-      let response = '';
+    // Fetch the current account details from the database
+    let sharedAccount = await AppDataSource.manager.findOneBy(SharedAccounts, { Account: account });
 
+    if (password || role) {
       if (!sharedAccount) {
+        // Create new account if it does not exist
         sharedAccount = new SharedAccounts();
         sharedAccount.Account = account;
-        sharedAccount.Password = password;
-        response = `The password for account \`${account}\` has been set to \`${password}\`.`;
       }
-      else {
-        const oldPassword = sharedAccount.Password;
-        sharedAccount.Account = account;
+      // Update password and role as provided
+      const changes = [];
+      if (password) {
         sharedAccount.Password = password;
-        response = `The password for account \`${account}\` has been updated from \`${oldPassword}\` to \`${password}\`.`;
+        changes.push(`password to \`${password}\``);
       }
+      if (role) {
+        sharedAccount.Role = role;
+        changes.push(`role to <@&${role}>`);
+      }
+
+      const response = `Successfully updated ${changes.join(' and ')} for account \`${account}\`.`;
+      const followUp = `:information_source: <@${interaction.user.id}> updated the details for account \`${account}\`.`;
+
       await AppDataSource.manager.save(sharedAccount);
-      await interaction.reply({
-        content: response,
-        ephemeral: true,
-      });
-      await interaction.followUp({
-        content: `The password for account \`${account}\` has been set/updated.`,
-      });
+      await interaction.reply({ content: response, ephemeral: true });
+      await interaction.followUp({ content: followUp });
     }
     else {
-      // Retrieve the account info
-      const sharedAccount: SharedAccounts | null = await AppDataSource.manager.findOneBy(
-        SharedAccounts,
-        {
-          Account: account,
-        },
-      );
+      // Retrieve account details if no updates provided
       if (!sharedAccount) {
         throw new Error(`No account found with the name \`${account}\`.`);
       }
-      await interaction.reply({
-        content: `Account: \`${account}\`\nPassword: \`${sharedAccount.Password}\``,
-        ephemeral: true,
-      });
+      const accountDetails = `Account: \`${account}\`\nPassword: \`${sharedAccount.Password ?? 'N/A'}\`\nRole: <@&${sharedAccount.Role ?? 'N/A'}>`;
+      await interaction.reply({ content: accountDetails, ephemeral: true });
       await interaction.followUp({
-        content: `:information_source: <@${interaction.user.id}> accessed the password for account \`${account}\`.`,
+        content: `:information_source: <@${interaction.user.id}> accessed the details for account \`${account}\`.`,
       });
     }
   }
   catch (error) {
     if (error instanceof Error) {
-      return interaction.reply({ content: error.message, ephemeral: true });
+      await interaction.reply({ content: error.message, ephemeral: true });
     }
   }
 }

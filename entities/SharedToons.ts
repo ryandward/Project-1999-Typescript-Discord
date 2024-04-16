@@ -11,9 +11,6 @@ export class SharedToons {
   @Column('character varying', { name: 'name', unique: true, length: 255 })
   Name: string;
 
-  @Column('character varying', { name: 'role', length: 50 })
-  Role: string;
-
   // eslint-disable-next-line no-shadow
   @ManyToOne(() => SharedAccounts, SharedAccounts => SharedAccounts.SharedToons)
   @JoinColumn([{ name: 'account', referencedColumnName: 'Account' }])

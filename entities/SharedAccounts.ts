@@ -14,6 +14,9 @@ export class SharedAccounts {
   @Column('character varying', { name: 'password', length: 255 })
   Password: string;
 
+  @Column('character varying', { name: 'role', length: 50 })
+  Role: string;
+
   // eslint-disable-next-line no-shadow
   @OneToMany(() => SharedToons, SharedToons => SharedToons.Account)
   SharedToons: SharedToons[];

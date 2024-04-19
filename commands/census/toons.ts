@@ -103,7 +103,7 @@ export async function execute(interaction: CommandInteraction) {
       );
     }, embed);
 
-    await interaction.reply({ embeds: [embedBuilder] });
+    await interaction.reply({ embeds: [embedBuilder], ephemeral: true });
   }
   catch (error) {
     if (error instanceof Error) {

@@ -1,10 +1,15 @@
 import * as Canvas from '@napi-rs/canvas';
 import {
+  ActionRowBuilder,
   AttachmentBuilder,
   AutocompleteInteraction,
+  ButtonBuilder,
+  ButtonStyle,
   CommandInteraction,
   EmbedBuilder,
+  GuildMember,
   SlashCommandBuilder,
+  TextChannel,
 } from 'discord.js';
 import _ from 'lodash';
 import { AppDataSource } from '../../app_data.js';
@@ -82,6 +87,18 @@ export async function execute(interaction: CommandInteraction) {
         await interaction.reply({ content: 'Item not found.', ephemeral: true });
         return;
       }
+
+      const request = new ButtonBuilder()
+        .setCustomId('request')
+        .setLabel('Request')
+        .setStyle(ButtonStyle.Success);
+
+      const cancel = new ButtonBuilder()
+        .setCustomId('cancel')
+        .setLabel('Cancel')
+        .setStyle(ButtonStyle.Danger);
+
+      const row = new ActionRowBuilder<ButtonBuilder>().addComponents(request, cancel);
 
       itemText = itemText?.replace(/\[\[[^\]]*\|([^\]]+)\]\]/g, '$1');
       itemText = itemText?.replace(/[[\]*]/g, '');
@@ -194,7 +211,44 @@ export async function execute(interaction: CommandInteraction) {
         return currentEmbed;
       }, embed);
 
-      await interaction.reply({ embeds: [embedBuilder], files: [attachment] });
+      await interaction.reply({ embeds: [embedBuilder], files: [attachment], components: [row] });
+
+      const filter = (i: { customId: string }) =>
+        i.customId === 'request' || i.customId === 'cancel';
+
+      try {
+        const collected = await interaction.channel?.awaitMessageComponent({ filter, time: 60000 });
+
+        if (collected) {
+          if (collected.customId === 'request') {
+            await collected.update({ content: 'Requesting item...', components: [] });
+            const requestChannel = interaction.client.channels.cache.get('1213309735886000159');
+            if (requestChannel && interaction.member) {
+              // Send the request with the original embeds to the request channel
+              await (requestChannel as TextChannel).send({
+                content:
+                  '<@&875884412259143711>' +
+                  '\n' +
+                  `Request for **${itemName}** by ${(interaction.member as GuildMember).displayName}`,
+                embeds: [embedBuilder],
+                files: [attachment],
+              });
+            }
+          }
+          else if (collected.customId === 'cancel') {
+            await interaction.deleteReply();
+            await interaction.followUp({
+              content: `Request for **${itemName}** cancelled.`,
+              ephemeral: true,
+            });
+          }
+        }
+      }
+      catch (error) {
+        if (error instanceof Error) {
+          console.error('Error in awaitMessageComponent:', error);
+        }
+      }
     }
   }
   catch (error) {

@@ -89,12 +89,12 @@ export async function execute(interaction: CommandInteraction) {
     embed.addFields([
       {
         name: ':moneybag:️ Current DKP',
-        value: '```' + currentDkp.toString() + '```',
+        value: currentDkp.toString(),
         inline: true,
       },
       {
         name: ':scroll: Total Earned',
-        value: '```' + totalEarned.toString() + '```',
+        value: totalEarned.toString(),
         inline: true,
       },
     ]);

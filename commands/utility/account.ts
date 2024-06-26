@@ -1,6 +1,7 @@
 import {
   AutocompleteInteraction,
   CommandInteraction,
+  EmbedBuilder,
   GuildMember,
   SlashCommandBuilder,
 } from 'discord.js';
@@ -54,58 +55,59 @@ export async function autocomplete(interaction: AutocompleteInteraction) {
 
 export async function execute(interaction: CommandInteraction): Promise<void> {
   const { options } = interaction;
-  const account = options.get('account')?.value as string | undefined;
-  const password = options.get('password')?.value as string | undefined;
-  const role = options.get('role')?.value as string | undefined;
+  const accountName = options.get('account')?.value as string | undefined;
   const member = interaction.member as GuildMember;
+
   if (!member?.roles.cache.some(memberRole => memberRole.name === 'Officer')) {
-    throw new Error('You do not have permission to use this command.');
+    await interaction.reply({
+      content: 'You do not have permission to use this command.',
+      ephemeral: true,
+    });
+    return;
   }
 
-  if (!account) {
+  if (!accountName) {
     await interaction.reply({ content: 'Error: Account name must be provided.', ephemeral: true });
     return;
   }
 
   try {
-    // Fetch the current account details from the database
-    let sharedAccount = await AppDataSource.manager.findOneBy(SharedAccounts, { Account: account });
+    // Fetch the current account details from the database including related toons
+    const sharedAccount = await AppDataSource.manager.findOne(SharedAccounts, {
+      where: { Account: accountName },
+      relations: ['SharedToons'],
+    });
 
-    if (password || role) {
-      if (!sharedAccount) {
-        // Create new account if it does not exist
-        sharedAccount = new SharedAccounts();
-        sharedAccount.Account = account;
-      }
-      // Update password and role as provided
-      const changes = [];
-      if (password) {
-        sharedAccount.Password = password;
-        changes.push(`password to \`${password}\``);
-      }
-      if (role) {
-        sharedAccount.Role = role;
-        changes.push(`role to <@&${role}>`);
-      }
-
-      const response = `Successfully updated ${changes.join(' and ')} for account \`${account}\`.`;
-      const followUp = `:information_source: <@${interaction.user.id}> updated the details for account \`${account}\`.`;
-
-      await AppDataSource.manager.save(sharedAccount);
-      await interaction.reply({ content: response, ephemeral: true });
-      await interaction.followUp({ content: followUp });
+    if (!sharedAccount) {
+      throw new Error(`No account found with the name \`${accountName}\`.`);
     }
-    else {
-      // Retrieve account details if no updates provided
-      if (!sharedAccount) {
-        throw new Error(`No account found with the name \`${account}\`.`);
-      }
-      const accountDetails = `Account: \`${account}\`\nPassword: \`${sharedAccount.Password ?? 'N/A'}\`\nRole: <@&${sharedAccount.Role ?? 'N/A'}>`;
-      await interaction.reply({ content: accountDetails, ephemeral: true });
-      await interaction.followUp({
-        content: `:information_source: <@${interaction.user.id}> accessed the details for account \`${account}\`.`,
-      });
-    }
+
+    // Formatting the list of toons for display
+    const toonsList =
+      sharedAccount.SharedToons.map(toon => '`' + toon.Name + '`').join(', ') ||
+      'No toons assigned';
+
+    // Create a new embed using EmbedBuilder to show the information
+    const embed = new EmbedBuilder()
+      .setTitle('Account Information')
+      .setColor(0x0099ff)
+      .addFields(
+        { name: ':ledger: Account', value: `\`${accountName}\``, inline: false },
+        { name: ':key: Password', value: `\`${sharedAccount.Password ?? 'N/A'}\``, inline: false },
+        {
+          name: ':performing_arts: Role',
+          value: `<@&${sharedAccount.Role ?? 'N/A'}>`,
+          inline: false,
+        },
+        { name: ':busts_in_silhouette: Toons', value: toonsList, inline: false },
+      )
+      .setTimestamp();
+
+    // Reply with the embed
+    await interaction.reply({ embeds: [embed], ephemeral: true });
+    await interaction.followUp({
+      content: `:information_source: <@${interaction.user.id}> accessed the details for account \`${accountName}\`.`,
+    });
   }
   catch (error) {
     if (error instanceof Error) {

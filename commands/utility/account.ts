@@ -55,7 +55,9 @@ export async function autocomplete(interaction: AutocompleteInteraction) {
 
 export async function execute(interaction: CommandInteraction): Promise<void> {
   const { options } = interaction;
-  const accountName = options.get('account')?.value as string | undefined;
+  const accountName = options.get('account')?.value as string;
+  const password = options.get('password')?.value as string;
+  const role = options.get('role')?.value as string;
   const member = interaction.member as GuildMember;
 
   if (!member?.roles.cache.some(memberRole => memberRole.name === 'Officer')) {
@@ -72,22 +74,46 @@ export async function execute(interaction: CommandInteraction): Promise<void> {
   }
 
   try {
-    // Fetch the current account details from the database including related toons
-    const sharedAccount = await AppDataSource.manager.findOne(SharedAccounts, {
+    // Fetch or potentially create a new account
+    let sharedAccount = await AppDataSource.manager.findOne(SharedAccounts, {
       where: { Account: accountName },
       relations: ['SharedToons'],
     });
 
+    if (password || role) {
+      // If there are updates to process
+      if (!sharedAccount) {
+        // Create new account if it does not exist
+        sharedAccount = new SharedAccounts();
+        sharedAccount.Account = accountName;
+      }
+
+      const changes = [];
+      if (password) {
+        sharedAccount.Password = password;
+        changes.push(`password to \`${password}\``);
+      }
+      if (role) {
+        sharedAccount.Role = role;
+        changes.push(`role to <@&${role}>`);
+      }
+
+      await AppDataSource.manager.save(sharedAccount);
+      const response = `Successfully updated ${changes.join(' and ')} for account \`${accountName}\`.`;
+      await interaction.reply({ content: response, ephemeral: true });
+      await interaction.followUp({
+        content: `:information_source: <@${interaction.user.id}> updated the details for account \`${accountName}\`.`,
+      });
+      return;
+    }
+
+    // If no updates provided, retrieve account details
     if (!sharedAccount) {
       throw new Error(`No account found with the name \`${accountName}\`.`);
     }
 
-    // Formatting the list of toons for display
     const toonsList =
-      sharedAccount.SharedToons.map(toon => '`' + toon.Name + '`').join(', ') ||
-      'No toons assigned';
-
-    // Create a new embed using EmbedBuilder to show the information
+      sharedAccount.SharedToons.map(toon => toon.Name).join(', ') || 'No toons assigned';
     const embed = new EmbedBuilder()
       .setTitle('Account Information')
       .setColor(0x0099ff)

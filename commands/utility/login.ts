@@ -1,6 +1,7 @@
 import {
   AutocompleteInteraction,
   CommandInteraction,
+  EmbedBuilder,
   GuildMember,
   SlashCommandBuilder,
 } from 'discord.js';
@@ -140,10 +141,24 @@ export async function execute(interaction: CommandInteraction): Promise<void> {
       if (!accountInfo) {
         throw new Error(`Account information for \`${toonName}\` could not be retrieved.`);
       }
-      await interaction.reply({
-        content: `Toon: \`${toonName}\`\nAccount: \`${accountInfo.Account}\`\nPassword: \`${accountInfo.Password ?? 'N/A'}\`\nRole: <@&${accountInfo.Role ?? 'N/A'}>`,
-        ephemeral: true,
-      });
+
+      // Create a new embed using EmbedBuilder
+      const embed = new EmbedBuilder()
+        .setTitle('Account Information')
+        .setColor(0x0099ff)
+        .addFields(
+          { name: ':bust_in_silhouette: Toon', value: `\`${toonName}\``, inline: false },
+          { name: ':ledger: Account', value: `\`${accountInfo.Account}\``, inline: false },
+          { name: ':key: Password', value: `\`${accountInfo.Password ?? 'N/A'}\``, inline: false },
+          {
+            name: ':performing_arts: Role',
+            value: `<@&${accountInfo.Role ?? 'N/A'}>`,
+            inline: false,
+          },
+        )
+        .setTimestamp();
+      // Reply with the embed
+      await interaction.reply({ embeds: [embed], ephemeral: true });
 
       await interaction.followUp({
         content: `:information_source: <@${member.id}> accessed account information for \`${toonName}\`.`,

@@ -1,46 +1,50 @@
 # EverQuest Discord Bot - TypeScript Edition
 
-Welcome to the EverQuest Discord Bot TypeScript Edition repository! This project, originally developed in Python, has been meticulously reworked in TypeScript to harness the type-safe and scalable nature of the language. The TypeScript configuration for this project has been carefully set up to optimize for strict type-checking, ESNext features, and module interoperability, ensuring that the bot operates with high performance and is future-proof for upcoming JavaScript features.
+Welcome to the EverQuest Discord Bot TypeScript Edition repository! This project, originally developed in Python and meticulously reworked in TypeScript, demonstrates advanced capabilities in creating robust, type-safe, and scalable chat-interfacing bots. Leveraging TypeScript’s strict type-checking and ESNext features, along with powerful integrations like Elasticsearch, this bot enhances management and engagement within EverQuest gaming communities on Discord.
 
 ## Introduction
 
-The EverQuest Discord Bot is a powerful tool designed to enhance the management and engagement of EverQuest gaming communities on Discord. By transitioning to TypeScript, we've not only replicated the original bot's functionalities but also enhanced them, providing seamless integration with Discord's latest features and a codebase that's easier to maintain and extend.
+The EverQuest Discord Bot TypeScript Edition is designed to optimize community management through Discord, integrating seamlessly with game data and external APIs. It excels in smart storage solutions and real-time data retrieval, including integration with Elasticsearch for efficient full-text search capabilities across distributed systems.
 
-One significant enhancement is the bot's ability to interact with a locally cloned instance of the Project 1999 Wiki via MediaWiki API calls. This local wiki instance can be a tremendous asset in organizing and managing the guild bank, as many of the bot's bank-related commands rely heavily on these API calls to fetch and update item information.
-
-## Features
+Key features include:
 
 - **User Authentication**: Securely link Discord users to their EverQuest characters.
 - **Character Management**: Track and manage character data such as levels, classes, and equipment.
-- **DKP System**: Implement a Dragon Kill Points (DKP) system to manage loot distribution fairly among guild members.
+- **DKP System**: Implement a fair loot distribution system using Dragon Kill Points (DKP).
 - **Event Scheduling**: Organize and schedule in-game events, raids, and meetings directly through Discord.
-- **Census Data**: Maintain a real-time census of all characters, including alts and bots, within the guild.
-- **Log Parser Interoperability**: Looking to implement interoperability with log-parsers such as Gina to facilitate records management and attendance.
-- **MediaWiki Integration**: Utilize a local clone of the Project 1999 Wiki to enhance guild bank management through robust API interactions.
+- **Census Data**: Maintain real-time character census, including alts and bots, within the guild.
+- **MediaWiki Integration**: Utilize a local clone of the Project 1999 Wiki for comprehensive guild bank management.
 
 ## Technology Stack
 
-- **TypeScript**: Leveraging TypeScript's static typing to ensure code reliability and maintainability.
-- **Discord.js**: Utilizing the official Discord.js library to create an interactive bot experience.
-- **TypeORM**: Employing TypeORM for object-relational mapping, compatible with TypeScript for database interactions.
-- **PostgreSQL**: Using PostgreSQL for a robust and scalable database to handle bot and game-related data. The schema has been migrated from SQLite to PostgreSQL, and we are actively working on optimizing it to leverage PostgreSQL's full capabilities.
-- **Elasticsearch**: Integrating Elasticsearch for powerful full-text search capabilities across distributed systems.
-- **MediaWiki**: Incorporating MediaWiki to provide comprehensive documentation and community support, as well as to facilitate local wiki instance interactions for guild bank management.
+- **TypeScript**: Ensures code reliability and maintainability with static typing.
+- **Discord.js**: Provides interactive bot features and integrates seamlessly with Discord.
+- **TypeORM**: Facilitates object-relational mapping for database interactions.
+- **PostgreSQL**: Utilized for robust data storage and scalable performance.
+- **Elasticsearch**: Enhances search functionalities for efficient data retrieval.
+- **MediaWiki**: Supports local wiki interactions for guild management.
 
 ## Getting Started
 
-To begin using the EverQuest Discord Bot TypeScript Edition, ensure Node.js and npm are installed on your system. Clone the repository, install the dependencies, and follow the setup instructions to configure your bot token, database credentials, and integrate Elasticsearch and MediaWiki services, including setting up a local clone of the Project 1999 Wiki.
+To deploy the EverQuest Discord Bot TypeScript Edition:
+
+1. Ensure Node.js and npm are installed.
+2. Clone the repository and install dependencies.
+3. Set up bot credentials, database configurations, and Elasticsearch integration.
+4. Configure the local MediaWiki instance for enhanced guild bank management.
+
+For detailed setup instructions, refer to the project's documentation.
 
 ## Contribution
 
-We invite contributions! If you're interested in adding new features, enhancements, or bug fixes, please fork the repository, apply your changes, and submit a pull request.
+Contributions are welcome! Fork the repository, make improvements, and submit pull requests to enhance the bot’s functionality and performance.
 
 ## License
 
-This project is licensed under the ISC License. For more information, refer to the LICENSE file.
+This project is licensed under the ISC License. See the LICENSE file for more details.
 
 ## Acknowledgments
 
-As we prepare to sunset the venerable Python version, we embrace the TypeScript edition's ability to meet the demanding performance requirements of modern bot interactions and data processing. The transition to slash commands is a significant step forward, addressing the frequent database lockups caused by malformed requests. With the community's involvement, we are excited to continue evolving this project, including the planned integration with log-parsers to enhance records management and attendance tracking, and the use of a local Project 1999 Wiki instance to streamline guild bank operations.
+Transitioning from Python to TypeScript has significantly improved the bot’s performance and scalability. Future plans include integrating log-parsers for enhanced records management and attendance tracking, further leveraging Elasticsearch for data analytics, and optimizing the Project 1999 Wiki integration.
 
-Thank you for exploring the EverQuest Discord Bot TypeScript Edition. We are confident it will be an indispensable tool for your community!
+Thank you for exploring the EverQuest Discord Bot TypeScript Edition. We are excited about its potential to elevate community engagement and management for EverQuest enthusiasts.

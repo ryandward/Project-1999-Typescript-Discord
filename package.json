@@ -10,7 +10,7 @@
     "author": "Ryan D. Ward (ryandward@github)",
     "license": "ISC",
     "dependencies": {
-        "@napi-rs/canvas": "^0.1.51",
+        "@napi-rs/canvas": "^0.1.53",
         "axios": "^1.6.8",
         "discord.js": "^14.14.1",
         "easy-table": "^1.2.0",

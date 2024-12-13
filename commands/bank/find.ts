@@ -234,6 +234,7 @@ export async function execute(interaction: CommandInteraction) {
                 files: [attachment],
               });
             }
+            await interaction.deleteReply();
           }
           else if (collected.customId === 'cancel') {
             await interaction.deleteReply();

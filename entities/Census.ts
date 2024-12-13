@@ -23,5 +23,5 @@ export class Census {
   Time: Date;
 
   @PrimaryGeneratedColumn({ type: 'bigint', name: 'id' })
-  Id: string;
+  Id: number;
 }

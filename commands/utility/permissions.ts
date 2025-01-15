@@ -1,4 +1,9 @@
-import { CommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
+import {
+  CommandInteraction,
+  CommandInteractionOptionResolver,
+  EmbedBuilder,
+  SlashCommandBuilder,
+} from 'discord.js';
 
 export const data = new SlashCommandBuilder()
   .setName('permissions')
@@ -8,7 +13,7 @@ export const data = new SlashCommandBuilder()
   );
 
 export const execute = async (interaction: CommandInteraction) => {
-  const user = interaction.options.getUser('user');
+  const user = (interaction.options as CommandInteractionOptionResolver).getUser('user');
   const permissions = user
     ? interaction.guild?.members.resolve(user.id)?.permissions.toArray()
     : null;

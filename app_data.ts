@@ -23,7 +23,7 @@ export const AppDataSource = new DataSource({
   port: Number(process.env.PGPORT),
   username: process.env.PGUSER,
   password: process.env.PGPASSWORD,
-  database: process.env.PGDATABASE,
+  database: process.env.POSTGRES_DB,
   synchronize: false,
   logging: false,
   entities: ['./entities/*.js'],

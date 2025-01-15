@@ -17,7 +17,7 @@
         "**/*.js": true,
         "**/*.js.map": true
     },
-    // "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
+    "workbench.colorTheme": "Monokai Pro",
     "editor.fontSize": 14,
     "editor.fontFamily": "'CommitMono', 'monospace', monospace",
     "editor.fontWeight": "400",

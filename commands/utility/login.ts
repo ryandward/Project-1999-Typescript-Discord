@@ -8,8 +8,7 @@ import {
 import _ from 'lodash';
 import { FindManyOptions, ILike } from 'typeorm';
 import { AppDataSource } from '../../app_data.js';
-import { SharedAccounts } from '../../entities/SharedAccounts.js';
-import { SharedToons } from '../../entities/SharedToons.js';
+import { SharedAccounts, SharedToons } from '../../entities/SharedModels.js';
 
 export const permissions = ['ManageGuild'];
 

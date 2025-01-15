@@ -3,13 +3,27 @@ import { DataSource } from 'typeorm';
 
 config();
 
+// export const AppDataSource = new DataSource({
+//   type: 'postgres',
+//   host: process.env.PGHOST,
+//   port: 5432,
+//   username: process.env.PGUSER,
+//   password: process.env.PGPASS,
+//   database: process.env.PGDATA,
+//   synchronize: false,
+//   logging: false,
+//   entities: ['./entities/*.js'],
+//   subscribers: [],
+//   migrations: [],
+// });
+
 export const AppDataSource = new DataSource({
   type: 'postgres',
   host: process.env.PGHOST,
-  port: 5432,
+  port: Number(process.env.PGPORT),
   username: process.env.PGUSER,
-  password: process.env.PGPASS,
-  database: process.env.PGDATA,
+  password: process.env.PGPASSWORD,
+  database: process.env.PGDATABASE,
   synchronize: false,
   logging: false,
   entities: ['./entities/*.js'],

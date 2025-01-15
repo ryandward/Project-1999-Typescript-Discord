@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import fs from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import path from 'path';
 import { initializeDataSource } from './app_data.js';
 import { client } from './client.js';
@@ -7,7 +8,7 @@ import { Command } from './types.js';
 
 await initializeDataSource();
 
-const __dirname = import.meta.dirname;
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const foldersPath = path.join(__dirname, 'commands');
 const commandFolders = fs.readdirSync(foldersPath);

@@ -98,24 +98,29 @@ export const execute = async (interaction: CommandInteraction) => {
     const { options } = interaction;
 
     let status = options.get('status')?.value as string;
+    console.log('execute: Status:', status);
     const discordId = options.get('user')?.value as string;
+    console.log('execute: DiscordId:', discordId);
     const name = _.capitalize(options.get('name')?.value as string);
+    console.log('execute: Name:', name);
     const characterClass = options.get('class')?.value as string;
+    console.log('execute: CharacterClass:', characterClass);
     const level = options.get('level')?.value as number;
+    console.log('execute: Level:', level);
 
     if (!discordId) {
       throw new Error('You must provide a discord user to assign the toon to.');
     }
-
+    console.log('execute: Before Validation');
     await Promise.all([
       toonMustNotExist(name),
       classMustExist(characterClass),
       levelMustBeValid(level),
       statusMustBeActive(status),
     ]);
-
+    console.log('execute: After Validation');
     let newUserResult = await insertUser(discordId);
-
+    console.log('execute: newUserResult:', newUserResult);
     if (newUserResult && status !== 'Main') {
       status = 'Main';
       newUserResult =
@@ -123,9 +128,10 @@ export const execute = async (interaction: CommandInteraction) => {
         '\n' +
         `:warning: <@${discordId}>'s \`${name}\` was declared as \`Main\` since no \`Main\` was found.`;
     }
+    console.log('execute: Status After New User:', status);
 
     const newToonResult = await declare(discordId, status, name, level, characterClass);
-
+    console.log('execute: NewToonResult:', newToonResult);
     if (newUserResult) {
       response = newUserResult + '\n' + newToonResult;
     }
@@ -136,8 +142,9 @@ export const execute = async (interaction: CommandInteraction) => {
   }
   catch (error) {
     if (error instanceof Error) {
+      const timestamp = new Date().toISOString();
       return interaction.reply({
-        content: error.message,
+        content: `[${timestamp}] ${error.message}`,
         ephemeral: true,
       });
     }

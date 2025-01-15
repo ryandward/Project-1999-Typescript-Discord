@@ -128,7 +128,10 @@ export async function execute(interaction: CommandInteraction) {
     const filter = (i: { customId: string }) => i.customId === 'request' || i.customId === 'cancel';
 
     try {
-      const collected = await interaction.channel?.awaitMessageComponent({ filter, time: 60000 });
+      const collected = await (interaction.channel as TextChannel)?.awaitMessageComponent({
+        filter,
+        time: 60000,
+      });
 
       if (collected) {
         if (collected.customId === 'request') {

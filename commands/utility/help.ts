@@ -2,8 +2,9 @@ import { CommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.j
 import fs from 'fs';
 import _ from 'lodash';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
-const __dirname = import.meta.dirname;
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export const data = new SlashCommandBuilder()
   .setName('help')

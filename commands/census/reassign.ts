@@ -32,7 +32,14 @@ export async function statusMustBeActive(inputStatus: string) {
 export const data = new SlashCommandBuilder()
   .setName('reassign')
   .setDescription('reassign or manage a toon to a discord user')
-
+  .addStringOption(option =>
+    option
+      .setName('name')
+      .setDescription('The name of the toon to reassign or manage.')
+      .setRequired(true)
+      .setAutocomplete(true)
+      .setMaxLength(24),
+  )
   .addUserOption(option =>
     option
       .setName('user')
@@ -45,14 +52,6 @@ export const data = new SlashCommandBuilder()
       .setDescription('The new status of the character')
       .setRequired(true)
       .addChoices(...activeStatuses.map(status => ({ name: status.Status, value: status.Status }))),
-  )
-  .addStringOption(option =>
-    option
-      .setName('name')
-      .setDescription('The name of the toon to reassign or manage.')
-      .setRequired(true)
-      .setAutocomplete(true)
-      .setMaxLength(24),
   )
   .addNumberOption(option =>
     option

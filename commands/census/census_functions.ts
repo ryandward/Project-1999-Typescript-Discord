@@ -133,13 +133,13 @@ export async function declare(
   Level: number,
   CharacterClass: string,
 ): Promise<string> {
-  const newToon = new Census(); // Changed this line to create Census object
+  const newToon = new Census();
   newToon.DiscordId = DiscordId;
   newToon.Status = Status;
   newToon.Name = Name;
   newToon.Level = Level;
   newToon.CharacterClass = CharacterClass;
-  newToon.Time = new Date()
+  newToon.Time = new Date();
 
   return AppDataSource.manager
     .save(newToon)

@@ -128,9 +128,20 @@ export async function execute(interaction: CommandInteraction): Promise<void> {
         Account: sharedToon.Account.Account,
       });
 
-      const displayPermissions = accountInfo?.Role;
-      if (displayPermissions && !member?.roles.cache.some(role => role.id === displayPermissions)) {
-        throw new Error('You do not have permission to view this account information.');
+      const requiredRoleId = accountInfo?.Role;
+      if (requiredRoleId) {
+        const requiredRole = interaction.guild?.roles.cache.get(requiredRoleId);
+        const memberRoles = member?.roles.cache;
+        const hasRequiredRoleOrHigher = memberRoles?.some(role => {
+          // If exact match or member has a role with position >= required role
+          return (
+            role.id === requiredRoleId || (requiredRole && role.position >= requiredRole.position)
+          );
+        });
+
+        if (!hasRequiredRoleOrHigher) {
+          throw new Error('You do not have permission to view this account information.');
+        }
       }
 
       if (!sharedToon.Account) {

@@ -1,8 +1,23 @@
-import { ButtonInteraction, CommandInteraction, EmbedBuilder, GuildMember } from 'discord.js';
+import { ButtonInteraction, CommandInteraction, GuildMember } from 'discord.js';
+import _ from 'lodash';
 import { AppDataSource } from '../../app_data.js';
 import { SharedAccounts, SharedToons } from '../../entities/SharedModels.js';
-// import { SharedToons } from '../../entities/SharedToons.js';
 
+/**
+ * Checks if a member has a required role or higher
+ */
+function memberHasRoleOrHigher(member: GuildMember, requiredRoleId: string): boolean {
+  const requiredRole = member.guild.roles.cache.get(requiredRoleId);
+  if (!requiredRole) return false;
+
+  return member.roles.cache.some(
+    role => role.id === requiredRoleId || role.position >= requiredRole.position,
+  );
+}
+
+/**
+ * Handles login logic for shared toons
+ */
 export async function loginLogic(
   interaction: CommandInteraction | ButtonInteraction,
   toonName: string,
@@ -79,21 +94,23 @@ export async function loginLogic(
       throw new Error(`Account information for \`${toonName}\` could not be retrieved.`);
     }
 
-    const embed = new EmbedBuilder()
-      .setTitle('Account Information')
-      .setColor(0x0099ff)
-      .addFields(
-        { name: ':bust_in_silhouette: Toon', value: `\`${toonName}\``, inline: false },
-        { name: ':ledger: Account', value: `\`${accountInfo.Account}\``, inline: false },
-        { name: ':key: Password', value: `\`${accountInfo.Password ?? 'N/A'}\``, inline: false },
-        { name: ':performing_arts: Role', value: `<@&${accountInfo.Role ?? 'N/A'}>`, inline: false },
-      )
-      .setTimestamp();
+    // Check role permissions
+    const requiredRoleId = accountInfo.Role;
+    if (requiredRoleId && !memberHasRoleOrHigher(member, requiredRoleId)) {
+      throw new Error('You do not have permission to view this account information.');
+    }
 
-    await interaction.reply({ embeds: [embed], ephemeral: true });
-    await interaction.followUp({
-      content: `:information_source: <@${member.id}> accessed account information for \`${toonName}\`.`,
-      ephemeral: false,
+    if (!interaction.isRepliable()) {
+      throw new Error('Cannot reply to this interaction.');
+    }
+
+    // Reply with account information
+    await interaction.reply({
+      content:
+        `**Account Information for ${_.capitalize(toonName)}**\n` +
+        `**Account:** \`${accountInfo.Account}\`\n` +
+        `**Password:** \`${accountInfo.Password ?? 'N/A'}\``,
+      ephemeral: true,
     });
   }
   else {

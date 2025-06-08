@@ -129,8 +129,18 @@ export async function execute(interaction: CommandInteraction): Promise<void> {
       });
 
       const displayPermissions = accountInfo?.Role;
-      if (displayPermissions && !member?.roles.cache.some(role => role.id === displayPermissions)) {
-        throw new Error('You do not have permission to view this account information.');
+      if (displayPermissions) {
+        // Find the required role in the guild
+        const requiredRole = member.guild.roles.cache.get(displayPermissions);
+        if (!requiredRole) {
+          throw new Error('The required role for this account could not be found.');
+        }
+        // Find the member's highest role
+        const memberHighestRole = member.roles.highest;
+        // Allow access if member's highest role is equal or higher in hierarchy
+        if (memberHighestRole.position < requiredRole.position) {
+          throw new Error('You do not have permission to view this account information.');
+        }
       }
 
       if (!sharedToon.Account) {

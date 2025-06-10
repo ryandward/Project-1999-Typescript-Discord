@@ -67,8 +67,15 @@ export async function loginLogic(
     });
 
     const displayPermissions = accountInfo?.Role;
-    if (displayPermissions && !member.roles.cache.some(role => role.id === displayPermissions)) {
-      throw new Error('You do not have permission to view this account information.');
+    if (displayPermissions) {
+      const requiredRole = member.guild.roles.cache.get(displayPermissions);
+      if (!requiredRole) {
+        throw new Error('The required role for this account could not be found.');
+      }
+      const memberHighestRole = member.roles.highest;
+      if (memberHighestRole.position < requiredRole.position) {
+        throw new Error('You do not have permission to view this account information.');
+      }
     }
 
     if (!sharedToon.Account) {

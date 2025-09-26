@@ -1,4 +1,4 @@
-import { CommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
+import { ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
 import { AppDataSource } from '../../app_data.js';
 import { Plat } from '../../entities/Plat.js';
 
@@ -11,7 +11,7 @@ export const data = new SlashCommandBuilder()
     option.setName('amount').setDescription('The amount to adjust the balance by'),
   );
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
   try {
     const { options } = interaction;
     const amount = options.get('amount')?.value as number;

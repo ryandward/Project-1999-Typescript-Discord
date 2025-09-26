@@ -1,4 +1,4 @@
-import { CommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
+import { ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
 import { AppDataSource } from '../../app_data.js';
 import { Plat } from '../../entities/Plat.js';
 
@@ -18,7 +18,7 @@ export const data = new SlashCommandBuilder()
       .setMaxLength(255),
   );
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
   try {
     const member = await interaction.guild?.members.fetch(interaction.user.id);
     if (!member || !member.permissions.has([permissions])) {

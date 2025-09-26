@@ -4,7 +4,7 @@ import {
   AutocompleteInteraction,
   ButtonBuilder,
   ButtonStyle,
-  CommandInteraction,
+  ChatInputCommandInteraction,
   EmbedBuilder,
   GuildMember,
   StringSelectMenuBuilder,
@@ -65,7 +65,7 @@ export async function autocomplete(interaction: AutocompleteInteraction) {
   }
 }
 
-export async function execute(interaction: CommandInteraction): Promise<void> {
+export async function execute(interaction: ChatInputCommandInteraction): Promise<void> {
   try {
     const { options } = interaction;
     const classFilter = options.get('class')?.value as string | undefined;

@@ -1,6 +1,6 @@
 import {
   AutocompleteInteraction,
-  CommandInteraction,
+  ChatInputCommandInteraction,
   EmbedBuilder,
   GuildMember,
   SlashCommandBuilder,
@@ -53,7 +53,7 @@ export async function autocomplete(interaction: AutocompleteInteraction) {
   }
 }
 
-export async function execute(interaction: CommandInteraction): Promise<void> {
+export async function execute(interaction: ChatInputCommandInteraction): Promise<void> {
   const { options } = interaction;
   const accountName = options.get('account')?.value as string;
   const password = options.get('password')?.value as string;

@@ -1,4 +1,4 @@
-import { CommandInteraction } from 'discord.js';
+import { ChatInputCommandInteraction } from 'discord.js';
 import _ from 'lodash';
 import {
   classMustExist,
@@ -11,7 +11,7 @@ import {
 
 export const data = await declareData('main');
 
-export const execute = async (interaction: CommandInteraction) => {
+export const execute = async (interaction: ChatInputCommandInteraction) => {
   const { options } = interaction;
   const name = _.capitalize(options.get('name')?.value as string);
   const discordId = interaction.user.id;

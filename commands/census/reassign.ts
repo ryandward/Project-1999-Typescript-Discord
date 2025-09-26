@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
-import { AutocompleteInteraction, CommandInteraction, EmbedBuilder } from 'discord.js';
+import { AutocompleteInteraction, ChatInputCommandInteraction, EmbedBuilder } from 'discord.js';
 import _ from 'lodash';
 import { FindManyOptions, ILike } from 'typeorm';
 import { AppDataSource } from '../../app_data.js';
@@ -90,7 +90,7 @@ export async function autocomplete(interaction: AutocompleteInteraction) {
   }
 }
 
-export const execute = async (interaction: CommandInteraction) => {
+export const execute = async (interaction: ChatInputCommandInteraction) => {
   try {
     const member = await interaction.guild?.members.fetch(interaction.user.id);
     if (!member || !member.permissions.has([permissions])) {

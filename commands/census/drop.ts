@@ -1,4 +1,8 @@
-import { AutocompleteInteraction, CommandInteraction, SlashCommandBuilder } from 'discord.js';
+import {
+  AutocompleteInteraction,
+  ChatInputCommandInteraction,
+  SlashCommandBuilder,
+} from 'discord.js';
 import _ from 'lodash';
 import { FindManyOptions, ILike } from 'typeorm';
 import { AppDataSource } from '../../app_data.js';
@@ -39,7 +43,7 @@ export async function autocomplete(interaction: AutocompleteInteraction) {
   }
 }
 
-export const execute = async (interaction: CommandInteraction) => {
+export const execute = async (interaction: ChatInputCommandInteraction) => {
   try {
     const { options } = interaction;
     const name = _.capitalize(options.get('name')?.value as string);

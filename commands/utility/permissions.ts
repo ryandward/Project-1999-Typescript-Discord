@@ -1,5 +1,5 @@
 import {
-  CommandInteraction,
+  ChatInputCommandInteraction,
   CommandInteractionOptionResolver,
   EmbedBuilder,
   SlashCommandBuilder,
@@ -12,7 +12,7 @@ export const data = new SlashCommandBuilder()
     option.setName('user').setDescription('The user to check permissions for').setRequired(true),
   );
 
-export const execute = async (interaction: CommandInteraction) => {
+export const execute = async (interaction: ChatInputCommandInteraction) => {
   const user = (interaction.options as CommandInteractionOptionResolver).getUser('user');
   const permissions = user
     ? interaction.guild?.members.resolve(user.id)?.permissions.toArray()

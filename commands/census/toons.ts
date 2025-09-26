@@ -1,6 +1,6 @@
 import {
   AutocompleteInteraction,
-  CommandInteraction,
+  ChatInputCommandInteraction,
   EmbedBuilder,
   SlashCommandBuilder,
 } from 'discord.js';
@@ -45,7 +45,7 @@ export async function autocomplete(interaction: AutocompleteInteraction) {
   }
 }
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
   try {
     const { options } = interaction;
 

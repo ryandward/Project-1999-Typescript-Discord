@@ -3,7 +3,7 @@ import {
   AutocompleteInteraction,
   ButtonBuilder,
   ButtonStyle,
-  CommandInteraction,
+  ChatInputCommandInteraction,
   EmbedBuilder,
   GuildMember,
   SlashCommandBuilder,
@@ -56,7 +56,7 @@ export async function autocomplete(interaction: AutocompleteInteraction) {
   }
 }
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
   try {
     const { options } = interaction;
 

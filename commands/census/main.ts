@@ -24,7 +24,7 @@ export const execute = async (interaction: CommandInteraction) => {
     await levelMustBeValid(level);
     await classMustExist(characterClass);
     const newUserResult = await insertUser(discordId);
-    const newToonResult = await declare(discordId, 'Bot', name, level, characterClass);
+    const newToonResult = await declare(discordId, 'Main', name, level, characterClass);
     if (newUserResult) {
       response = newToonResult + '\n' + newUserResult;
     }

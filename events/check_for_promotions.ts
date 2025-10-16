@@ -27,7 +27,9 @@ export async function checkForPromotions() {
   for (const user of users) {
     const timeSinceJoined = new Date().getTime() - user.DateJoined.getTime();
     const daysSinceJoined = Math.floor(timeSinceJoined / (1000 * 60 * 60 * 24));
-    const member = await client.guilds.cache.get(guildId)?.members.fetch(user.DiscordId);
+    // Force fresh fetch from Discord API, bypassing all caches
+    const guild = await client.guilds.fetch(guildId);
+    const member = await guild.members.fetch({ user: user.DiscordId, force: true });
     if (member?.roles.cache.some((role: { name: string }) => role.name === 'Probationary Member')) {
       client.channels.fetch('884164383498965042').then(channel => {
         if (channel && channel.type === ChannelType.GuildText) {

@@ -5,7 +5,6 @@ import {
   ButtonStyle,
   ChatInputCommandInteraction,
   EmbedBuilder,
-  GuildMember,
   SlashCommandBuilder,
   TextChannel,
 } from 'discord.js';
@@ -143,7 +142,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
               content:
                 '<@&875884412259143711>' +
                 '\n' +
-                `Request for **${itemName}** by ${(interaction.member as GuildMember).displayName}`,
+                `Request for **${itemName}** by <@${interaction.user.id}>`,
               embeds: [embedBuilder],
             });
           }

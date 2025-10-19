@@ -6,11 +6,13 @@ import {
   ChatInputCommandInteraction,
   EmbedBuilder,
   SlashCommandBuilder,
+  StringSelectMenuBuilder,
   TextChannel,
 } from 'discord.js';
 import _ from 'lodash';
 import { AppDataSource } from '../../app_data.js';
 import { Bank } from '../../entities/Bank.js';
+import { Census } from '../../entities/Census.js';
 import { formatField } from './item_functions.js';
 
 export const data = new SlashCommandBuilder()
@@ -124,7 +126,11 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 
     await interaction.reply({ embeds: [embedBuilder], components: [row] });
 
-    const filter = (i: { customId: string }) => i.customId === 'request' || i.customId === 'cancel';
+    let selectedToon: string | null = null;
+
+    const filter = (i: { customId: string; user: { id: string } }) =>
+      (i.customId === 'request' || i.customId === 'cancel' || i.customId === 'toon_select') &&
+      i.user.id === interaction.user.id;
 
     try {
       const collected = await (interaction.channel as TextChannel)?.awaitMessageComponent({
@@ -134,19 +140,71 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 
       if (collected) {
         if (collected.customId === 'request') {
-          await collected.update({ content: 'Requesting item...', components: [] });
-          const requestChannel = interaction.client.channels.cache.get('1213309735886000159');
-          if (requestChannel && interaction.member) {
-            // Send the request with the original embeds to the request channel
-            await (requestChannel as TextChannel).send({
+          // Fetch user's toons
+          const userToons = await AppDataSource.manager.find(Census, {
+            where: { DiscordId: interaction.user.id, Status: 'Main' },
+          });
+
+          const userAlts = await AppDataSource.manager.find(Census, {
+            where: { DiscordId: interaction.user.id, Status: 'Alt' },
+          });
+
+          const allToons = [...userToons, ...userAlts];
+
+          if (allToons.length === 0) {
+            await collected.update({
               content:
-                '<@&875884412259143711>' +
-                '\n' +
-                `Request for **${itemName}** by <@${interaction.user.id}>`,
-              embeds: [embedBuilder],
+                'You have no registered toons. Please use `/main` to register a character first.',
+              components: [],
             });
+            return;
           }
-          await interaction.deleteReply();
+
+          // Create toon select menu
+          const toonSelectMenu = new StringSelectMenuBuilder()
+            .setCustomId('toon_select')
+            .setPlaceholder('Select which character needs this item')
+            .addOptions(
+              allToons
+                .sort((a, b) => a.Name.localeCompare(b.Name))
+                .map(toon => ({
+                  label: `${_.capitalize(toon.Name)} (${toon.CharacterClass}, ${toon.Level})`,
+                  value: toon.Name,
+                })),
+            );
+
+          const toonSelectRow = new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(
+            toonSelectMenu,
+          );
+
+          await collected.update({
+            content: 'Select which character you are requesting this item for:',
+            components: [toonSelectRow],
+          });
+
+          // Wait for toon selection
+          const toonCollected = await (interaction.channel as TextChannel)?.awaitMessageComponent({
+            filter,
+            time: 60000,
+          });
+
+          if (toonCollected && toonCollected.isStringSelectMenu()) {
+            selectedToon = toonCollected.values[0];
+            await toonCollected.update({ content: 'Submitting request...', components: [] });
+
+            const requestChannel = interaction.client.channels.cache.get('1213309735886000159');
+            if (requestChannel) {
+              // Send the request with the toon name
+              await (requestChannel as TextChannel).send({
+                content:
+                  '<@&875884412259143711>' +
+                  '\n' +
+                  `Request for **${itemName}** by <@${interaction.user.id}> for their character **${_.capitalize(selectedToon)}**`,
+                embeds: [embedBuilder],
+              });
+            }
+            await interaction.deleteReply();
+          }
         }
         else if (collected.customId === 'cancel') {
           await interaction.deleteReply();

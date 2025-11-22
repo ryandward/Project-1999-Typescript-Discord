@@ -129,6 +129,11 @@ export async function execute(interaction: ChatInputCommandInteraction): Promise
       )
       .setTimestamp();
 
+    // Add notes field if notes exist
+    if (sharedAccount.Notes) {
+      embed.addFields({ name: ':memo: Notes', value: sharedAccount.Notes, inline: false });
+    }
+
     // Reply with the embed
     await interaction.reply({ embeds: [embed], ephemeral: true });
     await interaction.followUp({

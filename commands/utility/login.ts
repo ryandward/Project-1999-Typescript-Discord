@@ -166,6 +166,11 @@ export async function execute(interaction: ChatInputCommandInteraction): Promise
           },
         )
         .setTimestamp();
+
+      // Add notes field if notes exist
+      if (accountInfo.Notes) {
+        embed.addFields({ name: ':memo: Notes', value: accountInfo.Notes, inline: false });
+      }
       // Reply with the embed
       await interaction.reply({ embeds: [embed], ephemeral: true });
 

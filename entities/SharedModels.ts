@@ -25,9 +25,6 @@ export class SharedAccounts {
   @Column('character varying', { name: 'role', length: 50 })
   Role: string;
 
-  @Column('text', { name: 'notes', nullable: true })
-  Notes: string | null;
-
   @OneToMany(() => SharedToons, toon => toon.Account)
   SharedToons: SharedToons[];
 }
@@ -42,6 +39,9 @@ export class SharedToons {
 
   @Column('character varying', { name: 'name', unique: true, length: 255 })
   Name: string;
+
+  @Column('text', { name: 'notes', nullable: true })
+  Notes: string | null;
 
   @ManyToOne(() => SharedAccounts, accounts => accounts.SharedToons)
   @JoinColumn([{ name: 'account', referencedColumnName: 'Account' }])

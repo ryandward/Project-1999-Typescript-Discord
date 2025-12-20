@@ -90,8 +90,15 @@ export async function execute(interaction: ChatInputCommandInteraction): Promise
     }
 
     const censusToons = await AppDataSource.manager.find(Census, whereClause);
-    const sharedToonNames = (await AppDataSource.manager.find(SharedToons)).map(toon => toon.Name);
+    const sharedToons = await AppDataSource.manager.find(SharedToons);
+    const sharedToonNames = sharedToons.map(toon => toon.Name);
     const filteredToons = censusToons.filter(toon => sharedToonNames.includes(toon.Name));
+
+    // Create a map of toon names to their notes
+    const notesMap = new Map<string, string | null>();
+    sharedToons.forEach(toon => {
+      notesMap.set(toon.Name, toon.Notes);
+    });
 
     if (filteredToons.length === 0) {
       await interaction.reply({ content: 'No matching bots found.', ephemeral: true });
@@ -133,9 +140,37 @@ export async function execute(interaction: ChatInputCommandInteraction): Promise
           return a.CharacterClass.localeCompare(b.CharacterClass);
         });
 
-        const sortedToonNames = formatField(sortedToons.map(toon => _.capitalize(toon.Name)));
-        const sortedToonClasses = formatField(sortedToons.map(toon => toon.CharacterClass));
-        const sortedToonLevels = formatField(sortedToons.map(toon => toon.Level.toString()));
+        // Format names with notes underneath if they exist
+        const sortedToonNames = formatField(
+          sortedToons.map(toon => {
+            const name = _.capitalize(toon.Name);
+            const note = notesMap.get(toon.Name);
+            if (note) {
+              return `${name}\n┗ *${note}*`;
+            }
+            return name;
+          }),
+        );
+        const sortedToonClasses = formatField(
+          sortedToons.map(toon => {
+            const note = notesMap.get(toon.Name);
+            // Add blank line to align with notes in name column
+            if (note) {
+              return `${toon.CharacterClass}\n\u200b`;
+            }
+            return toon.CharacterClass;
+          }),
+        );
+        const sortedToonLevels = formatField(
+          sortedToons.map(toon => {
+            const note = notesMap.get(toon.Name);
+            // Add blank line to align with notes in name column
+            if (note) {
+              return `${toon.Level.toString()}\n\u200b`;
+            }
+            return toon.Level.toString();
+          }),
+        );
 
         return currentEmbed.addFields(
           {

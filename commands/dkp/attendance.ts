@@ -30,19 +30,22 @@ export const data = new SlashCommandBuilder()
 
 export async function autocomplete(interaction: AutocompleteInteraction) {
   try {
-    const focusedValue = interaction.options.getFocused();
+    const focusedOption = interaction.options.getFocused(true);
+    if (!focusedOption) return;
 
-    const raids = await AppDataSource.manager.find(Raids, {
-      where: { Raid: ILike(`%${focusedValue}%`) },
-      take: 25,
-    });
+    if (focusedOption.name === 'raid') {
+      const raids = await AppDataSource.manager.find(Raids, {
+        where: { Raid: ILike(`%${focusedOption.value}%`) },
+        take: 25,
+      });
 
-    return await interaction.respond(
-      raids.map(raid => ({
-        name: `${raid.Raid} (${raid.Modifier} DKP)`,
-        value: raid.Raid,
-      })),
-    );
+      return await interaction.respond(
+        raids.map(raid => ({
+          name: `${raid.Raid} (${raid.Modifier} DKP)`,
+          value: String(raid.Raid),
+        })),
+      );
+    }
   }
   catch (error) {
     console.error('Error in attendance autocomplete:', error);

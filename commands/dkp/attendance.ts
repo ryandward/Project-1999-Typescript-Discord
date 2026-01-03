@@ -37,7 +37,7 @@ export async function autocomplete(interaction: AutocompleteInteraction) {
       take: 25,
     });
 
-    await interaction.respond(
+    return await interaction.respond(
       raids.map(raid => ({
         name: `${raid.Raid} (${raid.Modifier} DKP)`,
         value: raid.Raid,

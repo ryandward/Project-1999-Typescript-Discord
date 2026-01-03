@@ -14,8 +14,8 @@ import { Dkp } from '../../entities/Dkp.js';
 import { Raids } from '../../entities/Raids.js';
 
 export const data = new SlashCommandBuilder()
-  .setName('attendance')
-  .setDescription('Record attendance from /who logs')
+  .setName('logs')
+  .setDescription('Record attendance from /who logs (alias for /attendance)')
   .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles)
   .addStringOption(option =>
     option

@@ -1,9 +1,14 @@
 import {
+  ActionRowBuilder,
   AutocompleteInteraction,
   ChatInputCommandInteraction,
   EmbedBuilder,
+  ModalBuilder,
+  ModalSubmitInteraction,
   PermissionFlagsBits,
   SlashCommandBuilder,
+  TextInputBuilder,
+  TextInputStyle,
 } from 'discord.js';
 import { ILike } from 'typeorm';
 import { AppDataSource } from '../../app_data.js';
@@ -23,9 +28,6 @@ export const data = new SlashCommandBuilder()
       .setDescription('Raid name or DKP modifier value')
       .setRequired(true)
       .setAutocomplete(true),
-  )
-  .addStringOption(option =>
-    option.setName('logs').setDescription('Paste your /who output here').setRequired(true),
   );
 
 export async function autocomplete(interaction: AutocompleteInteraction) {
@@ -50,6 +52,31 @@ export async function autocomplete(interaction: AutocompleteInteraction) {
   catch (error) {
     console.error('Error in attendance autocomplete:', error);
   }
+}
+
+// Store selected raid temporarily for modal submission
+const pendingRaids = new Map<string, string>();
+
+export async function execute(interaction: ChatInputCommandInteraction) {
+  const raidName = interaction.options.getString('raid', true);
+
+  // Store the raid selection for when modal is submitted
+  pendingRaids.set(interaction.user.id, raidName);
+
+  // Create modal for pasting logs
+  const modal = new ModalBuilder().setCustomId('attendance_modal').setTitle('Paste /who Logs');
+
+  const logsInput = new TextInputBuilder()
+    .setCustomId('logs_input')
+    .setLabel('Paste your /who output here')
+    .setStyle(TextInputStyle.Paragraph)
+    .setPlaceholder('[Wed Jul 03 20:16:36 2024] [60 Warlock] Azrosaurus (Iksar) <Ex Astra>')
+    .setRequired(true);
+
+  const actionRow = new ActionRowBuilder<TextInputBuilder>().addComponents(logsInput);
+  modal.addComponents(actionRow);
+
+  await interaction.showModal(modal);
 }
 
 interface ParsedPlayer {
@@ -139,12 +166,20 @@ function parseWhoLogs(logs: string): ParsedPlayer[] {
   return players;
 }
 
-export async function execute(interaction: ChatInputCommandInteraction) {
+export async function handleModal(interaction: ModalSubmitInteraction) {
   await interaction.deferReply();
 
   try {
-    const raidName = interaction.options.getString('raid', true);
-    const logs = interaction.options.getString('logs', true);
+    const logs = interaction.fields.getTextInputValue('logs_input');
+    const raidName = pendingRaids.get(interaction.user.id);
+
+    // Clean up
+    pendingRaids.delete(interaction.user.id);
+
+    if (!raidName) {
+      await interaction.editReply('Error: No raid selected. Please run /attendance again.');
+      return;
+    }
 
     // Get raid modifier
     let modifier: number;

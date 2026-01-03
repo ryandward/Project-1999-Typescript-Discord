@@ -1,4 +1,10 @@
-import { AutocompleteInteraction, CommandInteraction, Events, Interaction } from 'discord.js';
+import {
+  AutocompleteInteraction,
+  CommandInteraction,
+  Events,
+  Interaction,
+  ModalSubmitInteraction,
+} from 'discord.js';
 import { TSClient } from '../types';
 
 export const name = Events.InteractionCreate;
@@ -33,6 +39,22 @@ export async function execute(interaction: Interaction) {
     }
     catch (error) {
       console.error(error);
+    }
+  }
+  else if (interaction instanceof ModalSubmitInteraction) {
+    // Handle modal submissions - customId format: "commandName_modal"
+    const customId = interaction.customId;
+
+    if (customId === 'attendance_modal') {
+      const command = (interaction.client as TSClient).commands.get('attendance');
+      if (command && command.handleModal) {
+        try {
+          await command.handleModal(interaction);
+        }
+        catch (error) {
+          console.error('Error handling attendance modal:', error);
+        }
+      }
     }
   }
 }

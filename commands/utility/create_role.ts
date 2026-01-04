@@ -11,7 +11,7 @@ import { AppDataSource } from '../../app_data.js';
 import { SelfRoles } from '../../entities/SelfRoles.js';
 
 export const data = new SlashCommandBuilder()
-  .setName('roles')
+  .setName('create_role')
   .setDescription('Manage self-assignable roles')
   .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles)
   .addSubcommand(subcommand =>

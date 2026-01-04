@@ -1,15 +1,17 @@
 import {
+  AutocompleteInteraction,
   ChatInputCommandInteraction,
   ColorResolvable,
   EmbedBuilder,
   PermissionFlagsBits,
   SlashCommandBuilder,
 } from 'discord.js';
+import { ILike } from 'typeorm';
 import { AppDataSource } from '../../app_data.js';
 import { SelfRoles } from '../../entities/SelfRoles.js';
 
 export const data = new SlashCommandBuilder()
-  .setName('create_role')
+  .setName('roles')
   .setDescription('Manage self-assignable roles')
   .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles)
   .addSubcommand(subcommand =>
@@ -45,13 +47,37 @@ export const data = new SlashCommandBuilder()
     subcommand
       .setName('remove')
       .setDescription('Delete a self-assignable role')
-      .addRoleOption(option =>
-        option.setName('role').setDescription('The role to delete').setRequired(true),
+      .addStringOption(option =>
+        option.setName('role').setDescription('The role to delete').setRequired(true).setAutocomplete(true),
       ),
   )
   .addSubcommand(subcommand =>
     subcommand.setName('list').setDescription('List all self-assignable roles'),
   );
+
+export async function autocomplete(interaction: AutocompleteInteraction) {
+  try {
+    const focusedOption = interaction.options.getFocused(true);
+    if (!focusedOption) return;
+
+    if (focusedOption.name === 'role') {
+      const roles = await AppDataSource.manager.find(SelfRoles, {
+        where: { RoleName: ILike(`%${focusedOption.value}%`) },
+        take: 25,
+      });
+
+      return await interaction.respond(
+        roles.map(role => ({
+          name: role.Description ? `${role.RoleName} - ${role.Description}` : role.RoleName,
+          value: role.RoleId,
+        })),
+      );
+    }
+  }
+  catch (error) {
+    console.error('Error in create_role autocomplete:', error);
+  }
+}
 
 export async function execute(interaction: ChatInputCommandInteraction) {
   const subcommand = interaction.options.getSubcommand();
@@ -118,16 +144,16 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     }
   }
   else if (subcommand === 'remove') {
-    const role = interaction.options.getRole('role', true);
+    const roleId = interaction.options.getString('role', true);
 
     // Check if it's a self-assignable role
     const selfRole = await AppDataSource.manager.findOne(SelfRoles, {
-      where: { RoleId: role.id },
+      where: { RoleId: roleId },
     });
 
     if (!selfRole) {
       await interaction.reply({
-        content: `**${role.name}** is not a self-assignable role.`,
+        content: 'That role is not a self-assignable role.',
         ephemeral: true,
       });
       return;
@@ -135,16 +161,16 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 
     try {
       // Delete from database
-      await AppDataSource.manager.delete(SelfRoles, { RoleId: role.id });
+      await AppDataSource.manager.delete(SelfRoles, { RoleId: roleId });
 
       // Delete the Discord role
-      const guildRole = interaction.guild.roles.cache.get(role.id);
+      const guildRole = interaction.guild.roles.cache.get(roleId);
       if (guildRole) {
         await guildRole.delete(`Self-assignable role deleted by ${interaction.user.tag}`);
       }
 
       await interaction.reply({
-        content: `✅ Deleted self-assignable role **${role.name}**.`,
+        content: `✅ Deleted self-assignable role **${selfRole.RoleName}**.`,
       });
     }
     catch (error) {

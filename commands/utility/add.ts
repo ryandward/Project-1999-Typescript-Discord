@@ -73,8 +73,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   try {
     await member.roles.add(roleId);
     await interaction.reply({
-      content: `✅ Added **${selfRole.RoleName}** to your roles.`,
-      ephemeral: true,
+      content: `✅ ${interaction.user} added <@&${roleId}> to their roles.`,
     });
   }
   catch (error) {

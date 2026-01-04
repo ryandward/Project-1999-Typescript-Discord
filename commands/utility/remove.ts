@@ -26,7 +26,7 @@ export async function autocomplete(interaction: AutocompleteInteraction) {
 
     if (focusedOption.name === 'role') {
       const member = interaction.member as GuildMember;
-      
+
       // Only show roles the user currently has that are self-assignable
       const roles = await AppDataSource.manager.find(SelfRoles, {
         where: { RoleName: ILike(`%${focusedOption.value}%`) },
@@ -53,7 +53,10 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   const member = interaction.member as GuildMember;
 
   if (!interaction.guild) {
-    await interaction.reply({ content: 'This command can only be used in a server.', ephemeral: true });
+    await interaction.reply({
+      content: 'This command can only be used in a server.',
+      ephemeral: true,
+    });
     return;
   }
 
@@ -69,16 +72,24 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 
   // Check if user has the role
   if (!member.roles.cache.has(roleId)) {
-    await interaction.reply({ content: `You don't have the **${selfRole.RoleName}** role.`, ephemeral: true });
+    await interaction.reply({
+      content: `You don't have the **${selfRole.RoleName}** role.`,
+      ephemeral: true,
+    });
     return;
   }
 
   try {
     await member.roles.remove(roleId);
-    await interaction.reply({ content: `✅ Removed **${selfRole.RoleName}** from your roles.`, ephemeral: true });
+    await interaction.reply({
+      content: `✅ ${interaction.user} removed <@&${roleId}> from their roles.`,
+    });
   }
   catch (error) {
     console.error('Error removing role:', error);
-    await interaction.reply({ content: 'Failed to remove role. The bot may not have permission.', ephemeral: true });
+    await interaction.reply({
+      content: 'Failed to remove role. The bot may not have permission.',
+      ephemeral: true,
+    });
   }
 }

@@ -1,5 +1,6 @@
 import {
   ChatInputCommandInteraction,
+  ColorResolvable,
   EmbedBuilder,
   PermissionFlagsBits,
   SlashCommandBuilder,
@@ -20,6 +21,24 @@ export const data = new SlashCommandBuilder()
       )
       .addStringOption(option =>
         option.setName('description').setDescription('Description for this role').setRequired(false),
+      )
+      .addStringOption(option =>
+        option
+          .setName('color')
+          .setDescription('Color for the role')
+          .setRequired(false)
+          .addChoices(
+            { name: '🔴 Red', value: '#E74C3C' },
+            { name: '🟠 Orange', value: '#E67E22' },
+            { name: '🟡 Yellow', value: '#F1C40F' },
+            { name: '🟢 Green', value: '#2ECC71' },
+            { name: '🔵 Blue', value: '#3498DB' },
+            { name: '🟣 Purple', value: '#9B59B6' },
+            { name: '💗 Pink', value: '#E91E63' },
+            { name: '🩵 Teal', value: '#1ABC9C' },
+            { name: '⚪ White', value: '#FFFFFF' },
+            { name: '⬛ Dark Grey', value: '#607D8B' },
+          ),
       ),
   )
   .addSubcommand(subcommand =>
@@ -48,6 +67,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (subcommand === 'add') {
     const name = interaction.options.getString('name', true);
     const description = interaction.options.getString('description');
+    const colorInput = interaction.options.getString('color');
 
     // Check if role with this name already exists
     const existingRole = interaction.guild.roles.cache.find(
@@ -65,6 +85,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
       // Create the Discord role with no permissions, at the bottom
       const role = await interaction.guild.roles.create({
         name: name,
+        color: (colorInput as ColorResolvable) || undefined,
         permissions: [],
         reason: `Self-assignable role created by ${interaction.user.tag}`,
       });
@@ -76,10 +97,17 @@ export async function execute(interaction: ChatInputCommandInteraction) {
       selfRole.Description = description;
 
       await AppDataSource.manager.save(selfRole);
-      await interaction.reply({
-        content: `✅ Created self-assignable role **${role.name}**. Users can now use \`/add\` to get it.`,
-        ephemeral: true,
-      });
+
+      const embed = new EmbedBuilder()
+        .setTitle('✅ Self-Assignable Role Created')
+        .setColor(role.color || 'Green')
+        .setDescription(`Created role ${role}\n\nUsers can now use \`/add\` to get this role.`)
+        .addFields({ name: 'Created by', value: `${interaction.user}`, inline: true });
+      if (description) {
+        embed.addFields({ name: 'Description', value: description, inline: true });
+      }
+
+      await interaction.reply({ embeds: [embed] });
     }
     catch (error) {
       console.error('Error creating role:', error);
@@ -117,7 +145,6 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 
       await interaction.reply({
         content: `✅ Deleted self-assignable role **${role.name}**.`,
-        ephemeral: true,
       });
     }
     catch (error) {
@@ -148,6 +175,6 @@ export async function execute(interaction: ChatInputCommandInteraction) {
           .join('\n'),
       );
 
-    await interaction.reply({ embeds: [embed], ephemeral: true });
+    await interaction.reply({ embeds: [embed] });
   }
 }

@@ -1,4 +1,10 @@
-import { ButtonInteraction, CommandInteraction, EmbedBuilder, GuildMember } from 'discord.js';
+import {
+  ButtonInteraction,
+  CommandInteraction,
+  EmbedBuilder,
+  GuildMember,
+  MessageFlags,
+} from 'discord.js';
 import { AppDataSource } from '../../app_data.js';
 import { SharedAccounts, SharedToons } from '../../entities/SharedModels.js';
 // import { SharedToons } from '../../entities/SharedToons.js';
@@ -97,7 +103,7 @@ export async function loginLogic(
       )
       .setTimestamp();
 
-    await interaction.reply({ embeds: [embed], ephemeral: true });
+    await interaction.reply({ embeds: [embed], flags: MessageFlags.Ephemeral });
     await interaction.followUp({
       content: `:information_source: <@${member.id}> accessed account information for \`${toonName}\`.`,
       ephemeral: false,

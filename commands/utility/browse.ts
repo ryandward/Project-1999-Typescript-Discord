@@ -7,6 +7,7 @@ import {
   ChatInputCommandInteraction,
   EmbedBuilder,
   GuildMember,
+  MessageFlags,
   StringSelectMenuBuilder,
 } from 'discord.js';
 import _ from 'lodash';
@@ -101,7 +102,10 @@ export async function execute(interaction: ChatInputCommandInteraction): Promise
     });
 
     if (filteredToons.length === 0) {
-      await interaction.reply({ content: 'No matching bots found.', ephemeral: true });
+      await interaction.reply({
+        content: 'No matching bots found.',
+        flags: MessageFlags.Ephemeral,
+      });
       return;
     }
 
@@ -224,7 +228,10 @@ export async function execute(interaction: ChatInputCommandInteraction): Promise
     collector.on('collect', async i => {
       // Check if the interacting user is the same as the original user
       if (i.user.id !== interaction.user.id) {
-        await i.reply({ content: 'You are not authorized to use this button.', ephemeral: true });
+        await i.reply({
+          content: 'You are not authorized to use this button.',
+          flags: MessageFlags.Ephemeral,
+        });
         return;
       }
 
@@ -234,7 +241,10 @@ export async function execute(interaction: ChatInputCommandInteraction): Promise
       }
       if (i.isButton() && i.customId === 'login') {
         if (!selectedToon) {
-          await i.reply({ content: 'Please select a character to log in to.', ephemeral: true });
+          await i.reply({
+            content: 'Please select a character to log in to.',
+            flags: MessageFlags.Ephemeral,
+          });
           return;
         }
         try {
@@ -242,13 +252,13 @@ export async function execute(interaction: ChatInputCommandInteraction): Promise
         }
         catch (error) {
           if (error instanceof Error) {
-            await i.reply({ content: error.message, ephemeral: true });
+            await i.reply({ content: error.message, flags: MessageFlags.Ephemeral });
           }
           else {
             console.error('An unexpected error occured in loginLogic:', error);
             await i.reply({
               content: 'An unexpected error occured in loginLogic.',
-              ephemeral: true,
+              flags: MessageFlags.Ephemeral,
             });
           }
           return;
@@ -267,11 +277,14 @@ export async function execute(interaction: ChatInputCommandInteraction): Promise
   }
   catch (error) {
     if (error instanceof Error) {
-      await interaction.reply({ content: error.message, ephemeral: true });
+      await interaction.reply({ content: error.message, flags: MessageFlags.Ephemeral });
     }
     else {
       console.error('An unexpected error occurred:', error);
-      await interaction.reply({ content: 'An unexpected error occurred.', ephemeral: true });
+      await interaction.reply({
+        content: 'An unexpected error occurred.',
+        flags: MessageFlags.Ephemeral,
+      });
     }
   }
 }

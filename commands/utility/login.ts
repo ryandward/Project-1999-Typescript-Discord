@@ -3,6 +3,7 @@ import {
   ChatInputCommandInteraction,
   EmbedBuilder,
   GuildMember,
+  MessageFlags,
   SlashCommandBuilder,
 } from 'discord.js';
 import _ from 'lodash';
@@ -172,7 +173,7 @@ export async function execute(interaction: ChatInputCommandInteraction): Promise
         embed.addFields({ name: ':memo: Notes', value: sharedToon.Notes, inline: false });
       }
       // Reply with the embed
-      await interaction.reply({ embeds: [embed], ephemeral: true });
+      await interaction.reply({ embeds: [embed], flags: MessageFlags.Ephemeral });
 
       await interaction.followUp({
         content: `:information_source: <@${member.id}> accessed account information for \`${toonName}\`.`,
@@ -187,7 +188,7 @@ export async function execute(interaction: ChatInputCommandInteraction): Promise
   }
   catch (error) {
     if (error instanceof Error) {
-      await interaction.reply({ content: error.message, ephemeral: true });
+      await interaction.reply({ content: error.message, flags: MessageFlags.Ephemeral });
     }
   }
 }

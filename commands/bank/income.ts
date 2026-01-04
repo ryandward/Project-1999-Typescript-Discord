@@ -1,4 +1,9 @@
-import { ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
+import {
+  ChatInputCommandInteraction,
+  EmbedBuilder,
+  MessageFlags,
+  SlashCommandBuilder,
+} from 'discord.js';
 import { AppDataSource } from '../../app_data.js';
 import { Plat } from '../../entities/Plat.js';
 
@@ -52,7 +57,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     console.error('Error in income:', error);
     await interaction.reply({
       content: 'An error occurred while processing your command.',
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     });
   }
 }

@@ -2,6 +2,7 @@ import {
   AutocompleteInteraction,
   ChatInputCommandInteraction,
   GuildMember,
+  MessageFlags,
   SlashCommandBuilder,
 } from 'discord.js';
 import { ILike } from 'typeorm';
@@ -55,7 +56,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (!interaction.guild) {
     await interaction.reply({
       content: 'This command can only be used in a server.',
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     });
     return;
   }
@@ -66,7 +67,10 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   });
 
   if (!selfRole) {
-    await interaction.reply({ content: 'That role is not self-assignable.', ephemeral: true });
+    await interaction.reply({
+      content: 'That role is not self-assignable.',
+      flags: MessageFlags.Ephemeral,
+    });
     return;
   }
 
@@ -74,7 +78,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (!member.roles.cache.has(roleId)) {
     await interaction.reply({
       content: `You don't have the **${selfRole.RoleName}** role.`,
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     });
     return;
   }
@@ -89,7 +93,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     console.error('Error removing role:', error);
     await interaction.reply({
       content: 'Failed to remove role. The bot may not have permission.',
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     });
   }
 }

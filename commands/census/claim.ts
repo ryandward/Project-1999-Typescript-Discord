@@ -1,6 +1,7 @@
 import {
   AutocompleteInteraction,
   ChatInputCommandInteraction,
+  MessageFlags,
   SlashCommandBuilder,
 } from 'discord.js';
 import _ from 'lodash';
@@ -83,7 +84,7 @@ export const execute = async (interaction: ChatInputCommandInteraction) => {
   }
   catch (error) {
     if (error instanceof Error) {
-      return interaction.reply({ content: error.message, ephemeral: true });
+      return interaction.reply({ content: error.message, flags: MessageFlags.Ephemeral });
     }
   }
 };

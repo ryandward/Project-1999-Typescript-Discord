@@ -5,6 +5,7 @@ import {
   ButtonStyle,
   ChatInputCommandInteraction,
   EmbedBuilder,
+  MessageFlags,
   SlashCommandBuilder,
   StringSelectMenuBuilder,
   TextChannel,
@@ -71,7 +72,10 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     });
 
     if (itemData.length === 0) {
-      await interaction.reply({ content: 'Item not found in bank.', ephemeral: true });
+      await interaction.reply({
+        content: 'Item not found in bank.',
+        flags: MessageFlags.Ephemeral,
+      });
       return;
     }
 
@@ -210,7 +214,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
           await interaction.deleteReply();
           await interaction.followUp({
             content: `Request for **${itemName}** cancelled.`,
-            ephemeral: true,
+            flags: MessageFlags.Ephemeral,
           });
         }
       }

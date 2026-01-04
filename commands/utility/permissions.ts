@@ -2,6 +2,7 @@ import {
   ChatInputCommandInteraction,
   CommandInteractionOptionResolver,
   EmbedBuilder,
+  MessageFlags,
   SlashCommandBuilder,
 } from 'discord.js';
 
@@ -39,6 +40,6 @@ export const execute = async (interaction: ChatInputCommandInteraction) => {
 
   await interaction.reply({
     embeds: [embed],
-    ephemeral: true,
+    flags: MessageFlags.Ephemeral,
   });
 };

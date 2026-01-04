@@ -2,6 +2,7 @@ import {
   AutocompleteInteraction,
   ChatInputCommandInteraction,
   EmbedBuilder,
+  MessageFlags,
   SlashCommandBuilder,
 } from 'discord.js';
 import _ from 'lodash';
@@ -103,11 +104,11 @@ export async function execute(interaction: ChatInputCommandInteraction) {
       );
     }, embed);
 
-    await interaction.reply({ embeds: [embedBuilder], ephemeral: true });
+    await interaction.reply({ embeds: [embedBuilder], flags: MessageFlags.Ephemeral });
   }
   catch (error) {
     if (error instanceof Error) {
-      return interaction.reply({ content: error.message, ephemeral: true });
+      return interaction.reply({ content: error.message, flags: MessageFlags.Ephemeral });
     }
   }
 }

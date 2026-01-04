@@ -1,10 +1,10 @@
-// commands/utility/listaccounts.ts
 import {
   AttachmentBuilder,
   CommandInteraction,
   EmbedBuilder,
   Guild,
   GuildMember,
+  MessageFlags,
   SlashCommandBuilder,
   User,
 } from 'discord.js';
@@ -29,7 +29,7 @@ export async function execute(interaction: CommandInteraction): Promise<void> {
       const errorEmbed = new EmbedBuilder()
         .setColor(0xff0000)
         .setDescription('You do not have permission to use this command.');
-      await interaction.reply({ embeds: [errorEmbed], ephemeral: true });
+      await interaction.reply({ embeds: [errorEmbed], flags: MessageFlags.Ephemeral });
       return;
     }
 
@@ -55,7 +55,7 @@ export async function execute(interaction: CommandInteraction): Promise<void> {
       const noAccountsEmbed = new EmbedBuilder()
         .setColor(0xff0000)
         .setDescription('No accounts are available for your current roles.');
-      await interaction.reply({ embeds: [noAccountsEmbed], ephemeral: true });
+      await interaction.reply({ embeds: [noAccountsEmbed], flags: MessageFlags.Ephemeral });
       return;
     }
 
@@ -100,7 +100,7 @@ export async function execute(interaction: CommandInteraction): Promise<void> {
       // Confirm that the dm was sent in the channel
       await interaction.reply({
         content: 'I\'ve sent you a DM with the account list.',
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
     }
     catch (dmError) {
@@ -110,7 +110,7 @@ export async function execute(interaction: CommandInteraction): Promise<void> {
         .setDescription(
           'Could not send you a direct message. Please make sure that direct messages are enabled for this server.',
         );
-      await interaction.reply({ embeds: [errorEmbed], ephemeral: true });
+      await interaction.reply({ embeds: [errorEmbed], flags: MessageFlags.Ephemeral });
       return;
     }
     // Follow-up message
@@ -123,6 +123,6 @@ export async function execute(interaction: CommandInteraction): Promise<void> {
     const errorEmbed = new EmbedBuilder()
       .setColor(0xff0000)
       .setDescription('An error occurred while trying to retrieve account information.');
-    await interaction.reply({ embeds: [errorEmbed], ephemeral: true });
+    await interaction.reply({ embeds: [errorEmbed], flags: MessageFlags.Ephemeral });
   }
 }

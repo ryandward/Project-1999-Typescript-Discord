@@ -2,6 +2,7 @@ import {
   AutocompleteInteraction,
   ChatInputCommandInteraction,
   EmbedBuilder,
+  MessageFlags,
   SlashCommandBuilder,
 } from 'discord.js';
 import { FindManyOptions, ILike } from 'typeorm';
@@ -106,7 +107,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
       console.error('Error in execute:', error);
       return interaction.reply({
         content: error.message,
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
     }
   }

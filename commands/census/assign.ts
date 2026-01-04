@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
-import { AutocompleteInteraction, ChatInputCommandInteraction } from 'discord.js';
+import { AutocompleteInteraction, ChatInputCommandInteraction, MessageFlags } from 'discord.js';
 import _ from 'lodash';
 import { FindManyOptions, ILike } from 'typeorm';
 import { AppDataSource } from '../../app_data.js';
@@ -145,7 +145,7 @@ export const execute = async (interaction: ChatInputCommandInteraction) => {
       const timestamp = new Date().toISOString();
       return interaction.reply({
         content: `[${timestamp}] ${error.message}`,
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
     }
   }

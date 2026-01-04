@@ -3,6 +3,7 @@ import {
   AttachmentBuilder,
   CommandInteraction,
   EmbedBuilder,
+  MessageFlags,
   SlashCommandBuilder,
 } from 'discord.js';
 import _ from 'lodash';
@@ -41,7 +42,7 @@ export async function execute(interaction: CommandInteraction) {
       }
 
       if (!itemText) {
-        await interaction.reply({ content: 'Item not found.', ephemeral: true });
+        await interaction.reply({ content: 'Item not found.', flags: MessageFlags.Ephemeral });
         return;
       }
 

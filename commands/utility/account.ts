@@ -3,6 +3,7 @@ import {
   ChatInputCommandInteraction,
   EmbedBuilder,
   GuildMember,
+  MessageFlags,
   SlashCommandBuilder,
 } from 'discord.js';
 import { FindManyOptions, ILike } from 'typeorm';
@@ -63,13 +64,16 @@ export async function execute(interaction: ChatInputCommandInteraction): Promise
   if (!member?.roles.cache.some(memberRole => memberRole.name === 'Officer')) {
     await interaction.reply({
       content: 'You do not have permission to use this command.',
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     });
     return;
   }
 
   if (!accountName) {
-    await interaction.reply({ content: 'Error: Account name must be provided.', ephemeral: true });
+    await interaction.reply({
+      content: 'Error: Account name must be provided.',
+      flags: MessageFlags.Ephemeral,
+    });
     return;
   }
 
@@ -100,7 +104,7 @@ export async function execute(interaction: ChatInputCommandInteraction): Promise
 
       await AppDataSource.manager.save(sharedAccount);
       const response = `Successfully updated ${changes.join(' and ')} for account \`${accountName}\`.`;
-      await interaction.reply({ content: response, ephemeral: true });
+      await interaction.reply({ content: response, flags: MessageFlags.Ephemeral });
       await interaction.followUp({
         content: `:information_source: <@${interaction.user.id}> updated the details for account \`${accountName}\`.`,
       });
@@ -130,14 +134,14 @@ export async function execute(interaction: ChatInputCommandInteraction): Promise
       .setTimestamp();
 
     // Reply with the embed
-    await interaction.reply({ embeds: [embed], ephemeral: true });
+    await interaction.reply({ embeds: [embed], flags: MessageFlags.Ephemeral });
     await interaction.followUp({
       content: `:information_source: <@${interaction.user.id}> accessed the details for account \`${accountName}\`.`,
     });
   }
   catch (error) {
     if (error instanceof Error) {
-      await interaction.reply({ content: error.message, ephemeral: true });
+      await interaction.reply({ content: error.message, flags: MessageFlags.Ephemeral });
     }
   }
 }

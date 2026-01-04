@@ -3,6 +3,7 @@ import {
   ChatInputCommandInteraction,
   ColorResolvable,
   EmbedBuilder,
+  MessageFlags,
   PermissionFlagsBits,
   SlashCommandBuilder,
 } from 'discord.js';
@@ -89,7 +90,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (!interaction.guild) {
     await interaction.reply({
       content: 'This command can only be used in a server.',
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     });
     return;
   }
@@ -106,7 +107,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     if (existingRole) {
       await interaction.reply({
         content: `A role named **${name}** already exists.`,
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
       return;
     }
@@ -143,7 +144,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
       console.error('Error creating role:', error);
       await interaction.reply({
         content: 'Failed to create role. The bot may not have permission.',
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
     }
   }
@@ -158,7 +159,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     if (!selfRole) {
       await interaction.reply({
         content: 'That role is not a self-assignable role.',
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
       return;
     }
@@ -181,7 +182,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
       console.error('Error deleting role:', error);
       await interaction.reply({
         content: 'Failed to delete role. The bot may not have permission.',
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
     }
   }
@@ -189,7 +190,10 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     const roles = await AppDataSource.manager.find(SelfRoles);
 
     if (roles.length === 0) {
-      await interaction.reply({ content: 'No self-assignable roles configured.', ephemeral: true });
+      await interaction.reply({
+        content: 'No self-assignable roles configured.',
+        flags: MessageFlags.Ephemeral,
+      });
       return;
     }
 

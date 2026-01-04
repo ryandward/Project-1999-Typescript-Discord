@@ -1,4 +1,4 @@
-import { ChatInputCommandInteraction } from 'discord.js';
+import { ChatInputCommandInteraction, MessageFlags } from 'discord.js';
 import _ from 'lodash';
 import {
   classMustExist,
@@ -27,12 +27,12 @@ export const execute = async (interaction: ChatInputCommandInteraction) => {
     await interaction.reply(newToonResult);
     return interaction.followUp({
       content: ':warning: Disclaimer: Toons declared as bots can be claimed by other members.',
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     });
   }
   catch (error) {
     if (error instanceof Error) {
-      return interaction.reply({ content: error.message, ephemeral: true });
+      return interaction.reply({ content: error.message, flags: MessageFlags.Ephemeral });
     }
   }
 };

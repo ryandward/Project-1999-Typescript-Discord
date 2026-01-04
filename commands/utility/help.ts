@@ -1,4 +1,4 @@
-import { CommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
+import { CommandInteraction, EmbedBuilder, MessageFlags, SlashCommandBuilder } from 'discord.js';
 import fs from 'fs';
 import _ from 'lodash';
 import path from 'path';
@@ -59,7 +59,7 @@ export const execute = async (interaction: CommandInteraction) => {
 
   await interaction.reply({
     embeds: embeds,
-    ephemeral: true,
+    flags: MessageFlags.Ephemeral,
   });
 
   const followUpEmbed = new EmbedBuilder()
@@ -82,6 +82,6 @@ export const execute = async (interaction: CommandInteraction) => {
 
   await interaction.followUp({
     embeds: [followUpEmbed],
-    ephemeral: true,
+    flags: MessageFlags.Ephemeral,
   });
 };

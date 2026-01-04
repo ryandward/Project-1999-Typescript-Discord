@@ -2,6 +2,7 @@ import {
   AutocompleteInteraction,
   ChatInputCommandInteraction,
   GuildMember,
+  MessageFlags,
   SlashCommandBuilder,
 } from 'discord.js';
 import { FindManyOptions, ILike } from 'typeorm';
@@ -56,7 +57,7 @@ export async function execute(interaction: ChatInputCommandInteraction): Promise
   if (!member?.roles.cache.some(memberRole => memberRole.name === 'Officer')) {
     await interaction.reply({
       content: 'You do not have permission to use this command.',
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     });
     return;
   }
@@ -64,7 +65,7 @@ export async function execute(interaction: ChatInputCommandInteraction): Promise
   if (!toonName) {
     await interaction.reply({
       content: 'Error: Character name must be provided.',
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     });
     return;
   }
@@ -89,7 +90,7 @@ export async function execute(interaction: ChatInputCommandInteraction): Promise
   }
   catch (error) {
     if (error instanceof Error) {
-      await interaction.reply({ content: error.message, ephemeral: true });
+      await interaction.reply({ content: error.message, flags: MessageFlags.Ephemeral });
     }
   }
 }

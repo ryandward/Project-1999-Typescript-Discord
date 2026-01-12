@@ -15,6 +15,8 @@ Key features include:
 - **Census Data**: Maintain real-time character census, including alts and bots, within the guild.
 - **MediaWiki Integration**: Utilize a local clone of the Project 1999 Wiki for comprehensive guild bank management.
 
+> ⚠️ **Note**: The `/wiki` command is currently disabled (`.bak` files) due to lack of functionality. We need to get our own wiki data live again to restore this feature.
+
 ## Technology Stack
 
 - **TypeScript**: Ensures code reliability and maintainability with static typing.

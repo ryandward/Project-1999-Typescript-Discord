@@ -1,60 +1,42 @@
 import {
-  AutocompleteInteraction,
   ChatInputCommandInteraction,
   EmbedBuilder,
   MessageFlags,
   SlashCommandBuilder,
 } from 'discord.js';
 import _ from 'lodash';
-import { FindManyOptions, ILike } from 'typeorm';
-import { AppDataSource } from '../../app_data.js';
 import { ActiveToons } from '../../entities/ActiveToons.js';
 import {
   formatField,
-  returnAllActiveToonsByName,
+  returnAllActiveToonsByDiscordId,
 } from './census_functions.js';
 
 export const data = new SlashCommandBuilder()
-  .setName('toons')
-  .setDescription('Discovers toons related to a character name.')
-  .addStringOption(option =>
-    option.setName('name').setDescription('Name of the toon').setAutocomplete(true).setRequired(true),
+  .setName('whois')
+  .setDescription('Discovers toons related to a Discord user.')
+  .addUserOption(option =>
+    option.setName('user').setDescription('User to search for').setRequired(false),
   );
-
-export async function autocomplete(interaction: AutocompleteInteraction) {
-  try {
-    const focusedOption = interaction.options.getFocused(true);
-
-    if (focusedOption.name === 'name') {
-      const options: FindManyOptions = {
-        where: { Name: ILike(`%${focusedOption.value}%`) },
-        take: 10,
-      };
-
-      const choices = await AppDataSource.manager.find(ActiveToons, options);
-      await interaction.respond(choices.map(choice => ({ name: choice.Name, value: choice.Name })));
-    }
-  }
-  catch (error) {
-    if (error instanceof Error) {
-      console.error('Error in autocomplete:', error);
-    }
-  }
-}
 
 export async function execute(interaction: ChatInputCommandInteraction) {
   try {
     const { options } = interaction;
 
-    const toonsData = await returnAllActiveToonsByName(options.get('name')?.value as string);
+    let discordId = interaction.user.id as string;
+    let toonsData: ActiveToons[] = [];
+
+    if (options.get('user')) {
+      discordId = options.get('user')?.value as string;
+    }
+
+    toonsData = await returnAllActiveToonsByDiscordId(discordId);
 
     if (toonsData.length === 0) {
       throw new Error(
-        ':x: No toons found. Make sure to use autocomplete to find the toon you are looking for.',
+        ':x: No toons found for this user.',
       );
     }
 
-    const discordId = toonsData[0].DiscordId;
     const statusOrder = ['Main', 'Alt', 'Bot', 'Dropped'];
 
     const embed = new EmbedBuilder()

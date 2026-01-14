@@ -205,10 +205,11 @@ export async function returnAllActiveToonsByName(partialName: string) {
       Name: ILike(`%${partialName}%`),
     },
   };
-  const userId = await AppDataSource.manager
-    .findOne(ActiveToons, targetToon)
-    .then(toon => toon.DiscordId);
-  return await returnAllActiveToonsByDiscordId(userId);
+  const toon = await AppDataSource.manager.findOne(ActiveToons, targetToon);
+  if (!toon) {
+    return [];
+  }
+  return await returnAllActiveToonsByDiscordId(toon.DiscordId);
 }
 
 export async function returnAllActiveToonsByDiscordId(userId: string) {

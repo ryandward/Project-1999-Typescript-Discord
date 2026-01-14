@@ -11,6 +11,7 @@ import { AppDataSource } from '../../app_data.js';
 import { ActiveToons } from '../../entities/ActiveToons.js';
 import {
   formatField,
+  returnAllActiveToonsByDiscordId,
   returnAllActiveToonsByName,
 } from './census_functions.js';
 
@@ -18,7 +19,7 @@ export const data = new SlashCommandBuilder()
   .setName('toons')
   .setDescription('Discovers toons related to a character name.')
   .addStringOption(option =>
-    option.setName('name').setDescription('Name of the toon').setAutocomplete(true).setRequired(true),
+    option.setName('name').setDescription('Name of the toon').setAutocomplete(true),
   );
 
 export async function autocomplete(interaction: AutocompleteInteraction) {
@@ -46,15 +47,25 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   try {
     const { options } = interaction;
 
-    const toonsData = await returnAllActiveToonsByName(options.get('name')?.value as string);
+    let discordId = interaction.user.id as string;
+    let toonsData: ActiveToons[] = [];
+
+    const nameOption = options.getString('name');
+    if (nameOption) {
+      toonsData = await returnAllActiveToonsByName(nameOption);
+      if (toonsData.length > 0) {
+        discordId = toonsData[0].DiscordId;
+      }
+    }
+    else {
+      toonsData = await returnAllActiveToonsByDiscordId(discordId);
+    }
 
     if (toonsData.length === 0) {
       throw new Error(
         ':x: No toons found. Make sure to use autocomplete to find the toon you are looking for.',
       );
     }
-
-    const discordId = toonsData[0].DiscordId;
     const statusOrder = ['Main', 'Alt', 'Bot', 'Dropped'];
 
     const embed = new EmbedBuilder()

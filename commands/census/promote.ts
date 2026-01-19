@@ -20,27 +20,44 @@ export const data = new SlashCommandBuilder()
 
 export async function autocomplete(interaction: AutocompleteInteraction) {
   try {
+    console.log('Promote autocomplete triggered');
     const focusedOption = interaction.options.getFocused(true);
-    if (!focusedOption) return;
+    if (!focusedOption) {
+      console.log('No focused option');
+      return;
+    }
     if (focusedOption.name === 'user') {
       const guild = interaction.guild;
-      if (!guild) return;
+      if (!guild) {
+        console.log('No guild found');
+        return;
+      }
       const search = (focusedOption.value as string).toLowerCase();
       const probationaryRole = guild.roles.cache.find(r => r.name === 'Probationary Member');
-      if (!probationaryRole) return;
+      if (!probationaryRole) {
+        console.log(
+          'Probationary Member role not found. Available roles:',
+          guild.roles.cache.map(r => r.name),
+        );
+        return;
+      }
+      console.log('Found probationary role:', probationaryRole.name);
       const members = await guild.members.fetch();
+      console.log('Fetched members:', members.size);
       const filtered = members.filter(
         m =>
           m.roles.cache.has(probationaryRole.id) &&
           (m.displayName.toLowerCase().includes(search) ||
             m.user.username.toLowerCase().includes(search)),
       );
+      console.log('Filtered members:', filtered.size);
 
       const results = filtered.first(25).map(m => ({
         name: `@${m.displayName}`,
         value: m.id,
       }));
 
+      console.log('Responding with results:', results);
       await interaction.respond(results);
     }
   }

@@ -6,8 +6,6 @@ import {
   SlashCommandBuilder,
   TextChannel,
 } from 'discord.js';
-import _ from 'lodash';
-import { returnAllActiveToonsByDiscordId } from './census_functions.js';
 
 export const data = new SlashCommandBuilder()
   .setName('promote')
@@ -38,19 +36,10 @@ export async function autocomplete(interaction: AutocompleteInteraction) {
             m.user.username.toLowerCase().includes(search)),
       );
 
-      // Fetch toons for each filtered member and build results
-      const results = await Promise.all(
-        filtered.first(25).map(async m => {
-          const toons = await returnAllActiveToonsByDiscordId(m.id);
-          const toonNames = toons.map(t => _.capitalize(t.Name)).join(', ');
-          const displayText = toonNames ? `@${m.displayName} - ${toonNames}` : `@${m.displayName}`;
-
-          return {
-            name: displayText.length > 100 ? displayText.slice(0, 97) + '...' : displayText,
-            value: m.id,
-          };
-        }),
-      );
+      const results = filtered.first(25).map(m => ({
+        name: `@${m.displayName}`,
+        value: m.id,
+      }));
 
       await interaction.respond(results);
     }

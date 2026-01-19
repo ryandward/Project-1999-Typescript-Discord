@@ -7,6 +7,8 @@ import {
   TextChannel,
 } from 'discord.js';
 
+export const permissions = ['ManageGuild'];
+
 export const data = new SlashCommandBuilder()
   .setName('promote')
   .setDescription('Promotes a toon\'s owner to member.')

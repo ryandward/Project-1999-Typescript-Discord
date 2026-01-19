@@ -6,10 +6,7 @@ import {
 } from 'discord.js';
 import _ from 'lodash';
 import { ActiveToons } from '../../entities/ActiveToons.js';
-import {
-  formatField,
-  returnAllActiveToonsByDiscordId,
-} from './census_functions.js';
+import { formatField, returnAllActiveToonsByDiscordId } from './census_functions.js';
 
 export const data = new SlashCommandBuilder()
   .setName('whois')
@@ -32,9 +29,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     toonsData = await returnAllActiveToonsByDiscordId(discordId);
 
     if (toonsData.length === 0) {
-      throw new Error(
-        ':x: No toons found for this user.',
-      );
+      throw new Error(':x: No toons found for this user.');
     }
 
     const statusOrder = ['Main', 'Alt', 'Bot', 'Dropped'];

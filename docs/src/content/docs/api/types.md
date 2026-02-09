@@ -9,7 +9,7 @@ title: "types"
 
 ### TSClient
 
-Defined in: [types.ts:34](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/types.ts#L34)
+Defined in: [types.ts:34](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/types.ts#L34)
 
 Extended Discord.js `Client` that carries a [Command](/api/types/#command) collection.
 
@@ -48,7 +48,7 @@ Defined in: node\_modules/discord.js/typings/index.d.ts:1029
 
 > **commands**: `Collection`\<`string`, [`Command`](/api/types/#command)\>
 
-Defined in: [types.ts:36](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/types.ts#L36)
+Defined in: [types.ts:36](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/types.ts#L36)
 
 Map of command name → [Command](/api/types/#command) object, populated at startup.
 
@@ -56,7 +56,7 @@ Map of command name → [Command](/api/types/#command) object, populated at star
 
 ### Command
 
-Defined in: [types.ts:17](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/types.ts#L17)
+Defined in: [types.ts:17](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/types.ts#L17)
 
 Contract that every slash command module must satisfy.
 
@@ -70,7 +70,7 @@ at least `data` and `execute`.
 
 > **data**: `SlashCommandBuilder`
 
-Defined in: [types.ts:19](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/types.ts#L19)
+Defined in: [types.ts:19](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/types.ts#L19)
 
 Slash command definition built with the discord.js `SlashCommandBuilder`.
 
@@ -80,7 +80,7 @@ Slash command definition built with the discord.js `SlashCommandBuilder`.
 
 > `optional` **autocomplete**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [types.ts:23](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/types.ts#L23)
+Defined in: [types.ts:23](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/types.ts#L23)
 
 Handler invoked when Discord requests autocomplete suggestions for this command.
 
@@ -98,7 +98,7 @@ Handler invoked when Discord requests autocomplete suggestions for this command.
 
 > `optional` **execute**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [types.ts:21](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/types.ts#L21)
+Defined in: [types.ts:21](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/types.ts#L21)
 
 Handler invoked when a user runs the slash command.
 
@@ -116,7 +116,7 @@ Handler invoked when a user runs the slash command.
 
 > `optional` **handleModal**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [types.ts:25](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/types.ts#L25)
+Defined in: [types.ts:25](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/types.ts#L25)
 
 Handler invoked when a modal submitted by this command is received.
 

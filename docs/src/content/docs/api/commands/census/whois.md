@@ -16,7 +16,7 @@ character name. Displays the same grouped embed format.
 
 > `const` **data**: `SlashCommandOptionsOnlyBuilder`
 
-Defined in: [commands/census/whois.ts:19](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/census/whois.ts#L19)
+Defined in: [commands/census/whois.ts:19](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/whois.ts#L19)
 
 ## Functions
 
@@ -24,7 +24,7 @@ Defined in: [commands/census/whois.ts:19](https://github.com/ryandward/Project-1
 
 > **execute**(`interaction`): `Promise`\<`InteractionResponse`\<`boolean`\> \| `undefined`\>
 
-Defined in: [commands/census/whois.ts:26](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/census/whois.ts#L26)
+Defined in: [commands/census/whois.ts:26](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/whois.ts#L26)
 
 #### Parameters
 

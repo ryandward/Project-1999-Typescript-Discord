@@ -16,7 +16,7 @@ Enforces business rules: promoting to `"Main"` demotes existing mains to
 
 > `const` **data**: `SlashCommandOptionsOnlyBuilder`
 
-Defined in: [commands/census/change.ts:25](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/census/change.ts#L25)
+Defined in: [commands/census/change.ts:25](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/change.ts#L25)
 
 ## Functions
 
@@ -24,7 +24,7 @@ Defined in: [commands/census/change.ts:25](https://github.com/ryandward/Project-
 
 > **autocomplete**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/census/change.ts:44](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/census/change.ts#L44)
+Defined in: [commands/census/change.ts:44](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/change.ts#L44)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [commands/census/change.ts:44](https://github.com/ryandward/Project-
 
 > **execute**(`interaction`): `Promise`\<`InteractionResponse`\<`boolean`\> \| `undefined`\>
 
-Defined in: [commands/census/change.ts:67](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/census/change.ts#L67)
+Defined in: [commands/census/change.ts:67](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/change.ts#L67)
 
 #### Parameters
 

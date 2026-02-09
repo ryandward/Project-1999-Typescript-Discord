@@ -11,7 +11,7 @@ title: "client"
 
 > `const` **client**: [`TSClient`](/api/types/#tsclient)
 
-Defined in: [client.ts:11](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/client.ts#L11)
+Defined in: [client.ts:11](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/client.ts#L11)
 
 Singleton Discord client instance used throughout the application.
 

@@ -20,7 +20,7 @@ Uses interactive select-menu and button collectors.
 
 > `const` **data**: `SlashCommandOptionsOnlyBuilder`
 
-Defined in: [commands/utility/browse.ts:47](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/utility/browse.ts#L47)
+Defined in: [commands/utility/browse.ts:47](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/utility/browse.ts#L47)
 
 ## Functions
 
@@ -28,7 +28,7 @@ Defined in: [commands/utility/browse.ts:47](https://github.com/ryandward/Project
 
 > **autocomplete**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/utility/browse.ts:70](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/utility/browse.ts#L70)
+Defined in: [commands/utility/browse.ts:70](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/utility/browse.ts#L70)
 
 #### Parameters
 
@@ -46,7 +46,7 @@ Defined in: [commands/utility/browse.ts:70](https://github.com/ryandward/Project
 
 > **execute**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/utility/browse.ts:81](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/utility/browse.ts#L81)
+Defined in: [commands/utility/browse.ts:81](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/utility/browse.ts#L81)
 
 #### Parameters
 
@@ -64,7 +64,7 @@ Defined in: [commands/utility/browse.ts:81](https://github.com/ryandward/Project
 
 > **statusMustBeActive**(`inputStatus`): `Promise`\<[`Status`](/api/entities/status/#status)\>
 
-Defined in: [commands/utility/browse.ts:41](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/utility/browse.ts#L41)
+Defined in: [commands/utility/browse.ts:41](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/utility/browse.ts#L41)
 
 #### Parameters
 

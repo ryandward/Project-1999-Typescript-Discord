@@ -16,7 +16,7 @@ Counterpart to the `/add` command.
 
 > `const` **data**: `SlashCommandOptionsOnlyBuilder`
 
-Defined in: [commands/utility/remove.ts:20](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/utility/remove.ts#L20)
+Defined in: [commands/utility/remove.ts:20](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/utility/remove.ts#L20)
 
 ## Functions
 
@@ -24,7 +24,7 @@ Defined in: [commands/utility/remove.ts:20](https://github.com/ryandward/Project
 
 > **autocomplete**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/utility/remove.ts:31](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/utility/remove.ts#L31)
+Defined in: [commands/utility/remove.ts:31](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/utility/remove.ts#L31)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [commands/utility/remove.ts:31](https://github.com/ryandward/Project
 
 > **execute**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/utility/remove.ts:60](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/utility/remove.ts#L60)
+Defined in: [commands/utility/remove.ts:60](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/utility/remove.ts#L60)
 
 #### Parameters
 

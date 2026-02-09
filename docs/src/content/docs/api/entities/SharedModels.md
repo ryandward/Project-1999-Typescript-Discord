@@ -9,7 +9,7 @@ title: "entities/SharedModels"
 
 ### SharedAccounts
 
-Defined in: [entities/SharedModels.ts:21](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/SharedModels.ts#L21)
+Defined in: [entities/SharedModels.ts:21](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/SharedModels.ts#L21)
 
 Shared guild account (maps to `public.shared_accounts`).
 
@@ -33,7 +33,7 @@ multiple [SharedToons](/api/entities/sharedmodels/#sharedtoons-1).
 
 > **Account**: `string`
 
-Defined in: [entities/SharedModels.ts:27](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/SharedModels.ts#L27)
+Defined in: [entities/SharedModels.ts:27](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/SharedModels.ts#L27)
 
 Unique account identifier / login name.
 
@@ -41,13 +41,13 @@ Unique account identifier / login name.
 
 > **Id**: `number`
 
-Defined in: [entities/SharedModels.ts:23](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/SharedModels.ts#L23)
+Defined in: [entities/SharedModels.ts:23](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/SharedModels.ts#L23)
 
 ##### Password
 
 > **Password**: `string`
 
-Defined in: [entities/SharedModels.ts:31](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/SharedModels.ts#L31)
+Defined in: [entities/SharedModels.ts:31](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/SharedModels.ts#L31)
 
 Account password (stored in plaintext — shared guild accounts only).
 
@@ -55,7 +55,7 @@ Account password (stored in plaintext — shared guild accounts only).
 
 > **Role**: `string`
 
-Defined in: [entities/SharedModels.ts:35](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/SharedModels.ts#L35)
+Defined in: [entities/SharedModels.ts:35](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/SharedModels.ts#L35)
 
 Access role governing who may use this account (e.g. `"Officer"`, `"Member"`).
 
@@ -63,7 +63,7 @@ Access role governing who may use this account (e.g. `"Officer"`, `"Member"`).
 
 > **SharedToons**: [`SharedToons`](/api/entities/sharedmodels/#sharedtoons-1)[]
 
-Defined in: [entities/SharedModels.ts:39](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/SharedModels.ts#L39)
+Defined in: [entities/SharedModels.ts:39](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/SharedModels.ts#L39)
 
 Characters that belong to this shared account.
 
@@ -71,7 +71,7 @@ Characters that belong to this shared account.
 
 ### SharedToons
 
-Defined in: [entities/SharedModels.ts:52](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/SharedModels.ts#L52)
+Defined in: [entities/SharedModels.ts:52](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/SharedModels.ts#L52)
 
 Character on a shared guild account (maps to `public.shared_toons`).
 
@@ -95,7 +95,7 @@ Linked to a [SharedAccounts](/api/entities/sharedmodels/#sharedaccounts) record 
 
 > **Account**: [`SharedAccounts`](/api/entities/sharedmodels/#sharedaccounts)
 
-Defined in: [entities/SharedModels.ts:67](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/SharedModels.ts#L67)
+Defined in: [entities/SharedModels.ts:67](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/SharedModels.ts#L67)
 
 The [SharedAccounts](/api/entities/sharedmodels/#sharedaccounts) this character belongs to.
 
@@ -103,13 +103,13 @@ The [SharedAccounts](/api/entities/sharedmodels/#sharedaccounts) this character 
 
 > **Id**: `number`
 
-Defined in: [entities/SharedModels.ts:54](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/SharedModels.ts#L54)
+Defined in: [entities/SharedModels.ts:54](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/SharedModels.ts#L54)
 
 ##### Name
 
 > **Name**: `string`
 
-Defined in: [entities/SharedModels.ts:58](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/SharedModels.ts#L58)
+Defined in: [entities/SharedModels.ts:58](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/SharedModels.ts#L58)
 
 Unique in-game character name.
 
@@ -117,6 +117,6 @@ Unique in-game character name.
 
 > **Notes**: `string` \| `null`
 
-Defined in: [entities/SharedModels.ts:62](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/SharedModels.ts#L62)
+Defined in: [entities/SharedModels.ts:62](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/SharedModels.ts#L62)
 
 Free-text notes about this character (class, purpose, gear status, etc.).

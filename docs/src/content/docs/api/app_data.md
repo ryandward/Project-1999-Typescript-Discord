@@ -11,7 +11,7 @@ title: "app_data"
 
 > `const` **AppDataSource**: `DataSource`
 
-Defined in: [app\_data.ts:19](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/app_data.ts#L19)
+Defined in: [app\_data.ts:19](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/app_data.ts#L19)
 
 TypeORM `DataSource` configured for the guild's PostgreSQL database.
 
@@ -31,7 +31,7 @@ Schema synchronisation is **disabled** — migrations are managed externally.
 
 > **initializeDataSource**(): `Promise`\<`void`\>
 
-Defined in: [app\_data.ts:39](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/app_data.ts#L39)
+Defined in: [app\_data.ts:39](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/app_data.ts#L39)
 
 Initialises the [AppDataSource](/api/app_data/#appdatasource) connection pool.
 

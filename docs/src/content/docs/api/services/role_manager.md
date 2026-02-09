@@ -9,7 +9,7 @@ title: "services/role_manager"
 
 ### DiscordRoleManager
 
-Defined in: [services/role\_manager.ts:10](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/services/role_manager.ts#L10)
+Defined in: [services/role\_manager.ts:10](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/services/role_manager.ts#L10)
 
 Service for managing Discord guild roles programmatically.
 
@@ -32,7 +32,7 @@ census functions and promotion logic to assign roles to members.
 
 > **addRoleToUser**(`guildId`, `userId`, `roleName`): `Promise`\<`void`\>
 
-Defined in: [services/role\_manager.ts:39](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/services/role_manager.ts#L39)
+Defined in: [services/role\_manager.ts:39](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/services/role_manager.ts#L39)
 
 Adds a named role to a guild member.
 

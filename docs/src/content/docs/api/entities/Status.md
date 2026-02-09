@@ -9,7 +9,7 @@ title: "entities/Status"
 
 ### Status
 
-Defined in: [entities/Status.ts:15](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Status.ts#L15)
+Defined in: [entities/Status.ts:15](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/Status.ts#L15)
 
 Read-only view of distinct census status values.
 
@@ -32,6 +32,6 @@ Used to populate autocomplete dropdowns for status-based filters.
 
 > **Status**: `string`
 
-Defined in: [entities/Status.ts:18](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Status.ts#L18)
+Defined in: [entities/Status.ts:18](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/Status.ts#L18)
 
 A unique census status value (e.g. `"Main"`, `"Alt"`, `"Dropped"`).

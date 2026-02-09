@@ -9,7 +9,7 @@ title: "entities/Plat"
 
 ### Plat
 
-Defined in: [entities/Plat.ts:12](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Plat.ts#L12)
+Defined in: [entities/Plat.ts:12](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/Plat.ts#L12)
 
 Platinum currency transaction ledger (maps to `public.plat`).
 
@@ -33,7 +33,7 @@ Managed via the `/plat` command by officers.
 
 > **Amount**: `number`
 
-Defined in: [entities/Plat.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Plat.ts#L22)
+Defined in: [entities/Plat.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/Plat.ts#L22)
 
 Transaction amount in platinum (positive = deposit, negative = withdrawal).
 
@@ -41,7 +41,7 @@ Transaction amount in platinum (positive = deposit, negative = withdrawal).
 
 > **Description**: `string` \| `null`
 
-Defined in: [entities/Plat.ts:34](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Plat.ts#L34)
+Defined in: [entities/Plat.ts:34](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/Plat.ts#L34)
 
 Human-readable description of the transaction purpose.
 
@@ -49,7 +49,7 @@ Human-readable description of the transaction purpose.
 
 > **DiscordId**: `string`
 
-Defined in: [entities/Plat.ts:18](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Plat.ts#L18)
+Defined in: [entities/Plat.ts:18](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/Plat.ts#L18)
 
 Discord snowflake ID of the member involved in this transaction.
 
@@ -57,12 +57,12 @@ Discord snowflake ID of the member involved in this transaction.
 
 > **Id**: `number`
 
-Defined in: [entities/Plat.ts:14](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Plat.ts#L14)
+Defined in: [entities/Plat.ts:14](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/Plat.ts#L14)
 
 ##### TransactionTime
 
 > **TransactionTime**: `Date` \| `null`
 
-Defined in: [entities/Plat.ts:30](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Plat.ts#L30)
+Defined in: [entities/Plat.ts:30](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/Plat.ts#L30)
 
 When the transaction occurred (defaults to current timestamp).

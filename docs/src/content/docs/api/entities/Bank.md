@@ -9,7 +9,7 @@ title: "entities/Bank"
 
 ### Bank
 
-Defined in: [entities/Bank.ts:11](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Bank.ts#L11)
+Defined in: [entities/Bank.ts:11](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/Bank.ts#L11)
 
 Guild bank inventory record (maps to `public.bank`).
 
@@ -32,7 +32,7 @@ Populated by the `/income` command and consumed by `/find` and `/browse`.
 
 > **Banker**: `string`
 
-Defined in: [entities/Bank.ts:14](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Bank.ts#L14)
+Defined in: [entities/Bank.ts:14](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/Bank.ts#L14)
 
 Name of the banker character holding this item.
 
@@ -40,7 +40,7 @@ Name of the banker character holding this item.
 
 > **EqItemId**: `string`
 
-Defined in: [entities/Bank.ts:26](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Bank.ts#L26)
+Defined in: [entities/Bank.ts:26](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/Bank.ts#L26)
 
 EverQuest item database ID, used for wiki lookups.
 
@@ -48,13 +48,13 @@ EverQuest item database ID, used for wiki lookups.
 
 > **Id**: `string`
 
-Defined in: [entities/Bank.ts:41](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Bank.ts#L41)
+Defined in: [entities/Bank.ts:41](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/Bank.ts#L41)
 
 ##### Location
 
 > **Location**: `string`
 
-Defined in: [entities/Bank.ts:18](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Bank.ts#L18)
+Defined in: [entities/Bank.ts:18](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/Bank.ts#L18)
 
 Inventory slot location on the banker (e.g. bag position).
 
@@ -62,7 +62,7 @@ Inventory slot location on the banker (e.g. bag position).
 
 > **Name**: `string`
 
-Defined in: [entities/Bank.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Bank.ts#L22)
+Defined in: [entities/Bank.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/Bank.ts#L22)
 
 Item name as it appears in-game.
 
@@ -70,7 +70,7 @@ Item name as it appears in-game.
 
 > **Quantity**: `number`
 
-Defined in: [entities/Bank.ts:30](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Bank.ts#L30)
+Defined in: [entities/Bank.ts:30](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/Bank.ts#L30)
 
 Stack count for stackable items.
 
@@ -78,7 +78,7 @@ Stack count for stackable items.
 
 > **Slots**: `string`
 
-Defined in: [entities/Bank.ts:34](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Bank.ts#L34)
+Defined in: [entities/Bank.ts:34](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/Bank.ts#L34)
 
 Raw slot data from the inventory export.
 
@@ -86,6 +86,6 @@ Raw slot data from the inventory export.
 
 > **Time**: `Date`
 
-Defined in: [entities/Bank.ts:38](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Bank.ts#L38)
+Defined in: [entities/Bank.ts:38](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/Bank.ts#L38)
 
 Timestamp when this bank record was imported.

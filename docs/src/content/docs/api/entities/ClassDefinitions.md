@@ -9,7 +9,7 @@ title: "entities/ClassDefinitions"
 
 ### ClassDefinitions
 
-Defined in: [entities/ClassDefinitions.ts:12](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/ClassDefinitions.ts#L12)
+Defined in: [entities/ClassDefinitions.ts:12](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/ClassDefinitions.ts#L12)
 
 EverQuest class title definitions (maps to `public.class_definitions`).
 
@@ -33,7 +33,7 @@ command to announce title changes on level-up.
 
 > **CharacterClass**: `string`
 
-Defined in: [entities/ClassDefinitions.ts:19](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/ClassDefinitions.ts#L19)
+Defined in: [entities/ClassDefinitions.ts:19](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/ClassDefinitions.ts#L19)
 
 Base character class this title belongs to (e.g. `"Cleric"`).
 
@@ -41,7 +41,7 @@ Base character class this title belongs to (e.g. `"Cleric"`).
 
 > **ClassName**: `string`
 
-Defined in: [entities/ClassDefinitions.ts:15](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/ClassDefinitions.ts#L15)
+Defined in: [entities/ClassDefinitions.ts:15](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/ClassDefinitions.ts#L15)
 
 EQ class title name (e.g. `"Templar"`, `"Archmage"`).
 
@@ -49,12 +49,12 @@ EQ class title name (e.g. `"Templar"`, `"Archmage"`).
 
 > **Id**: `string`
 
-Defined in: [entities/ClassDefinitions.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/ClassDefinitions.ts#L22)
+Defined in: [entities/ClassDefinitions.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/ClassDefinitions.ts#L22)
 
 ##### LevelAttained
 
 > **LevelAttained**: `number`
 
-Defined in: [entities/ClassDefinitions.ts:26](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/ClassDefinitions.ts#L26)
+Defined in: [entities/ClassDefinitions.ts:26](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/ClassDefinitions.ts#L26)
 
 Minimum level at which this class title is attained.

@@ -16,7 +16,7 @@ from the `SharedToons` table.
 
 > `const` **data**: `SlashCommandOptionsOnlyBuilder`
 
-Defined in: [commands/utility/delete\_shared\_toon.ts:20](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/utility/delete_shared_toon.ts#L20)
+Defined in: [commands/utility/delete\_shared\_toon.ts:20](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/utility/delete_shared_toon.ts#L20)
 
 ## Functions
 
@@ -24,7 +24,7 @@ Defined in: [commands/utility/delete\_shared\_toon.ts:20](https://github.com/rya
 
 > **autocomplete**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/utility/delete\_shared\_toon.ts:31](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/utility/delete_shared_toon.ts#L31)
+Defined in: [commands/utility/delete\_shared\_toon.ts:31](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/utility/delete_shared_toon.ts#L31)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [commands/utility/delete\_shared\_toon.ts:31](https://github.com/rya
 
 > **execute**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/utility/delete\_shared\_toon.ts:60](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/utility/delete_shared_toon.ts#L60)
+Defined in: [commands/utility/delete\_shared\_toon.ts:60](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/utility/delete_shared_toon.ts#L60)
 
 #### Parameters
 

@@ -16,7 +16,7 @@ and stats-block extraction. Used by `/find`, `/browse`, and other bank commands.
 
 > **formatField**(`field`): `string`
 
-Defined in: [commands/bank/item\_functions.ts:15](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/bank/item_functions.ts#L15)
+Defined in: [commands/bank/item\_functions.ts:15](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/bank/item_functions.ts#L15)
 
 Formats an array of strings as inline-code lines for Discord embed fields.
 
@@ -38,7 +38,7 @@ Lines to format.
 
 > **getImageUrl**(`itemName`): `Promise`\<`string` \| `null`\>
 
-Defined in: [commands/bank/item\_functions.ts:43](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/bank/item_functions.ts#L43)
+Defined in: [commands/bank/item\_functions.ts:43](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/bank/item_functions.ts#L43)
 
 Fetches the local filesystem path to an item's icon image from MediaWiki.
 
@@ -66,7 +66,7 @@ Local image path, or `null` if not found.
 
 > **getItemUrl**(`itemName`): `Promise`\<`string` \| `null`\>
 
-Defined in: [commands/bank/item\_functions.ts:122](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/bank/item_functions.ts#L122)
+Defined in: [commands/bank/item\_functions.ts:122](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/bank/item_functions.ts#L122)
 
 Resolves the full wiki URL for an item page.
 
@@ -90,7 +90,7 @@ The `fullurl` of the wiki page, or `null` if not found.
 
 > **getSpellDescription**(`spellName`): `Promise`\<`string` \| `null`\>
 
-Defined in: [commands/bank/item\_functions.ts:150](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/bank/item_functions.ts#L150)
+Defined in: [commands/bank/item\_functions.ts:150](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/bank/item_functions.ts#L150)
 
 Extracts the `classes` and `description` template fields from a spell's wiki page.
 
@@ -114,7 +114,7 @@ Plain-text description with HTML tags stripped, or `null`.
 
 > **getStatsBlock**(`itemName`): `Promise`\<`string` \| `null`\>
 
-Defined in: [commands/bank/item\_functions.ts:202](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/bank/item_functions.ts#L202)
+Defined in: [commands/bank/item\_functions.ts:202](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/bank/item_functions.ts#L202)
 
 Extracts the `statsblock` template field from an item's wiki page.
 

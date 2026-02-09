@@ -17,7 +17,7 @@ toons, and sends it via direct message. Logs access in a follow-up.
 
 > `const` **data**: `SlashCommandBuilder`
 
-Defined in: [commands/utility/listaccounts.ts:26](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/utility/listaccounts.ts#L26)
+Defined in: [commands/utility/listaccounts.ts:26](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/utility/listaccounts.ts#L26)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [commands/utility/listaccounts.ts:26](https://github.com/ryandward/P
 
 > `const` **permissions**: `string`[]
 
-Defined in: [commands/utility/listaccounts.ts:24](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/utility/listaccounts.ts#L24)
+Defined in: [commands/utility/listaccounts.ts:24](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/utility/listaccounts.ts#L24)
 
 ## Functions
 
@@ -33,7 +33,7 @@ Defined in: [commands/utility/listaccounts.ts:24](https://github.com/ryandward/P
 
 > **execute**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/utility/listaccounts.ts:30](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/utility/listaccounts.ts#L30)
+Defined in: [commands/utility/listaccounts.ts:30](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/utility/listaccounts.ts#L30)
 
 #### Parameters
 

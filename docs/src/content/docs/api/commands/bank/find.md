@@ -19,7 +19,7 @@ Uses interactive button and select-menu collectors for the request flow.
 
 > `const` **data**: `SlashCommandOptionsOnlyBuilder`
 
-Defined in: [commands/bank/find.ts:30](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/bank/find.ts#L30)
+Defined in: [commands/bank/find.ts:30](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/bank/find.ts#L30)
 
 ## Functions
 
@@ -27,7 +27,7 @@ Defined in: [commands/bank/find.ts:30](https://github.com/ryandward/Project-1999
 
 > **autocomplete**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/bank/find.ts:41](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/bank/find.ts#L41)
+Defined in: [commands/bank/find.ts:41](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/bank/find.ts#L41)
 
 #### Parameters
 
@@ -45,7 +45,7 @@ Defined in: [commands/bank/find.ts:41](https://github.com/ryandward/Project-1999
 
 > **execute**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/bank/find.ts:72](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/bank/find.ts#L72)
+Defined in: [commands/bank/find.ts:72](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/bank/find.ts#L72)
 
 #### Parameters
 

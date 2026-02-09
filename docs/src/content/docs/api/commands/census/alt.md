@@ -18,7 +18,7 @@ Uses the shared `declareData` factory for its slash command definition.
 
 > `const` **data**: `SlashCommandOptionsOnlyBuilder`
 
-Defined in: [commands/census/alt.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/census/alt.ts#L22)
+Defined in: [commands/census/alt.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/census/alt.ts#L22)
 
 ## Functions
 
@@ -26,7 +26,7 @@ Defined in: [commands/census/alt.ts:22](https://github.com/ryandward/Project-199
 
 > **execute**(`interaction`): `Promise`\<`InteractionResponse`\<`boolean`\> \| `undefined`\>
 
-Defined in: [commands/census/alt.ts:24](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/census/alt.ts#L24)
+Defined in: [commands/census/alt.ts:24](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/census/alt.ts#L24)
 
 #### Parameters
 

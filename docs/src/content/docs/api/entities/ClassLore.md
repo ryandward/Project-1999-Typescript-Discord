@@ -9,7 +9,7 @@ title: "entities/ClassLore"
 
 ### ClassLore
 
-Defined in: [entities/ClassLore.ts:11](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/ClassLore.ts#L11)
+Defined in: [entities/ClassLore.ts:11](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/ClassLore.ts#L11)
 
 EverQuest class lore text (maps to `public.class_lore`).
 
@@ -20,11 +20,11 @@ by informational commands to help players understand class roles.
 
 ##### Constructor
 
-> **new ClassLore**(): [`ClassLore`](/api/entities/classlore/#classlore)
+> **new ClassLore**(): [`ClassLore`](/Project-1999-Typescript-Discord/api/entities/classlore/#classlore)
 
 ###### Returns
 
-[`ClassLore`](/api/entities/classlore/#classlore)
+[`ClassLore`](/Project-1999-Typescript-Discord/api/entities/classlore/#classlore)
 
 #### Properties
 
@@ -32,7 +32,7 @@ by informational commands to help players understand class roles.
 
 > **CharacterClass**: `string` \| `null`
 
-Defined in: [entities/ClassLore.ts:14](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/ClassLore.ts#L14)
+Defined in: [entities/ClassLore.ts:14](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/ClassLore.ts#L14)
 
 EverQuest class name (e.g. `"Cleric"`, `"Shadow Knight"`).
 
@@ -40,7 +40,7 @@ EverQuest class name (e.g. `"Cleric"`, `"Shadow Knight"`).
 
 > **Description**: `string` \| `null`
 
-Defined in: [entities/ClassLore.ts:18](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/ClassLore.ts#L18)
+Defined in: [entities/ClassLore.ts:18](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/ClassLore.ts#L18)
 
 Lore/flavour description for the class.
 
@@ -48,4 +48,4 @@ Lore/flavour description for the class.
 
 > **Id**: `string`
 
-Defined in: [entities/ClassLore.ts:21](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/ClassLore.ts#L21)
+Defined in: [entities/ClassLore.ts:21](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/ClassLore.ts#L21)

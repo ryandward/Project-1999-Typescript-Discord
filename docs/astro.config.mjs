@@ -3,6 +3,8 @@ import { defineConfig } from 'astro/config';
 import starlightTypeDoc from 'starlight-typedoc';
 
 export default defineConfig({
+  site: 'https://ryandward.github.io',
+  base: '/Project-1999-Typescript-Discord',
   integrations: [
     starlight({
       title: 'Project 1999 Discord Bot',

@@ -17,7 +17,7 @@ a corrective `Plat` transaction.
 
 > `const` **data**: `SlashCommandOptionsOnlyBuilder`
 
-Defined in: [commands/bank/plat.ts:16](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/bank/plat.ts#L16)
+Defined in: [commands/bank/plat.ts:16](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/bank/plat.ts#L16)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [commands/bank/plat.ts:16](https://github.com/ryandward/Project-1999
 
 > `const` **permissions**: `"ManageGuild"` = `'ManageGuild'`
 
-Defined in: [commands/bank/plat.ts:14](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/bank/plat.ts#L14)
+Defined in: [commands/bank/plat.ts:14](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/bank/plat.ts#L14)
 
 ## Functions
 
@@ -33,7 +33,7 @@ Defined in: [commands/bank/plat.ts:14](https://github.com/ryandward/Project-1999
 
 > **execute**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/bank/plat.ts:23](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/bank/plat.ts#L23)
+Defined in: [commands/bank/plat.ts:23](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/bank/plat.ts#L23)
 
 #### Parameters
 

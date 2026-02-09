@@ -9,7 +9,7 @@ title: "entities/Raids"
 
 ### Raids
 
-Defined in: [entities/Raids.ts:11](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Raids.ts#L11)
+Defined in: [entities/Raids.ts:11](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Raids.ts#L11)
 
 Raid event definitions (maps to `public.raids`).
 
@@ -21,11 +21,11 @@ attended a specific raid.
 
 ##### Constructor
 
-> **new Raids**(): [`Raids`](/api/entities/raids/#raids)
+> **new Raids**(): [`Raids`](/Project-1999-Typescript-Discord/api/entities/raids/#raids)
 
 ###### Returns
 
-[`Raids`](/api/entities/raids/#raids)
+[`Raids`](/Project-1999-Typescript-Discord/api/entities/raids/#raids)
 
 #### Properties
 
@@ -33,13 +33,13 @@ attended a specific raid.
 
 > **Id**: `number` \| `null`
 
-Defined in: [entities/Raids.ts:25](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Raids.ts#L25)
+Defined in: [entities/Raids.ts:25](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Raids.ts#L25)
 
 ##### Modifier
 
 > **Modifier**: `number` \| `null`
 
-Defined in: [entities/Raids.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Raids.ts#L22)
+Defined in: [entities/Raids.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Raids.ts#L22)
 
 DKP multiplier/modifier awarded for attending this raid.
 
@@ -47,7 +47,7 @@ DKP multiplier/modifier awarded for attending this raid.
 
 > **Raid**: `string`
 
-Defined in: [entities/Raids.ts:14](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Raids.ts#L14)
+Defined in: [entities/Raids.ts:14](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Raids.ts#L14)
 
 Unique raid name, e.g. `"Nagafen"`, `"Vox"`. Also serves as the primary key.
 
@@ -55,6 +55,6 @@ Unique raid name, e.g. `"Nagafen"`, `"Vox"`. Also serves as the primary key.
 
 > **Type**: `string` \| `null`
 
-Defined in: [entities/Raids.ts:18](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Raids.ts#L18)
+Defined in: [entities/Raids.ts:18](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Raids.ts#L18)
 
 Raid category — e.g. `"Open World"`, `"Instanced"`.

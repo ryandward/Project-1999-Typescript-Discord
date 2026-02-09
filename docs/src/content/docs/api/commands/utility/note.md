@@ -16,7 +16,7 @@ below the character name. Pass an empty notes value to clear.
 
 > `const` **data**: `SlashCommandOptionsOnlyBuilder`
 
-Defined in: [commands/utility/note.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/utility/note.ts#L22)
+Defined in: [commands/utility/note.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/utility/note.ts#L22)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [commands/utility/note.ts:22](https://github.com/ryandward/Project-1
 
 > `const` **permissions**: `string`[]
 
-Defined in: [commands/utility/note.ts:20](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/utility/note.ts#L20)
+Defined in: [commands/utility/note.ts:20](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/utility/note.ts#L20)
 
 ## Functions
 
@@ -32,7 +32,7 @@ Defined in: [commands/utility/note.ts:20](https://github.com/ryandward/Project-1
 
 > **autocomplete**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/utility/note.ts:35](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/utility/note.ts#L35)
+Defined in: [commands/utility/note.ts:35](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/utility/note.ts#L35)
 
 #### Parameters
 
@@ -50,7 +50,7 @@ Defined in: [commands/utility/note.ts:35](https://github.com/ryandward/Project-1
 
 > **execute**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/utility/note.ts:64](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/utility/note.ts#L64)
+Defined in: [commands/utility/note.ts:64](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/utility/note.ts#L64)
 
 #### Parameters
 

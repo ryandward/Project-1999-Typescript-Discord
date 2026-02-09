@@ -16,7 +16,7 @@ owned by the invoking user. Only the character's owner can ding their own toons.
 
 > `const` **data**: `SlashCommandOptionsOnlyBuilder`
 
-Defined in: [commands/census/ding.ts:21](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/census/ding.ts#L21)
+Defined in: [commands/census/ding.ts:21](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/census/ding.ts#L21)
 
 ## Functions
 
@@ -24,7 +24,7 @@ Defined in: [commands/census/ding.ts:21](https://github.com/ryandward/Project-19
 
 > **autocomplete**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/census/ding.ts:41](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/census/ding.ts#L41)
+Defined in: [commands/census/ding.ts:41](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/census/ding.ts#L41)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [commands/census/ding.ts:41](https://github.com/ryandward/Project-19
 
 > **execute**(`interaction`): `Promise`\<`InteractionResponse`\<`boolean`\> \| `undefined`\>
 
-Defined in: [commands/census/ding.ts:64](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/census/ding.ts#L64)
+Defined in: [commands/census/ding.ts:64](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/census/ding.ts#L64)
 
 #### Parameters
 

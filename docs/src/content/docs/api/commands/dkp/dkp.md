@@ -17,7 +17,7 @@ total earned in an embed.
 
 > `const` **data**: `SlashCommandOptionsOnlyBuilder`
 
-Defined in: [commands/dkp/dkp.ts:23](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/dkp/dkp.ts#L23)
+Defined in: [commands/dkp/dkp.ts:23](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/dkp/dkp.ts#L23)
 
 ## Functions
 
@@ -25,7 +25,7 @@ Defined in: [commands/dkp/dkp.ts:23](https://github.com/ryandward/Project-1999-T
 
 > **autocomplete**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/dkp/dkp.ts:33](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/dkp/dkp.ts#L33)
+Defined in: [commands/dkp/dkp.ts:33](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/dkp/dkp.ts#L33)
 
 #### Parameters
 
@@ -43,7 +43,7 @@ Defined in: [commands/dkp/dkp.ts:33](https://github.com/ryandward/Project-1999-T
 
 > **execute**(`interaction`): `Promise`\<`InteractionResponse`\<`boolean`\> \| `undefined`\>
 
-Defined in: [commands/dkp/dkp.ts:54](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/dkp/dkp.ts#L54)
+Defined in: [commands/dkp/dkp.ts:54](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/dkp/dkp.ts#L54)
 
 #### Parameters
 

@@ -17,7 +17,7 @@ in an ephemeral embed and logs access in a follow-up message.
 
 > `const` **data**: `SlashCommandOptionsOnlyBuilder`
 
-Defined in: [commands/utility/login.ts:25](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/utility/login.ts#L25)
+Defined in: [commands/utility/login.ts:25](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/utility/login.ts#L25)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [commands/utility/login.ts:25](https://github.com/ryandward/Project-
 
 > `const` **permissions**: `string`[]
 
-Defined in: [commands/utility/login.ts:23](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/utility/login.ts#L23)
+Defined in: [commands/utility/login.ts:23](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/utility/login.ts#L23)
 
 ## Functions
 
@@ -33,7 +33,7 @@ Defined in: [commands/utility/login.ts:23](https://github.com/ryandward/Project-
 
 > **autocomplete**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/utility/login.ts:43](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/utility/login.ts#L43)
+Defined in: [commands/utility/login.ts:43](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/utility/login.ts#L43)
 
 #### Parameters
 
@@ -51,7 +51,7 @@ Defined in: [commands/utility/login.ts:43](https://github.com/ryandward/Project-
 
 > **execute**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/utility/login.ts:82](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/utility/login.ts#L82)
+Defined in: [commands/utility/login.ts:82](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/utility/login.ts#L82)
 
 #### Parameters
 

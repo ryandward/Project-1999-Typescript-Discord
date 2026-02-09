@@ -9,7 +9,7 @@ title: "entities/Attendance"
 
 ### Attendance
 
-Defined in: [entities/Attendance.ts:12](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Attendance.ts#L12)
+Defined in: [entities/Attendance.ts:12](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Attendance.ts#L12)
 
 Raid attendance record (maps to `public.attendance`).
 
@@ -21,11 +21,11 @@ feeding into the DKP calculation pipeline.
 
 ##### Constructor
 
-> **new Attendance**(): [`Attendance`](/api/entities/attendance/#attendance)
+> **new Attendance**(): [`Attendance`](/Project-1999-Typescript-Discord/api/entities/attendance/#attendance)
 
 ###### Returns
 
-[`Attendance`](/api/entities/attendance/#attendance)
+[`Attendance`](/Project-1999-Typescript-Discord/api/entities/attendance/#attendance)
 
 #### Properties
 
@@ -33,7 +33,7 @@ feeding into the DKP calculation pipeline.
 
 > **Date**: `Date` \| `null`
 
-Defined in: [entities/Attendance.ts:23](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Attendance.ts#L23)
+Defined in: [entities/Attendance.ts:23](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Attendance.ts#L23)
 
 Date/time of the attendance record.
 
@@ -41,7 +41,7 @@ Date/time of the attendance record.
 
 > **DiscordId**: `string` \| `null`
 
-Defined in: [entities/Attendance.ts:27](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Attendance.ts#L27)
+Defined in: [entities/Attendance.ts:27](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Attendance.ts#L27)
 
 Discord snowflake ID of the character's owner.
 
@@ -49,13 +49,13 @@ Discord snowflake ID of the character's owner.
 
 > **Id**: `string`
 
-Defined in: [entities/Attendance.ts:30](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Attendance.ts#L30)
+Defined in: [entities/Attendance.ts:30](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Attendance.ts#L30)
 
 ##### Modifier
 
 > **Modifier**: `string` \| `null`
 
-Defined in: [entities/Attendance.ts:34](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Attendance.ts#L34)
+Defined in: [entities/Attendance.ts:34](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Attendance.ts#L34)
 
 DKP modifier applied for this attendance (from the `Raids` table).
 
@@ -63,7 +63,7 @@ DKP modifier applied for this attendance (from the `Raids` table).
 
 > **Name**: `string` \| `null`
 
-Defined in: [entities/Attendance.ts:19](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Attendance.ts#L19)
+Defined in: [entities/Attendance.ts:19](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Attendance.ts#L19)
 
 Character name present at the raid.
 
@@ -71,6 +71,6 @@ Character name present at the raid.
 
 > **Raid**: `string` \| `null`
 
-Defined in: [entities/Attendance.ts:15](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Attendance.ts#L15)
+Defined in: [entities/Attendance.ts:15](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Attendance.ts#L15)
 
 Name of the raid event (foreign key concept to `Raids`).

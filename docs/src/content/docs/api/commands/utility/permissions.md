@@ -16,7 +16,7 @@ flags in an ephemeral embed.
 
 > `const` **data**: `SlashCommandOptionsOnlyBuilder`
 
-Defined in: [commands/utility/permissions.ts:17](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/utility/permissions.ts#L17)
+Defined in: [commands/utility/permissions.ts:17](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/utility/permissions.ts#L17)
 
 ## Functions
 
@@ -24,7 +24,7 @@ Defined in: [commands/utility/permissions.ts:17](https://github.com/ryandward/Pr
 
 > **execute**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/utility/permissions.ts:24](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/commands/utility/permissions.ts#L24)
+Defined in: [commands/utility/permissions.ts:24](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/utility/permissions.ts#L24)
 
 #### Parameters
 

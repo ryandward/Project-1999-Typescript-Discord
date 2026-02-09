@@ -9,7 +9,7 @@ title: "entities/Items"
 
 ### Items
 
-Defined in: [entities/Items.ts:11](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Items.ts#L11)
+Defined in: [entities/Items.ts:11](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Items.ts#L11)
 
 Loot award history (maps to `public.items`).
 
@@ -20,11 +20,11 @@ Used for auditing loot distribution and tracking DKP expenditure.
 
 ##### Constructor
 
-> **new Items**(): [`Items`](/api/entities/items/#items)
+> **new Items**(): [`Items`](/Project-1999-Typescript-Discord/api/entities/items/#items)
 
 ###### Returns
 
-[`Items`](/api/entities/items/#items)
+[`Items`](/Project-1999-Typescript-Discord/api/entities/items/#items)
 
 #### Properties
 
@@ -32,7 +32,7 @@ Used for auditing loot distribution and tracking DKP expenditure.
 
 > **Date**: `Date` \| `null`
 
-Defined in: [entities/Items.ts:18](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Items.ts#L18)
+Defined in: [entities/Items.ts:18](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Items.ts#L18)
 
 Date the item was awarded.
 
@@ -40,7 +40,7 @@ Date the item was awarded.
 
 > **DiscordId**: `string` \| `null`
 
-Defined in: [entities/Items.ts:30](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Items.ts#L30)
+Defined in: [entities/Items.ts:30](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Items.ts#L30)
 
 Discord snowflake ID of the player who received the item.
 
@@ -48,7 +48,7 @@ Discord snowflake ID of the player who received the item.
 
 > **DkpSpent**: `string` \| `null`
 
-Defined in: [entities/Items.ts:26](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Items.ts#L26)
+Defined in: [entities/Items.ts:26](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Items.ts#L26)
 
 Amount of DKP spent to win this item.
 
@@ -56,13 +56,13 @@ Amount of DKP spent to win this item.
 
 > **Id**: `string`
 
-Defined in: [entities/Items.ts:33](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Items.ts#L33)
+Defined in: [entities/Items.ts:33](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Items.ts#L33)
 
 ##### Item
 
 > **Item**: `string` \| `null`
 
-Defined in: [entities/Items.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Items.ts#L22)
+Defined in: [entities/Items.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Items.ts#L22)
 
 Name of the item that was awarded.
 
@@ -70,6 +70,6 @@ Name of the item that was awarded.
 
 > **Name**: `string` \| `null`
 
-Defined in: [entities/Items.ts:14](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/a2981f5ea093daef91a7ee9cd21b084e0192be70/entities/Items.ts#L14)
+Defined in: [entities/Items.ts:14](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Items.ts#L14)
 
 Character name of the player who received the item.

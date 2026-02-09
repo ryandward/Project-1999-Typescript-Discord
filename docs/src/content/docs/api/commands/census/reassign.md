@@ -17,7 +17,7 @@ transferring characters between players.
 
 > `const` **data**: `SlashCommandOptionsOnlyBuilder`
 
-Defined in: [commands/census/reassign.ts:46](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/reassign.ts#L46)
+Defined in: [commands/census/reassign.ts:46](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/reassign.ts#L46)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [commands/census/reassign.ts:46](https://github.com/ryandward/Projec
 
 > `const` **permissions**: `"ManageGuild"` = `'ManageGuild'`
 
-Defined in: [commands/census/reassign.ts:33](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/reassign.ts#L33)
+Defined in: [commands/census/reassign.ts:33](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/reassign.ts#L33)
 
 ## Functions
 
@@ -33,7 +33,7 @@ Defined in: [commands/census/reassign.ts:33](https://github.com/ryandward/Projec
 
 > **autocomplete**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/census/reassign.ts:86](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/reassign.ts#L86)
+Defined in: [commands/census/reassign.ts:86](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/reassign.ts#L86)
 
 #### Parameters
 
@@ -51,7 +51,7 @@ Defined in: [commands/census/reassign.ts:86](https://github.com/ryandward/Projec
 
 > **execute**(`interaction`): `Promise`\<`InteractionResponse`\<`boolean`\> \| `undefined`\>
 
-Defined in: [commands/census/reassign.ts:107](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/reassign.ts#L107)
+Defined in: [commands/census/reassign.ts:107](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/reassign.ts#L107)
 
 #### Parameters
 
@@ -67,21 +67,21 @@ Defined in: [commands/census/reassign.ts:107](https://github.com/ryandward/Proje
 
 ### getActiveStatuses()
 
-> **getActiveStatuses**(): `Promise`\<[`Status`](/api/entities/status/#status)[]\>
+> **getActiveStatuses**(): `Promise`\<[`Status`](/Project-1999-Typescript-Discord/api/entities/status/#status)[]\>
 
-Defined in: [commands/census/reassign.ts:35](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/reassign.ts#L35)
+Defined in: [commands/census/reassign.ts:35](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/reassign.ts#L35)
 
 #### Returns
 
-`Promise`\<[`Status`](/api/entities/status/#status)[]\>
+`Promise`\<[`Status`](/Project-1999-Typescript-Discord/api/entities/status/#status)[]\>
 
 ***
 
 ### statusMustBeActive()
 
-> **statusMustBeActive**(`inputStatus`): `Promise`\<[`Status`](/api/entities/status/#status)\>
+> **statusMustBeActive**(`inputStatus`): `Promise`\<[`Status`](/Project-1999-Typescript-Discord/api/entities/status/#status)\>
 
-Defined in: [commands/census/reassign.ts:40](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/reassign.ts#L40)
+Defined in: [commands/census/reassign.ts:40](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/reassign.ts#L40)
 
 #### Parameters
 
@@ -91,4 +91,4 @@ Defined in: [commands/census/reassign.ts:40](https://github.com/ryandward/Projec
 
 #### Returns
 
-`Promise`\<[`Status`](/api/entities/status/#status)\>
+`Promise`\<[`Status`](/Project-1999-Typescript-Discord/api/entities/status/#status)\>

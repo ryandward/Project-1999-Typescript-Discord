@@ -7,7 +7,7 @@ title: "commands/utility/utility_functions"
 
 Shared helper functions for utility commands.
 
-Currently houses the [loginLogic](/api/commands/utility/utility_functions/#loginlogic) function that powers the `/login`
+Currently houses the [loginLogic](/Project-1999-Typescript-Discord/api/commands/utility/utility_functions/#loginlogic) function that powers the `/login`
 command's three-branch flow: create toon, update toon, or display account info.
 
 ## Functions
@@ -16,7 +16,7 @@ command's three-branch flow: create toon, update toon, or display account info.
 
 > **loginLogic**(`interaction`, `toonName`, `accountName?`): `Promise`\<`void`\>
 
-Defined in: [commands/utility/utility\_functions.ts:31](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/utility/utility_functions.ts#L31)
+Defined in: [commands/utility/utility\_functions.ts:31](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/utility/utility_functions.ts#L31)
 
 Core logic for the `/login` command with three branches:
 

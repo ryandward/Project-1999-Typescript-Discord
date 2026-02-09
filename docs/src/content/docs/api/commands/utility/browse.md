@@ -20,7 +20,7 @@ Uses interactive select-menu and button collectors.
 
 > `const` **data**: `SlashCommandOptionsOnlyBuilder`
 
-Defined in: [commands/utility/browse.ts:47](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/utility/browse.ts#L47)
+Defined in: [commands/utility/browse.ts:47](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/utility/browse.ts#L47)
 
 ## Functions
 
@@ -28,7 +28,7 @@ Defined in: [commands/utility/browse.ts:47](https://github.com/ryandward/Project
 
 > **autocomplete**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/utility/browse.ts:70](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/utility/browse.ts#L70)
+Defined in: [commands/utility/browse.ts:70](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/utility/browse.ts#L70)
 
 #### Parameters
 
@@ -46,7 +46,7 @@ Defined in: [commands/utility/browse.ts:70](https://github.com/ryandward/Project
 
 > **execute**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/utility/browse.ts:81](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/utility/browse.ts#L81)
+Defined in: [commands/utility/browse.ts:81](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/utility/browse.ts#L81)
 
 #### Parameters
 
@@ -62,9 +62,9 @@ Defined in: [commands/utility/browse.ts:81](https://github.com/ryandward/Project
 
 ### statusMustBeActive()
 
-> **statusMustBeActive**(`inputStatus`): `Promise`\<[`Status`](/api/entities/status/#status)\>
+> **statusMustBeActive**(`inputStatus`): `Promise`\<[`Status`](/Project-1999-Typescript-Discord/api/entities/status/#status)\>
 
-Defined in: [commands/utility/browse.ts:41](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/utility/browse.ts#L41)
+Defined in: [commands/utility/browse.ts:41](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/utility/browse.ts#L41)
 
 #### Parameters
 
@@ -74,4 +74,4 @@ Defined in: [commands/utility/browse.ts:41](https://github.com/ryandward/Project
 
 #### Returns
 
-`Promise`\<[`Status`](/api/entities/status/#status)\>
+`Promise`\<[`Status`](/Project-1999-Typescript-Discord/api/entities/status/#status)\>

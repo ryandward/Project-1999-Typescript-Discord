@@ -11,7 +11,7 @@ title: "app_data"
 
 > `const` **AppDataSource**: `DataSource`
 
-Defined in: [app\_data.ts:19](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/app_data.ts#L19)
+Defined in: [app\_data.ts:19](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/app_data.ts#L19)
 
 TypeORM `DataSource` configured for the guild's PostgreSQL database.
 
@@ -31,9 +31,9 @@ Schema synchronisation is **disabled** — migrations are managed externally.
 
 > **initializeDataSource**(): `Promise`\<`void`\>
 
-Defined in: [app\_data.ts:39](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/app_data.ts#L39)
+Defined in: [app\_data.ts:39](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/app_data.ts#L39)
 
-Initialises the [AppDataSource](/api/app_data/#appdatasource) connection pool.
+Initialises the [AppDataSource](/Project-1999-Typescript-Discord/api/app_data/#appdatasource) connection pool.
 
 Called once at application startup from `index.ts`.
 On failure the process exits with code 1 so Railway restarts it.

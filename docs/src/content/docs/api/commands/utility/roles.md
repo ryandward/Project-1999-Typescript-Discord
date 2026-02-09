@@ -20,7 +20,7 @@ Requires `ManageRoles` permission.
 
 > `const` **data**: `SlashCommandSubcommandsOnlyBuilder`
 
-Defined in: [commands/utility/roles.ts:26](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/utility/roles.ts#L26)
+Defined in: [commands/utility/roles.ts:26](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/utility/roles.ts#L26)
 
 ## Functions
 
@@ -28,7 +28,7 @@ Defined in: [commands/utility/roles.ts:26](https://github.com/ryandward/Project-
 
 > **autocomplete**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/utility/roles.ts:75](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/utility/roles.ts#L75)
+Defined in: [commands/utility/roles.ts:75](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/utility/roles.ts#L75)
 
 #### Parameters
 
@@ -46,7 +46,7 @@ Defined in: [commands/utility/roles.ts:75](https://github.com/ryandward/Project-
 
 > **execute**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/utility/roles.ts:99](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/utility/roles.ts#L99)
+Defined in: [commands/utility/roles.ts:99](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/utility/roles.ts#L99)
 
 #### Parameters
 

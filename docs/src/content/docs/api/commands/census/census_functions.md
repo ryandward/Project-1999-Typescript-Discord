@@ -15,9 +15,9 @@ suggestion builders, and the new-member onboarding flow. Imported by
 
 ### classMustExist()
 
-> **classMustExist**(`CharacterClass`): `Promise`\<[`ClassDefinitions`](/api/entities/classdefinitions/#classdefinitions)\>
+> **classMustExist**(`CharacterClass`): `Promise`\<[`ClassDefinitions`](/Project-1999-Typescript-Discord/api/entities/classdefinitions/#classdefinitions)\>
 
-Defined in: [commands/census/census\_functions.ts:63](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/census_functions.ts#L63)
+Defined in: [commands/census/census\_functions.ts:63](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/census_functions.ts#L63)
 
 Validates that a character class exists in the `ClassDefinitions` table.
 
@@ -31,7 +31,7 @@ Class name to look up (e.g. `"Cleric"`).
 
 #### Returns
 
-`Promise`\<[`ClassDefinitions`](/api/entities/classdefinitions/#classdefinitions)\>
+`Promise`\<[`ClassDefinitions`](/Project-1999-Typescript-Discord/api/entities/classdefinitions/#classdefinitions)\>
 
 #### Throws
 
@@ -43,7 +43,7 @@ If the class is not found.
 
 > **declare**(`DiscordId`, `Status`, `Name`, `Level`, `CharacterClass`): `Promise`\<`string`\>
 
-Defined in: [commands/census/census\_functions.ts:203](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/census_functions.ts#L203)
+Defined in: [commands/census/census\_functions.ts:203](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/census_functions.ts#L203)
 
 Creates a new `Census` record for a character.
 
@@ -91,7 +91,7 @@ Confirmation or error message string for the interaction reply.
 
 > **declareAutocomplete**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/census/census\_functions.ts:137](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/census_functions.ts#L137)
+Defined in: [commands/census/census\_functions.ts:137](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/census_functions.ts#L137)
 
 Shared autocomplete handler for character class selection.
 
@@ -114,7 +114,7 @@ filtered by the user's partial input.
 
 > **declareData**(`status`): `Promise`\<`SlashCommandOptionsOnlyBuilder`\>
 
-Defined in: [commands/census/census\_functions.ts:101](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/census_functions.ts#L101)
+Defined in: [commands/census/census\_functions.ts:101](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/census_functions.ts#L101)
 
 Builds the `SlashCommandBuilder` definition used by `/main`, `/alt`, and `/bot`.
 
@@ -139,7 +139,7 @@ The census status to assign (e.g. `"Main"`, `"Alt"`, `"Bot"`).
 
 > **formatField**(`field`): `string`
 
-Defined in: [commands/census/census\_functions.ts:325](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/census_functions.ts#L325)
+Defined in: [commands/census/census\_functions.ts:325](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/census_functions.ts#L325)
 
 Joins an array of strings with newlines for embed field display.
 
@@ -161,7 +161,7 @@ Lines to join.
 
 > **insertUser**(`DiscordId`): `Promise`\<`string` \| `false`\>
 
-Defined in: [commands/census/census\_functions.ts:238](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/census_functions.ts#L238)
+Defined in: [commands/census/census\_functions.ts:238](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/census_functions.ts#L238)
 
 Onboards a new guild member into the DKP system.
 
@@ -189,7 +189,7 @@ Confirmation message, or `false` if the user already existed.
 
 > **levelMustBeValid**(`Level`): `Promise`\<`number`\>
 
-Defined in: [commands/census/census\_functions.ts:53](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/census_functions.ts#L53)
+Defined in: [commands/census/census\_functions.ts:53](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/census_functions.ts#L53)
 
 Validates that a character level is within the valid EQ range (1–60).
 
@@ -215,7 +215,7 @@ If the level is out of range.
 
 > **returnAllActiveToonsByDiscordId**(`userId`): `Promise`\<`any`[]\>
 
-Defined in: [commands/census/census\_functions.ts:312](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/census_functions.ts#L312)
+Defined in: [commands/census/census\_functions.ts:312](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/census_functions.ts#L312)
 
 Returns all active characters owned by a specific Discord user.
 
@@ -237,7 +237,7 @@ Discord snowflake ID.
 
 > **returnAllActiveToonsByName**(`partialName`): `Promise`\<`any`[]\>
 
-Defined in: [commands/census/census\_functions.ts:295](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/census_functions.ts#L295)
+Defined in: [commands/census/census\_functions.ts:295](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/census_functions.ts#L295)
 
 Finds a character by partial name, then returns **all** active characters
 belonging to the same Discord user.
@@ -260,7 +260,7 @@ Substring to match against character names.
 
 > **suggestActiveToons**(`partialName`): `Promise`\<`any`[]\>
 
-Defined in: [commands/census/census\_functions.ts:281](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/census_functions.ts#L281)
+Defined in: [commands/census/census\_functions.ts:281](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/census_functions.ts#L281)
 
 Returns up to 20 active characters matching a partial name (case-insensitive).
 
@@ -282,7 +282,7 @@ Substring to match against character names.
 
 > **suggestCharacterClasses**(`partialName`, `level?`): `Promise`\<`any`[]\>
 
-Defined in: [commands/census/census\_functions.ts:159](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/census_functions.ts#L159)
+Defined in: [commands/census/census\_functions.ts:159](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/census_functions.ts#L159)
 
 Returns class definitions matching a partial name, optionally filtered by level.
 
@@ -308,9 +308,9 @@ If provided, only returns titles attainable at or below this level.
 
 ### toonMustExist()
 
-> **toonMustExist**(`Name`): `Promise`\<[`Census`](/api/entities/census/#census)\>
+> **toonMustExist**(`Name`): `Promise`\<[`Census`](/Project-1999-Typescript-Discord/api/entities/census/#census)\>
 
-Defined in: [commands/census/census\_functions.ts:76](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/census_functions.ts#L76)
+Defined in: [commands/census/census\_functions.ts:76](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/census_functions.ts#L76)
 
 Validates that a character exists in the `Census` table.
 
@@ -324,7 +324,7 @@ Exact character name to look up.
 
 #### Returns
 
-`Promise`\<[`Census`](/api/entities/census/#census)\>
+`Promise`\<[`Census`](/Project-1999-Typescript-Discord/api/entities/census/#census)\>
 
 #### Throws
 
@@ -336,7 +336,7 @@ If the character is not found.
 
 > **toonMustNotExist**(`Name`): `Promise`\<`null`\>
 
-Defined in: [commands/census/census\_functions.ts:87](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/census_functions.ts#L87)
+Defined in: [commands/census/census\_functions.ts:87](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/census_functions.ts#L87)
 
 Validates that a character name is **not** already taken in the `Census` table.
 
@@ -360,9 +360,9 @@ If a character with that name already exists.
 
 ### userMustExist()
 
-> **userMustExist**(`DiscordId`): `Promise`\<[`Dkp`](/api/entities/dkp/#dkp)\>
+> **userMustExist**(`DiscordId`): `Promise`\<[`Dkp`](/Project-1999-Typescript-Discord/api/entities/dkp/#dkp)\>
 
-Defined in: [commands/census/census\_functions.ts:27](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/census_functions.ts#L27)
+Defined in: [commands/census/census\_functions.ts:27](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/census_functions.ts#L27)
 
 Validates that a user already exists in the DKP database.
 
@@ -376,7 +376,7 @@ Discord snowflake ID to look up.
 
 #### Returns
 
-`Promise`\<[`Dkp`](/api/entities/dkp/#dkp)\>
+`Promise`\<[`Dkp`](/Project-1999-Typescript-Discord/api/entities/dkp/#dkp)\>
 
 The `Dkp` record for the user.
 
@@ -390,7 +390,7 @@ If the user is not found.
 
 > **userMustNotExist**(`DiscordId`): `Promise`\<`null`\>
 
-Defined in: [commands/census/census\_functions.ts:42](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/census_functions.ts#L42)
+Defined in: [commands/census/census\_functions.ts:42](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/census_functions.ts#L42)
 
 Validates that a user does **not** yet exist in the DKP database.
 
@@ -416,7 +416,7 @@ If the user already exists.
 
 > **validCharacterClasses**(): `Promise`\<`object`[]\>
 
-Defined in: [commands/census/census\_functions.ts:177](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/census_functions.ts#L177)
+Defined in: [commands/census/census\_functions.ts:177](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/census_functions.ts#L177)
 
 Returns the list of valid base character classes (where class name = character class).
 

@@ -19,7 +19,7 @@ Called once at startup and then every 24 hours by the `ready` event handler.
 
 > **checkForPromotions**(): `Promise`\<`void`\>
 
-Defined in: [events/check\_for\_promotions.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/events/check_for_promotions.ts#L22)
+Defined in: [events/check\_for\_promotions.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/events/check_for_promotions.ts#L22)
 
 Scans for probationary members eligible for promotion and posts
 reminders to officers in the census channel.

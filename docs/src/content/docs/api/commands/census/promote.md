@@ -18,7 +18,7 @@ message to the general channel (`851549677815070751`).
 
 > `const` **data**: `SlashCommandOptionsOnlyBuilder`
 
-Defined in: [commands/census/promote.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/promote.ts#L22)
+Defined in: [commands/census/promote.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/promote.ts#L22)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [commands/census/promote.ts:22](https://github.com/ryandward/Project
 
 > `const` **permissions**: `string`[]
 
-Defined in: [commands/census/promote.ts:20](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/promote.ts#L20)
+Defined in: [commands/census/promote.ts:20](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/promote.ts#L20)
 
 ## Functions
 
@@ -34,7 +34,7 @@ Defined in: [commands/census/promote.ts:20](https://github.com/ryandward/Project
 
 > **autocomplete**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/census/promote.ts:33](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/promote.ts#L33)
+Defined in: [commands/census/promote.ts:33](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/promote.ts#L33)
 
 #### Parameters
 
@@ -52,7 +52,7 @@ Defined in: [commands/census/promote.ts:33](https://github.com/ryandward/Project
 
 > **execute**(`interaction`): `Promise`\<`InteractionResponse`\<`boolean`\> \| `undefined`\>
 
-Defined in: [commands/census/promote.ts:64](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/census/promote.ts#L64)
+Defined in: [commands/census/promote.ts:64](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/promote.ts#L64)
 
 #### Parameters
 

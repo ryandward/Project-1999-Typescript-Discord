@@ -9,7 +9,7 @@ title: "entities/ClassRoles"
 
 ### ClassRoles
 
-Defined in: [entities/ClassRoles.ts:11](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/ClassRoles.ts#L11)
+Defined in: [entities/ClassRoles.ts:11](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/entities/ClassRoles.ts#L11)
 
 Mapping from EQ class to Discord role (maps to `public.class_roles`).
 
@@ -20,11 +20,11 @@ when they are declared via `/main`, `/alt`, or `/bot`.
 
 ##### Constructor
 
-> **new ClassRoles**(): [`ClassRoles`](/api/entities/classroles/#classroles)
+> **new ClassRoles**(): [`ClassRoles`](/Project-1999-Typescript-Discord/api/entities/classroles/#classroles)
 
 ###### Returns
 
-[`ClassRoles`](/api/entities/classroles/#classroles)
+[`ClassRoles`](/Project-1999-Typescript-Discord/api/entities/classroles/#classroles)
 
 #### Properties
 
@@ -32,7 +32,7 @@ when they are declared via `/main`, `/alt`, or `/bot`.
 
 > **CharacterClass**: `string` \| `null`
 
-Defined in: [entities/ClassRoles.ts:14](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/ClassRoles.ts#L14)
+Defined in: [entities/ClassRoles.ts:14](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/entities/ClassRoles.ts#L14)
 
 EverQuest class name (e.g. `"Warrior"`).
 
@@ -40,12 +40,12 @@ EverQuest class name (e.g. `"Warrior"`).
 
 > **Id**: `string`
 
-Defined in: [entities/ClassRoles.ts:21](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/ClassRoles.ts#L21)
+Defined in: [entities/ClassRoles.ts:21](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/entities/ClassRoles.ts#L21)
 
 ##### RoleId
 
 > **RoleId**: `string` \| `null`
 
-Defined in: [entities/ClassRoles.ts:18](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/entities/ClassRoles.ts#L18)
+Defined in: [entities/ClassRoles.ts:18](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/entities/ClassRoles.ts#L18)
 
 Discord role snowflake ID to assign for this class.

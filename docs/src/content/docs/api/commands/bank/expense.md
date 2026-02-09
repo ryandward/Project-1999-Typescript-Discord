@@ -16,7 +16,7 @@ negative amount. Displays a red embed confirming the transaction.
 
 > `const` **data**: `SlashCommandOptionsOnlyBuilder`
 
-Defined in: [commands/bank/expense.ts:15](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/bank/expense.ts#L15)
+Defined in: [commands/bank/expense.ts:15](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/bank/expense.ts#L15)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [commands/bank/expense.ts:15](https://github.com/ryandward/Project-1
 
 > `const` **permissions**: `"ManageGuild"` = `'ManageGuild'`
 
-Defined in: [commands/bank/expense.ts:13](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/bank/expense.ts#L13)
+Defined in: [commands/bank/expense.ts:13](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/bank/expense.ts#L13)
 
 ## Functions
 
@@ -32,7 +32,7 @@ Defined in: [commands/bank/expense.ts:13](https://github.com/ryandward/Project-1
 
 > **execute**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/bank/expense.ts:29](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/bank/expense.ts#L29)
+Defined in: [commands/bank/expense.ts:29](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/bank/expense.ts#L29)
 
 #### Parameters
 

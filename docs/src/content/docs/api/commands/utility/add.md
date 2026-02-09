@@ -17,7 +17,7 @@ table are available.
 
 > `const` **data**: `SlashCommandOptionsOnlyBuilder`
 
-Defined in: [commands/utility/add.ts:21](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/utility/add.ts#L21)
+Defined in: [commands/utility/add.ts:21](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/utility/add.ts#L21)
 
 ## Functions
 
@@ -25,7 +25,7 @@ Defined in: [commands/utility/add.ts:21](https://github.com/ryandward/Project-19
 
 > **autocomplete**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/utility/add.ts:28](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/utility/add.ts#L28)
+Defined in: [commands/utility/add.ts:28](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/utility/add.ts#L28)
 
 #### Parameters
 
@@ -43,7 +43,7 @@ Defined in: [commands/utility/add.ts:28](https://github.com/ryandward/Project-19
 
 > **execute**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/utility/add.ts:52](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/97090a8103b8339c382e3a487a9bf412d98eb67d/commands/utility/add.ts#L52)
+Defined in: [commands/utility/add.ts:52](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/utility/add.ts#L52)
 
 #### Parameters
 

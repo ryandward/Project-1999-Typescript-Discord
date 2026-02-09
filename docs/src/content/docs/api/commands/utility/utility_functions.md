@@ -16,7 +16,7 @@ command's three-branch flow: create toon, update toon, or display account info.
 
 > **loginLogic**(`interaction`, `toonName`, `accountName?`): `Promise`\<`void`\>
 
-Defined in: [commands/utility/utility\_functions.ts:31](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/utility/utility_functions.ts#L31)
+Defined in: [commands/utility/utility\_functions.ts:31](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/utility/utility_functions.ts#L31)
 
 Core logic for the `/login` command with three branches:
 

@@ -16,7 +16,7 @@ schedules it to repeat every 24 hours.
 
 > `const` **name**: `ClientReady` = `Events.ClientReady`
 
-Defined in: [events/ready.ts:14](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/events/ready.ts#L14)
+Defined in: [events/ready.ts:14](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/events/ready.ts#L14)
 
 Discord event name this module handles.
 
@@ -26,7 +26,7 @@ Discord event name this module handles.
 
 > `const` **once**: `true` = `true`
 
-Defined in: [events/ready.ts:16](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/events/ready.ts#L16)
+Defined in: [events/ready.ts:16](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/events/ready.ts#L16)
 
 When `true`, the event listener fires only once.
 
@@ -36,7 +36,7 @@ When `true`, the event listener fires only once.
 
 > **execute**(`client`): `Promise`\<`void`\>
 
-Defined in: [events/ready.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/events/ready.ts#L22)
+Defined in: [events/ready.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/events/ready.ts#L22)
 
 Logs the bot's identity and starts the daily promotion-check interval.
 

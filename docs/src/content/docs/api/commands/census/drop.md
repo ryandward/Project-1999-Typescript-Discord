@@ -16,7 +16,7 @@ The record remains in the `Census` table but is excluded from the
 
 > `const` **data**: `SlashCommandOptionsOnlyBuilder`
 
-Defined in: [commands/census/drop.ts:20](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/drop.ts#L20)
+Defined in: [commands/census/drop.ts:20](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/census/drop.ts#L20)
 
 ## Functions
 
@@ -24,7 +24,7 @@ Defined in: [commands/census/drop.ts:20](https://github.com/ryandward/Project-19
 
 > **autocomplete**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/census/drop.ts:32](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/drop.ts#L32)
+Defined in: [commands/census/drop.ts:32](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/census/drop.ts#L32)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [commands/census/drop.ts:32](https://github.com/ryandward/Project-19
 
 > **execute**(`interaction`): `Promise`\<`InteractionResponse`\<`boolean`\> \| `undefined`\>
 
-Defined in: [commands/census/drop.ts:55](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/drop.ts#L55)
+Defined in: [commands/census/drop.ts:55](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/census/drop.ts#L55)
 
 #### Parameters
 

@@ -17,7 +17,7 @@ and level columns.
 
 > `const` **data**: `SlashCommandOptionsOnlyBuilder`
 
-Defined in: [commands/census/toons.ts:27](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/toons.ts#L27)
+Defined in: [commands/census/toons.ts:27](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/census/toons.ts#L27)
 
 ## Functions
 
@@ -25,7 +25,7 @@ Defined in: [commands/census/toons.ts:27](https://github.com/ryandward/Project-1
 
 > **autocomplete**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/census/toons.ts:34](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/toons.ts#L34)
+Defined in: [commands/census/toons.ts:34](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/census/toons.ts#L34)
 
 #### Parameters
 
@@ -43,7 +43,7 @@ Defined in: [commands/census/toons.ts:34](https://github.com/ryandward/Project-1
 
 > **execute**(`interaction`): `Promise`\<`InteractionResponse`\<`boolean`\> \| `undefined`\>
 
-Defined in: [commands/census/toons.ts:55](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/toons.ts#L55)
+Defined in: [commands/census/toons.ts:55](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/census/toons.ts#L55)
 
 #### Parameters
 

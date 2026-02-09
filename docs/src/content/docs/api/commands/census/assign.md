@@ -17,7 +17,7 @@ the specified user. If the user is new, automatically inserts them into
 
 > `const` **data**: `SlashCommandOptionsOnlyBuilder`
 
-Defined in: [commands/census/assign.ts:41](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/assign.ts#L41)
+Defined in: [commands/census/assign.ts:41](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/census/assign.ts#L41)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [commands/census/assign.ts:41](https://github.com/ryandward/Project-
 
 > `const` **permissions**: `"ManageGuild"` = `'ManageGuild'`
 
-Defined in: [commands/census/assign.ts:28](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/assign.ts#L28)
+Defined in: [commands/census/assign.ts:28](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/census/assign.ts#L28)
 
 ## Functions
 
@@ -33,7 +33,7 @@ Defined in: [commands/census/assign.ts:28](https://github.com/ryandward/Project-
 
 > **autocomplete**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/census/assign.ts:79](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/assign.ts#L79)
+Defined in: [commands/census/assign.ts:79](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/census/assign.ts#L79)
 
 #### Parameters
 
@@ -51,7 +51,7 @@ Defined in: [commands/census/assign.ts:79](https://github.com/ryandward/Project-
 
 > **execute**(`interaction`): `Promise`\<`InteractionResponse`\<`boolean`\> \| `undefined`\>
 
-Defined in: [commands/census/assign.ts:100](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/assign.ts#L100)
+Defined in: [commands/census/assign.ts:100](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/census/assign.ts#L100)
 
 #### Parameters
 
@@ -69,7 +69,7 @@ Defined in: [commands/census/assign.ts:100](https://github.com/ryandward/Project
 
 > **getActiveStatuses**(): `Promise`\<[`Status`](/Project-1999-Typescript-Discord/api/entities/status/#status)[]\>
 
-Defined in: [commands/census/assign.ts:30](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/assign.ts#L30)
+Defined in: [commands/census/assign.ts:30](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/census/assign.ts#L30)
 
 #### Returns
 
@@ -81,7 +81,7 @@ Defined in: [commands/census/assign.ts:30](https://github.com/ryandward/Project-
 
 > **statusMustBeActive**(`inputStatus`): `Promise`\<[`Status`](/Project-1999-Typescript-Discord/api/entities/status/#status)\>
 
-Defined in: [commands/census/assign.ts:35](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/census/assign.ts#L35)
+Defined in: [commands/census/assign.ts:35](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/census/assign.ts#L35)
 
 #### Parameters
 

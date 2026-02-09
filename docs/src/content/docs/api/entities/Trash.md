@@ -9,7 +9,7 @@ title: "entities/Trash"
 
 ### Trash
 
-Defined in: [entities/Trash.ts:11](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/entities/Trash.ts#L11)
+Defined in: [entities/Trash.ts:11](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Trash.ts#L11)
 
 Trash item filter list (maps to `public.trash`).
 
@@ -32,12 +32,12 @@ preventing common junk items from cluttering the guild bank records.
 
 > **Id**: `string`
 
-Defined in: [entities/Trash.ts:17](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/entities/Trash.ts#L17)
+Defined in: [entities/Trash.ts:17](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Trash.ts#L17)
 
 ##### Name
 
 > **Name**: `string` \| `null`
 
-Defined in: [entities/Trash.ts:14](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/entities/Trash.ts#L14)
+Defined in: [entities/Trash.ts:14](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Trash.ts#L14)
 
 Item name to filter out during bank imports.

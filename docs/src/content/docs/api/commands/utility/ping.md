@@ -13,7 +13,7 @@ title: "commands/utility/ping"
 
 > `const` **data**: `SlashCommandBuilder`
 
-Defined in: [commands/utility/ping.ts:8](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/utility/ping.ts#L8)
+Defined in: [commands/utility/ping.ts:8](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/utility/ping.ts#L8)
 
 ## Functions
 
@@ -21,7 +21,7 @@ Defined in: [commands/utility/ping.ts:8](https://github.com/ryandward/Project-19
 
 > **execute**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/utility/ping.ts:12](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/utility/ping.ts#L12)
+Defined in: [commands/utility/ping.ts:12](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/utility/ping.ts#L12)
 
 #### Parameters
 

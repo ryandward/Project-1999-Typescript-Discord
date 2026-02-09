@@ -19,7 +19,7 @@ appropriate handler based on interaction type:
 
 > `const` **name**: `InteractionCreate` = `Events.InteractionCreate`
 
-Defined in: [events/interaction\_create.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/events/interaction_create.ts#L22)
+Defined in: [events/interaction\_create.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/events/interaction_create.ts#L22)
 
 Discord event name this module handles.
 
@@ -29,7 +29,7 @@ Discord event name this module handles.
 
 > **execute**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [events/interaction\_create.ts:28](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/events/interaction_create.ts#L28)
+Defined in: [events/interaction\_create.ts:28](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/events/interaction_create.ts#L28)
 
 Routes an incoming interaction to the correct command handler.
 

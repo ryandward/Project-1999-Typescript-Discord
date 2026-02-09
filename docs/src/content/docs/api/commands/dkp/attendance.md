@@ -24,7 +24,7 @@ Requires `ManageRoles` permission.
 
 > `const` **data**: `SlashCommandOptionsOnlyBuilder`
 
-Defined in: [commands/dkp/attendance.ts:37](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/dkp/attendance.ts#L37)
+Defined in: [commands/dkp/attendance.ts:37](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/dkp/attendance.ts#L37)
 
 ## Functions
 
@@ -32,7 +32,7 @@ Defined in: [commands/dkp/attendance.ts:37](https://github.com/ryandward/Project
 
 > **autocomplete**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/dkp/attendance.ts:49](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/dkp/attendance.ts#L49)
+Defined in: [commands/dkp/attendance.ts:49](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/dkp/attendance.ts#L49)
 
 #### Parameters
 
@@ -50,7 +50,7 @@ Defined in: [commands/dkp/attendance.ts:49](https://github.com/ryandward/Project
 
 > **execute**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/dkp/attendance.ts:76](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/dkp/attendance.ts#L76)
+Defined in: [commands/dkp/attendance.ts:76](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/dkp/attendance.ts#L76)
 
 #### Parameters
 
@@ -68,7 +68,7 @@ Defined in: [commands/dkp/attendance.ts:76](https://github.com/ryandward/Project
 
 > **handleModal**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/dkp/attendance.ts:185](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/dkp/attendance.ts#L185)
+Defined in: [commands/dkp/attendance.ts:185](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/dkp/attendance.ts#L185)
 
 #### Parameters
 

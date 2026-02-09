@@ -9,7 +9,7 @@ title: "entities/Census"
 
 ### Census
 
-Defined in: [entities/Census.ts:12](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/entities/Census.ts#L12)
+Defined in: [entities/Census.ts:12](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Census.ts#L12)
 
 Core guild-member character record (maps to `public.census`).
 
@@ -37,7 +37,7 @@ the `ActiveToons` view filters to non-dropped records.
 
 > **CharacterClass**: `string`
 
-Defined in: [entities/Census.ts:26](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/entities/Census.ts#L26)
+Defined in: [entities/Census.ts:26](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Census.ts#L26)
 
 EverQuest class name, e.g. `"Cleric"`, `"Wizard"`.
 
@@ -45,7 +45,7 @@ EverQuest class name, e.g. `"Cleric"`, `"Wizard"`.
 
 > **DiscordId**: `string`
 
-Defined in: [entities/Census.ts:18](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/entities/Census.ts#L18)
+Defined in: [entities/Census.ts:18](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Census.ts#L18)
 
 Discord snowflake ID of the player who owns this character.
 
@@ -53,13 +53,13 @@ Discord snowflake ID of the player who owns this character.
 
 > **Id**: `number`
 
-Defined in: [entities/Census.ts:14](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/entities/Census.ts#L14)
+Defined in: [entities/Census.ts:14](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Census.ts#L14)
 
 ##### Level
 
 > **Level**: `number`
 
-Defined in: [entities/Census.ts:30](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/entities/Census.ts#L30)
+Defined in: [entities/Census.ts:30](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Census.ts#L30)
 
 Current character level (1–60).
 
@@ -67,7 +67,7 @@ Current character level (1–60).
 
 > **Name**: `string`
 
-Defined in: [entities/Census.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/entities/Census.ts#L22)
+Defined in: [entities/Census.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Census.ts#L22)
 
 In-game character name (unique within active records).
 
@@ -75,7 +75,7 @@ In-game character name (unique within active records).
 
 > **Status**: `string`
 
-Defined in: [entities/Census.ts:34](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/entities/Census.ts#L34)
+Defined in: [entities/Census.ts:34](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Census.ts#L34)
 
 Membership status — `"Main"`, `"Alt"`, `"Bot"`, `"Dropped"`, or `"Probationary"`.
 
@@ -83,6 +83,6 @@ Membership status — `"Main"`, `"Alt"`, `"Bot"`, `"Dropped"`, or `"Probationary
 
 > **Time**: `Date`
 
-Defined in: [entities/Census.ts:38](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/entities/Census.ts#L38)
+Defined in: [entities/Census.ts:38](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/Census.ts#L38)
 
 Timestamp when this record was created or last updated.

@@ -17,7 +17,7 @@ Creates new accounts if they don't exist when updating.
 
 > `const` **data**: `SlashCommandOptionsOnlyBuilder`
 
-Defined in: [commands/utility/account.ts:24](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/utility/account.ts#L24)
+Defined in: [commands/utility/account.ts:24](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/utility/account.ts#L24)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [commands/utility/account.ts:24](https://github.com/ryandward/Projec
 
 > `const` **permissions**: `string`[]
 
-Defined in: [commands/utility/account.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/utility/account.ts#L22)
+Defined in: [commands/utility/account.ts:22](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/utility/account.ts#L22)
 
 ## Functions
 
@@ -33,7 +33,7 @@ Defined in: [commands/utility/account.ts:22](https://github.com/ryandward/Projec
 
 > **autocomplete**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/utility/account.ts:37](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/utility/account.ts#L37)
+Defined in: [commands/utility/account.ts:37](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/utility/account.ts#L37)
 
 #### Parameters
 
@@ -51,7 +51,7 @@ Defined in: [commands/utility/account.ts:37](https://github.com/ryandward/Projec
 
 > **execute**(`interaction`): `Promise`\<`void`\>
 
-Defined in: [commands/utility/account.ts:66](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/e3f3f455578400652e315353e14cc07758d61eac/commands/utility/account.ts#L66)
+Defined in: [commands/utility/account.ts:66](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/utility/account.ts#L66)
 
 #### Parameters
 

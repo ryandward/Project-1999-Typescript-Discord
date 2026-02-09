@@ -20,11 +20,11 @@ Separate from `Bank` which tracks guild banker inventories.
 
 ##### Constructor
 
-> **new Inventory**(): [`Inventory`](/Project-1999-Typescript-Discord/api/entities/inventory/#inventory)
+> **new Inventory**(): [`Inventory`](#inventory)
 
 ###### Returns
 
-[`Inventory`](/Project-1999-Typescript-Discord/api/entities/inventory/#inventory)
+[`Inventory`](#inventory)
 
 #### Properties
 

@@ -20,11 +20,11 @@ Used for auditing loot distribution and tracking DKP expenditure.
 
 ##### Constructor
 
-> **new Items**(): [`Items`](/Project-1999-Typescript-Discord/api/entities/items/#items)
+> **new Items**(): [`Items`](#items)
 
 ###### Returns
 
-[`Items`](/Project-1999-Typescript-Discord/api/entities/items/#items)
+[`Items`](#items)
 
 #### Properties
 

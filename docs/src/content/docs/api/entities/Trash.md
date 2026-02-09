@@ -20,11 +20,11 @@ preventing common junk items from cluttering the guild bank records.
 
 ##### Constructor
 
-> **new Trash**(): [`Trash`](/Project-1999-Typescript-Discord/api/entities/trash/#trash)
+> **new Trash**(): [`Trash`](#trash)
 
 ###### Returns
 
-[`Trash`](/Project-1999-Typescript-Discord/api/entities/trash/#trash)
+[`Trash`](#trash)
 
 #### Properties
 

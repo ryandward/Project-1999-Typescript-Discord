@@ -19,21 +19,21 @@ helpers) query this view instead of the raw `Census` table.
 
 #### Extends
 
-- [`Census`](/Project-1999-Typescript-Discord/api/entities/census/#census)
+- [`Census`](../census/#census)
 
 #### Constructors
 
 ##### Constructor
 
-> **new ActiveToons**(): [`ActiveToons`](/Project-1999-Typescript-Discord/api/entities/activetoons/#activetoons)
+> **new ActiveToons**(): [`ActiveToons`](#activetoons)
 
 ###### Returns
 
-[`ActiveToons`](/Project-1999-Typescript-Discord/api/entities/activetoons/#activetoons)
+[`ActiveToons`](#activetoons)
 
 ###### Inherited from
 
-[`Census`](/Project-1999-Typescript-Discord/api/entities/census/#census).[`constructor`](/Project-1999-Typescript-Discord/api/entities/census/#census)
+[`Census`](../census/#census).[`constructor`](../census/#census)
 
 #### Properties
 
@@ -47,7 +47,7 @@ EverQuest class name, e.g. `"Cleric"`, `"Wizard"`.
 
 ###### Inherited from
 
-[`Census`](/Project-1999-Typescript-Discord/api/entities/census/#census).[`CharacterClass`](/Project-1999-Typescript-Discord/api/entities/census/#census)
+[`Census`](../census/#census).[`CharacterClass`](../census/#census)
 
 ##### DiscordId
 
@@ -59,7 +59,7 @@ Discord snowflake ID of the player who owns this character.
 
 ###### Inherited from
 
-[`Census`](/Project-1999-Typescript-Discord/api/entities/census/#census).[`DiscordId`](/Project-1999-Typescript-Discord/api/entities/census/#census)
+[`Census`](../census/#census).[`DiscordId`](../census/#census)
 
 ##### Id
 
@@ -69,7 +69,7 @@ Defined in: [entities/Census.ts:14](https://github.com/ryandward/Project-1999-Ty
 
 ###### Inherited from
 
-[`Census`](/Project-1999-Typescript-Discord/api/entities/census/#census).[`Id`](/Project-1999-Typescript-Discord/api/entities/census/#census)
+[`Census`](../census/#census).[`Id`](../census/#census)
 
 ##### Level
 
@@ -81,7 +81,7 @@ Current character level (1–60).
 
 ###### Inherited from
 
-[`Census`](/Project-1999-Typescript-Discord/api/entities/census/#census).[`Level`](/Project-1999-Typescript-Discord/api/entities/census/#census)
+[`Census`](../census/#census).[`Level`](../census/#census)
 
 ##### Name
 
@@ -93,7 +93,7 @@ In-game character name (unique within active records).
 
 ###### Inherited from
 
-[`Census`](/Project-1999-Typescript-Discord/api/entities/census/#census).[`Name`](/Project-1999-Typescript-Discord/api/entities/census/#census)
+[`Census`](../census/#census).[`Name`](../census/#census)
 
 ##### Status
 
@@ -105,7 +105,7 @@ Membership status — `"Main"`, `"Alt"`, `"Bot"`, `"Dropped"`, or `"Probationary
 
 ###### Inherited from
 
-[`Census`](/Project-1999-Typescript-Discord/api/entities/census/#census).[`Status`](/Project-1999-Typescript-Discord/api/entities/census/#census)
+[`Census`](../census/#census).[`Status`](../census/#census)
 
 ##### Time
 
@@ -117,4 +117,4 @@ Timestamp when this record was created or last updated.
 
 ###### Inherited from
 
-[`Census`](/Project-1999-Typescript-Discord/api/entities/census/#census).[`Time`](/Project-1999-Typescript-Discord/api/entities/census/#census)
+[`Census`](../census/#census).[`Time`](../census/#census)

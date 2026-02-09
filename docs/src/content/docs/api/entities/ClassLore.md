@@ -20,11 +20,11 @@ by informational commands to help players understand class roles.
 
 ##### Constructor
 
-> **new ClassLore**(): [`ClassLore`](/Project-1999-Typescript-Discord/api/entities/classlore/#classlore)
+> **new ClassLore**(): [`ClassLore`](#classlore)
 
 ###### Returns
 
-[`ClassLore`](/Project-1999-Typescript-Discord/api/entities/classlore/#classlore)
+[`ClassLore`](#classlore)
 
 #### Properties
 

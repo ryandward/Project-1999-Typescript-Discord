@@ -15,17 +15,17 @@ Shared guild account (maps to `public.shared_accounts`).
 
 Represents an EverQuest account that is shared among guild members
 (e.g. a guild-owned trader or buff bot). Each account can own
-multiple [SharedToons](/Project-1999-Typescript-Discord/api/entities/sharedmodels/#sharedtoons-1).
+multiple [SharedToons](#sharedtoons-1).
 
 #### Constructors
 
 ##### Constructor
 
-> **new SharedAccounts**(): [`SharedAccounts`](/Project-1999-Typescript-Discord/api/entities/sharedmodels/#sharedaccounts)
+> **new SharedAccounts**(): [`SharedAccounts`](#sharedaccounts)
 
 ###### Returns
 
-[`SharedAccounts`](/Project-1999-Typescript-Discord/api/entities/sharedmodels/#sharedaccounts)
+[`SharedAccounts`](#sharedaccounts)
 
 #### Properties
 
@@ -61,7 +61,7 @@ Access role governing who may use this account (e.g. `"Officer"`, `"Member"`).
 
 ##### SharedToons
 
-> **SharedToons**: [`SharedToons`](/Project-1999-Typescript-Discord/api/entities/sharedmodels/#sharedtoons-1)[]
+> **SharedToons**: [`SharedToons`](#sharedtoons-1)[]
 
 Defined in: [entities/SharedModels.ts:39](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/SharedModels.ts#L39)
 
@@ -75,7 +75,7 @@ Defined in: [entities/SharedModels.ts:52](https://github.com/ryandward/Project-1
 
 Character on a shared guild account (maps to `public.shared_toons`).
 
-Linked to a [SharedAccounts](/Project-1999-Typescript-Discord/api/entities/sharedmodels/#sharedaccounts) record via a foreign key on the
+Linked to a [SharedAccounts](#sharedaccounts) record via a foreign key on the
 `account` column. Officers manage these through `/login`, `/add`,
 `/remove`, and `/delete_shared_toon` commands.
 
@@ -83,21 +83,21 @@ Linked to a [SharedAccounts](/Project-1999-Typescript-Discord/api/entities/share
 
 ##### Constructor
 
-> **new SharedToons**(): [`SharedToons`](/Project-1999-Typescript-Discord/api/entities/sharedmodels/#sharedtoons-1)
+> **new SharedToons**(): [`SharedToons`](#sharedtoons-1)
 
 ###### Returns
 
-[`SharedToons`](/Project-1999-Typescript-Discord/api/entities/sharedmodels/#sharedtoons-1)
+[`SharedToons`](#sharedtoons-1)
 
 #### Properties
 
 ##### Account
 
-> **Account**: [`SharedAccounts`](/Project-1999-Typescript-Discord/api/entities/sharedmodels/#sharedaccounts)
+> **Account**: [`SharedAccounts`](#sharedaccounts)
 
 Defined in: [entities/SharedModels.ts:67](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/entities/SharedModels.ts#L67)
 
-The [SharedAccounts](/Project-1999-Typescript-Discord/api/entities/sharedmodels/#sharedaccounts) this character belongs to.
+The [SharedAccounts](#sharedaccounts) this character belongs to.
 
 ##### Id
 

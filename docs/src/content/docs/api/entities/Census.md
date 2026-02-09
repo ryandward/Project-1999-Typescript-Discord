@@ -19,17 +19,17 @@ the `ActiveToons` view filters to non-dropped records.
 
 #### Extended by
 
-- [`ActiveToons`](/Project-1999-Typescript-Discord/api/entities/activetoons/#activetoons)
+- [`ActiveToons`](../activetoons/#activetoons)
 
 #### Constructors
 
 ##### Constructor
 
-> **new Census**(): [`Census`](/Project-1999-Typescript-Discord/api/entities/census/#census)
+> **new Census**(): [`Census`](#census)
 
 ###### Returns
 
-[`Census`](/Project-1999-Typescript-Discord/api/entities/census/#census)
+[`Census`](#census)
 
 #### Properties
 

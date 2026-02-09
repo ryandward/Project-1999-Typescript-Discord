@@ -20,11 +20,11 @@ Used to populate autocomplete dropdowns for status-based filters.
 
 ##### Constructor
 
-> **new Status**(): [`Status`](/Project-1999-Typescript-Discord/api/entities/status/#status)
+> **new Status**(): [`Status`](#status)
 
 ###### Returns
 
-[`Status`](/Project-1999-Typescript-Discord/api/entities/status/#status)
+[`Status`](#status)
 
 #### Properties
 

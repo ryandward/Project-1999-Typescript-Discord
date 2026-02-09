@@ -11,7 +11,7 @@ title: "types"
 
 Defined in: [types.ts:34](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/types.ts#L34)
 
-Extended Discord.js `Client` that carries a [Command](/Project-1999-Typescript-Discord/api/types/#command) collection.
+Extended Discord.js `Client` that carries a [Command](#command) collection.
 
 Instantiated once in `client.ts` and shared across the entire
 application as a singleton.
@@ -24,7 +24,7 @@ application as a singleton.
 
 ##### Constructor
 
-> **new TSClient**(`options`): [`TSClient`](/Project-1999-Typescript-Discord/api/types/#tsclient)
+> **new TSClient**(`options`): [`TSClient`](#tsclient)
 
 Defined in: node\_modules/discord.js/typings/index.d.ts:1029
 
@@ -36,7 +36,7 @@ Defined in: node\_modules/discord.js/typings/index.d.ts:1029
 
 ###### Returns
 
-[`TSClient`](/Project-1999-Typescript-Discord/api/types/#tsclient)
+[`TSClient`](#tsclient)
 
 ###### Inherited from
 
@@ -46,11 +46,11 @@ Defined in: node\_modules/discord.js/typings/index.d.ts:1029
 
 ##### commands
 
-> **commands**: `Collection`\<`string`, [`Command`](/Project-1999-Typescript-Discord/api/types/#command)\>
+> **commands**: `Collection`\<`string`, [`Command`](#command)\>
 
 Defined in: [types.ts:36](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/types.ts#L36)
 
-Map of command name → [Command](/Project-1999-Typescript-Discord/api/types/#command) object, populated at startup.
+Map of command name → [Command](#command) object, populated at startup.
 
 ## Interfaces
 

@@ -20,11 +20,11 @@ assign/remove these roles on themselves using the `/roles` command.
 
 ##### Constructor
 
-> **new SelfRoles**(): [`SelfRoles`](/Project-1999-Typescript-Discord/api/entities/selfroles/#selfroles)
+> **new SelfRoles**(): [`SelfRoles`](#selfroles)
 
 ###### Returns
 
-[`SelfRoles`](/Project-1999-Typescript-Discord/api/entities/selfroles/#selfroles)
+[`SelfRoles`](#selfroles)
 
 #### Properties
 

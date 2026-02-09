@@ -21,11 +21,11 @@ Managed via the `/plat` command by officers.
 
 ##### Constructor
 
-> **new Plat**(): [`Plat`](/Project-1999-Typescript-Discord/api/entities/plat/#plat)
+> **new Plat**(): [`Plat`](#plat)
 
 ###### Returns
 
-[`Plat`](/Project-1999-Typescript-Discord/api/entities/plat/#plat)
+[`Plat`](#plat)
 
 #### Properties
 

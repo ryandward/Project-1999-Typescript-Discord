@@ -20,11 +20,11 @@ census functions and promotion logic to assign roles to members.
 
 ##### Constructor
 
-> **new DiscordRoleManager**(): [`DiscordRoleManager`](/Project-1999-Typescript-Discord/api/services/role_manager/#discordrolemanager)
+> **new DiscordRoleManager**(): [`DiscordRoleManager`](#discordrolemanager)
 
 ###### Returns
 
-[`DiscordRoleManager`](/Project-1999-Typescript-Discord/api/services/role_manager/#discordrolemanager)
+[`DiscordRoleManager`](#discordrolemanager)
 
 #### Methods
 

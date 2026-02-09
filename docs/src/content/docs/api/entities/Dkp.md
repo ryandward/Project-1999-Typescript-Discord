@@ -20,11 +20,11 @@ Points are earned via raid attendance and spent on loot bids.
 
 ##### Constructor
 
-> **new Dkp**(): [`Dkp`](/Project-1999-Typescript-Discord/api/entities/dkp/#dkp)
+> **new Dkp**(): [`Dkp`](#dkp)
 
 ###### Returns
 
-[`Dkp`](/Project-1999-Typescript-Discord/api/entities/dkp/#dkp)
+[`Dkp`](#dkp)
 
 #### Properties
 

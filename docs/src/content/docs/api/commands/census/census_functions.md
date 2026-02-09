@@ -15,7 +15,7 @@ suggestion builders, and the new-member onboarding flow. Imported by
 
 ### classMustExist()
 
-> **classMustExist**(`CharacterClass`): `Promise`\<[`ClassDefinitions`](/Project-1999-Typescript-Discord/api/entities/classdefinitions/#classdefinitions)\>
+> **classMustExist**(`CharacterClass`): `Promise`\<[`ClassDefinitions`](../../../entities/classdefinitions/#classdefinitions)\>
 
 Defined in: [commands/census/census\_functions.ts:63](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/census/census_functions.ts#L63)
 
@@ -31,7 +31,7 @@ Class name to look up (e.g. `"Cleric"`).
 
 #### Returns
 
-`Promise`\<[`ClassDefinitions`](/Project-1999-Typescript-Discord/api/entities/classdefinitions/#classdefinitions)\>
+`Promise`\<[`ClassDefinitions`](../../../entities/classdefinitions/#classdefinitions)\>
 
 #### Throws
 
@@ -308,7 +308,7 @@ If provided, only returns titles attainable at or below this level.
 
 ### toonMustExist()
 
-> **toonMustExist**(`Name`): `Promise`\<[`Census`](/Project-1999-Typescript-Discord/api/entities/census/#census)\>
+> **toonMustExist**(`Name`): `Promise`\<[`Census`](../../../entities/census/#census)\>
 
 Defined in: [commands/census/census\_functions.ts:76](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/census/census_functions.ts#L76)
 
@@ -324,7 +324,7 @@ Exact character name to look up.
 
 #### Returns
 
-`Promise`\<[`Census`](/Project-1999-Typescript-Discord/api/entities/census/#census)\>
+`Promise`\<[`Census`](../../../entities/census/#census)\>
 
 #### Throws
 
@@ -360,7 +360,7 @@ If a character with that name already exists.
 
 ### userMustExist()
 
-> **userMustExist**(`DiscordId`): `Promise`\<[`Dkp`](/Project-1999-Typescript-Discord/api/entities/dkp/#dkp)\>
+> **userMustExist**(`DiscordId`): `Promise`\<[`Dkp`](../../../entities/dkp/#dkp)\>
 
 Defined in: [commands/census/census\_functions.ts:27](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/census/census_functions.ts#L27)
 
@@ -376,7 +376,7 @@ Discord snowflake ID to look up.
 
 #### Returns
 
-`Promise`\<[`Dkp`](/Project-1999-Typescript-Discord/api/entities/dkp/#dkp)\>
+`Promise`\<[`Dkp`](../../../entities/dkp/#dkp)\>
 
 The `Dkp` record for the user.
 

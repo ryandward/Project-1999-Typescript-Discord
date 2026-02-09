@@ -21,11 +21,11 @@ command to announce title changes on level-up.
 
 ##### Constructor
 
-> **new ClassDefinitions**(): [`ClassDefinitions`](/Project-1999-Typescript-Discord/api/entities/classdefinitions/#classdefinitions)
+> **new ClassDefinitions**(): [`ClassDefinitions`](#classdefinitions)
 
 ###### Returns
 
-[`ClassDefinitions`](/Project-1999-Typescript-Discord/api/entities/classdefinitions/#classdefinitions)
+[`ClassDefinitions`](#classdefinitions)
 
 #### Properties
 

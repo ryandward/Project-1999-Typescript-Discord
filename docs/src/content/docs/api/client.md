@@ -9,7 +9,7 @@ title: "client"
 
 ### client
 
-> `const` **client**: [`TSClient`](/Project-1999-Typescript-Discord/api/types/#tsclient)
+> `const` **client**: [`TSClient`](../types/#tsclient)
 
 Defined in: [client.ts:11](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/client.ts#L11)
 

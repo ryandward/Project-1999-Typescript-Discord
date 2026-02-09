@@ -20,11 +20,11 @@ character registration.
 
 ##### Constructor
 
-> **new Races**(): [`Races`](/Project-1999-Typescript-Discord/api/entities/races/#races)
+> **new Races**(): [`Races`](#races)
 
 ###### Returns
 
-[`Races`](/Project-1999-Typescript-Discord/api/entities/races/#races)
+[`Races`](#races)
 
 #### Properties
 

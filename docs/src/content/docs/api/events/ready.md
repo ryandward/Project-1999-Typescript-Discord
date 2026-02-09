@@ -44,7 +44,7 @@ Logs the bot's identity and starts the daily promotion-check interval.
 
 ##### client
 
-[`TSClient`](/Project-1999-Typescript-Discord/api/types/#tsclient)
+[`TSClient`](../../types/#tsclient)
 
 The fully initialised `TSClient`.
 

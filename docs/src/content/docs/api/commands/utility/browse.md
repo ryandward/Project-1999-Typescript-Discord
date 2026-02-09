@@ -62,7 +62,7 @@ Defined in: [commands/utility/browse.ts:81](https://github.com/ryandward/Project
 
 ### statusMustBeActive()
 
-> **statusMustBeActive**(`inputStatus`): `Promise`\<[`Status`](/Project-1999-Typescript-Discord/api/entities/status/#status)\>
+> **statusMustBeActive**(`inputStatus`): `Promise`\<[`Status`](../../../entities/status/#status)\>
 
 Defined in: [commands/utility/browse.ts:41](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/utility/browse.ts#L41)
 
@@ -74,4 +74,4 @@ Defined in: [commands/utility/browse.ts:41](https://github.com/ryandward/Project
 
 #### Returns
 
-`Promise`\<[`Status`](/Project-1999-Typescript-Discord/api/entities/status/#status)\>
+`Promise`\<[`Status`](../../../entities/status/#status)\>

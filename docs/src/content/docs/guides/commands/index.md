@@ -7,9 +7,9 @@ Every slash command available in the Project 1999 bot, organized by category. Co
 
 | Category | Commands | Description |
 |----------|----------|-------------|
-| [Census](/guides/commands/census/) | `/main`, `/alt`, `/bot`, `/ding`, `/drop`, `/change`, `/claim`, `/toons`, `/whois`, `/promote`, `/assign`, `/reassign` | Register and manage EverQuest characters |
-| [DKP](/guides/commands/dkp/) | `/dkp`, `/attendance` | Track Dragon Kill Points and raid attendance |
-| [Bank](/guides/commands/bank/) | `/find`, `/income`, `/expense`, `/plat` | Guild bank inventory and platinum ledger |
-| [Shared Accounts](/guides/commands/shared-accounts/) | `/browse`, `/login`, `/account`, `/listaccounts`, `/note`, `/delete_shared_toon` | Manage shared guild EQ accounts |
-| [Roles](/guides/commands/roles/) | `/add`, `/remove`, `/roles` | Self-assignable Discord roles |
-| [Utility](/guides/commands/utility/) | `/ping`, `/permissions`, `/help` | Misc utilities |
+| [Census](./census/) | `/main`, `/alt`, `/bot`, `/ding`, `/drop`, `/change`, `/claim`, `/toons`, `/whois`, `/promote`, `/assign`, `/reassign` | Register and manage EverQuest characters |
+| [DKP](./dkp/) | `/dkp`, `/attendance` | Track Dragon Kill Points and raid attendance |
+| [Bank](./bank/) | `/find`, `/income`, `/expense`, `/plat` | Guild bank inventory and platinum ledger |
+| [Shared Accounts](./shared-accounts/) | `/browse`, `/login`, `/account`, `/listaccounts`, `/note`, `/delete_shared_toon` | Manage shared guild EQ accounts |
+| [Roles](./roles/) | `/add`, `/remove`, `/roles` | Self-assignable Discord roles |
+| [Utility](./utility/) | `/ping`, `/permissions`, `/help` | Misc utilities |

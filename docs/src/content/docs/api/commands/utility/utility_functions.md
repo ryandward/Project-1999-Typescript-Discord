@@ -7,7 +7,7 @@ title: "commands/utility/utility_functions"
 
 Shared helper functions for utility commands.
 
-Currently houses the [loginLogic](/Project-1999-Typescript-Discord/api/commands/utility/utility_functions/#loginlogic) function that powers the `/login`
+Currently houses the [loginLogic](#loginlogic) function that powers the `/login`
 command's three-branch flow: create toon, update toon, or display account info.
 
 ## Functions

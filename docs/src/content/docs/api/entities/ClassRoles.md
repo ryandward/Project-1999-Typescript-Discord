@@ -20,11 +20,11 @@ when they are declared via `/main`, `/alt`, or `/bot`.
 
 ##### Constructor
 
-> **new ClassRoles**(): [`ClassRoles`](/Project-1999-Typescript-Discord/api/entities/classroles/#classroles)
+> **new ClassRoles**(): [`ClassRoles`](#classroles)
 
 ###### Returns
 
-[`ClassRoles`](/Project-1999-Typescript-Discord/api/entities/classroles/#classroles)
+[`ClassRoles`](#classroles)
 
 #### Properties
 

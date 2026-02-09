@@ -21,11 +21,11 @@ feeding into the DKP calculation pipeline.
 
 ##### Constructor
 
-> **new Attendance**(): [`Attendance`](/Project-1999-Typescript-Discord/api/entities/attendance/#attendance)
+> **new Attendance**(): [`Attendance`](#attendance)
 
 ###### Returns
 
-[`Attendance`](/Project-1999-Typescript-Discord/api/entities/attendance/#attendance)
+[`Attendance`](#attendance)
 
 #### Properties
 

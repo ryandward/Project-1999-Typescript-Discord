@@ -21,11 +21,11 @@ attended a specific raid.
 
 ##### Constructor
 
-> **new Raids**(): [`Raids`](/Project-1999-Typescript-Discord/api/entities/raids/#raids)
+> **new Raids**(): [`Raids`](#raids)
 
 ###### Returns
 
-[`Raids`](/Project-1999-Typescript-Discord/api/entities/raids/#raids)
+[`Raids`](#raids)
 
 #### Properties
 

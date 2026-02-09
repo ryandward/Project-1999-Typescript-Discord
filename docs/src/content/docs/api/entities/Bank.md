@@ -20,11 +20,11 @@ Populated by the `/income` command and consumed by `/find` and `/browse`.
 
 ##### Constructor
 
-> **new Bank**(): [`Bank`](/Project-1999-Typescript-Discord/api/entities/bank/#bank)
+> **new Bank**(): [`Bank`](#bank)
 
 ###### Returns
 
-[`Bank`](/Project-1999-Typescript-Discord/api/entities/bank/#bank)
+[`Bank`](#bank)
 
 #### Properties
 

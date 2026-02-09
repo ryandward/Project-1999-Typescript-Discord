@@ -67,19 +67,19 @@ Defined in: [commands/census/assign.ts:100](https://github.com/ryandward/Project
 
 ### getActiveStatuses()
 
-> **getActiveStatuses**(): `Promise`\<[`Status`](/Project-1999-Typescript-Discord/api/entities/status/#status)[]\>
+> **getActiveStatuses**(): `Promise`\<[`Status`](../../../entities/status/#status)[]\>
 
 Defined in: [commands/census/assign.ts:30](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/census/assign.ts#L30)
 
 #### Returns
 
-`Promise`\<[`Status`](/Project-1999-Typescript-Discord/api/entities/status/#status)[]\>
+`Promise`\<[`Status`](../../../entities/status/#status)[]\>
 
 ***
 
 ### statusMustBeActive()
 
-> **statusMustBeActive**(`inputStatus`): `Promise`\<[`Status`](/Project-1999-Typescript-Discord/api/entities/status/#status)\>
+> **statusMustBeActive**(`inputStatus`): `Promise`\<[`Status`](../../../entities/status/#status)\>
 
 Defined in: [commands/census/assign.ts:35](https://github.com/ryandward/Project-1999-Typescript-Discord/blob/038b94228a9b42df2778326b640b435f54f0f323/commands/census/assign.ts#L35)
 
@@ -91,4 +91,4 @@ Defined in: [commands/census/assign.ts:35](https://github.com/ryandward/Project-
 
 #### Returns
 
-`Promise`\<[`Status`](/Project-1999-Typescript-Discord/api/entities/status/#status)\>
+`Promise`\<[`Status`](../../../entities/status/#status)\>

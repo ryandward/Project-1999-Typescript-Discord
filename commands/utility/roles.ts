@@ -1,3 +1,15 @@
+/**
+ * `/roles` command — officer tool for managing the self-assignable role system.
+ *
+ * Subcommands:
+ * - `add` — creates a new Discord role and registers it as self-assignable
+ * - `remove` — deletes a self-assignable role from both Discord and the database
+ * - `list` — displays all currently registered self-assignable roles
+ *
+ * Requires `ManageRoles` permission.
+ *
+ * @module
+ */
 import {
   AutocompleteInteraction,
   ChatInputCommandInteraction,

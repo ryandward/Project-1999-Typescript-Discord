@@ -1,3 +1,8 @@
+/**
+ * `/ping` command — measures and displays the bot's API roundtrip latency.
+ *
+ * @module
+ */
 import { CommandInteraction, SlashCommandBuilder } from 'discord.js';
 
 export const data = new SlashCommandBuilder()

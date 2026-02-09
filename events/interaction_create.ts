@@ -1,3 +1,14 @@
+/**
+ * Central interaction router for the Discord gateway.
+ *
+ * Listens for `Events.InteractionCreate` and dispatches to the
+ * appropriate handler based on interaction type:
+ * - `CommandInteraction` → `command.execute()`
+ * - `AutocompleteInteraction` → `command.autocomplete()`
+ * - `ModalSubmitInteraction` → `command.handleModal()` (currently only `attendance_modal`)
+ *
+ * @module
+ */
 import {
   AutocompleteInteraction,
   CommandInteraction,
@@ -7,8 +18,13 @@ import {
 } from 'discord.js';
 import { TSClient } from '../types';
 
+/** Discord event name this module handles. */
 export const name = Events.InteractionCreate;
 
+/**
+ * Routes an incoming interaction to the correct command handler.
+ * @param interaction - The raw Discord interaction.
+ */
 export async function execute(interaction: Interaction) {
   if (interaction instanceof CommandInteraction) {
     // if (!interaction.isChatInputCommand()) return;

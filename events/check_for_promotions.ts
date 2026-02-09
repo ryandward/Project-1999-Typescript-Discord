@@ -1,10 +1,24 @@
+/**
+ * Scheduled task that checks for probationary members eligible for promotion.
+ *
+ * Queries the `Dkp` table for users whose `DateJoined` falls between
+ * 2 and 4 weeks ago, then posts a reminder in the census channel
+ * (`884164383498965042`) for any who still carry the "Probationary Member" role.
+ *
+ * Called once at startup and then every 24 hours by the `ready` event handler.
+ *
+ * @module
+ */
 import { ChannelType, TextChannel } from 'discord.js';
 import { Between } from 'typeorm';
 import { AppDataSource } from '../app_data.js';
 import { client } from '../client.js';
 import { Dkp } from '../entities/Dkp.js';
-// import { DiscordRoleManager } from '../services/role_manager.js';
 
+/**
+ * Scans for probationary members eligible for promotion and posts
+ * reminders to officers in the census channel.
+ */
 export async function checkForPromotions() {
   const twoWeeksAgo = new Date();
   twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 14);

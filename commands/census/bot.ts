@@ -1,3 +1,14 @@
+/**
+ * `/bot` command — registers a bot (shared/utility) character.
+ *
+ * Creates a `Census` record with status `"Bot"`. Bot characters can
+ * be claimed by other members via the `/claim` command. A warning disclaimer
+ * is shown to the declarer.
+ *
+ * Uses the shared `declareData` factory for its slash command definition.
+ *
+ * @module
+ */
 import { ChatInputCommandInteraction, MessageFlags } from 'discord.js';
 import _ from 'lodash';
 import {

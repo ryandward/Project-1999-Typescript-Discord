@@ -1,3 +1,11 @@
+/**
+ * `/whois` command — looks up characters by Discord user mention.
+ *
+ * Similar to `/toons` but takes a Discord `@user` option instead of a
+ * character name. Displays the same grouped embed format.
+ *
+ * @module
+ */
 import {
   ChatInputCommandInteraction,
   EmbedBuilder,

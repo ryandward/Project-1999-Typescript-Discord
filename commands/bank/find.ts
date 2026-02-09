@@ -1,3 +1,14 @@
+/**
+ * `/find` command — searches the guild bank for items and supports requesting them.
+ *
+ * Autocomplete shows matching items with quantities. After finding an item,
+ * members can click "Request" to choose which of their characters needs it,
+ * sending a request notification to the bank request channel (`1213309735886000159`).
+ *
+ * Uses interactive button and select-menu collectors for the request flow.
+ *
+ * @module
+ */
 import {
   ActionRowBuilder,
   AutocompleteInteraction,

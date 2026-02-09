@@ -4,3 +4,6 @@ node_modules
 config.json
 ormconfig.json
 pnpm-lock.yaml
+docs/node_modules/
+docs/dist/
+docs/.astro/

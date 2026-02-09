@@ -1,3 +1,12 @@
+/**
+ * `/reassign` command — officer tool to update an existing character's owner, status, class, or level.
+ *
+ * Requires `ManageGuild` permission. Shows a before/after embed comparing
+ * the old and new values. Useful for correcting data entry mistakes or
+ * transferring characters between players.
+ *
+ * @module
+ */
 import { SlashCommandBuilder } from '@discordjs/builders';
 import {
   AutocompleteInteraction,

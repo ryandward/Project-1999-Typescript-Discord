@@ -1,3 +1,11 @@
+/**
+ * `/note` command — adds or clears notes on a shared character.
+ *
+ * Requires the Officer role. Notes appear in the `/browse` display
+ * below the character name. Pass an empty notes value to clear.
+ *
+ * @module
+ */
 import {
   AutocompleteInteraction,
   ChatInputCommandInteraction,

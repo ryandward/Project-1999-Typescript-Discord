@@ -1,3 +1,11 @@
+/**
+ * `/claim` command — transfers ownership of a bot character to the invoker.
+ *
+ * Only characters with status `"Bot"` are claimable. Autocomplete searches by
+ * both character name and class, sorted by level descending.
+ *
+ * @module
+ */
 import {
   AutocompleteInteraction,
   ChatInputCommandInteraction,

@@ -1,3 +1,13 @@
+/**
+ * `/alt` command — registers an alternate character for an existing member.
+ *
+ * Validates the user already exists in `Dkp` (must have a main first),
+ * then creates a new `Census` record with status `"Alt"`.
+ *
+ * Uses the shared `declareData` factory for its slash command definition.
+ *
+ * @module
+ */
 import { ChatInputCommandInteraction, MessageFlags } from 'discord.js';
 import _ from 'lodash';
 import {

@@ -3,20 +3,19 @@ import { DataSource } from 'typeorm';
 
 config();
 
-// export const AppDataSource = new DataSource({
-//   type: 'postgres',
-//   host: process.env.PGHOST,
-//   port: 5432,
-//   username: process.env.PGUSER,
-//   password: process.env.PGPASS,
-//   database: process.env.PGDATA,
-//   synchronize: false,
-//   logging: false,
-//   entities: ['./entities/*.js'],
-//   subscribers: [],
-//   migrations: [],
-// });
-
+/**
+ * TypeORM `DataSource` configured for the guild's PostgreSQL database.
+ *
+ * Connection parameters are read from environment variables:
+ * - `PGHOST` — database hostname
+ * - `PGPORT` — database port
+ * - `PGUSER` — database user
+ * - `PGPASSWORD` — database password
+ * - `POSTGRES_DB` — database name
+ *
+ * Entity classes are discovered via the glob `./entities/*.js`.
+ * Schema synchronisation is **disabled** — migrations are managed externally.
+ */
 export const AppDataSource = new DataSource({
   type: 'postgres',
   host: process.env.PGHOST,
@@ -31,7 +30,12 @@ export const AppDataSource = new DataSource({
   migrations: [],
 });
 
-// Export an async function to initialize the data source
+/**
+ * Initialises the {@link AppDataSource} connection pool.
+ *
+ * Called once at application startup from `index.ts`.
+ * On failure the process exits with code 1 so Railway restarts it.
+ */
 export async function initializeDataSource() {
   try {
     await AppDataSource.initialize();

@@ -1,3 +1,11 @@
+/**
+ * `/drop` command — soft-deletes a character by setting its status to `"Dropped"`.
+ *
+ * The record remains in the `Census` table but is excluded from the
+ * `ActiveToons` view. Autocomplete only shows the invoker's own characters.
+ *
+ * @module
+ */
 import {
   AutocompleteInteraction,
   ChatInputCommandInteraction,

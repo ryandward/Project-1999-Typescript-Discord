@@ -1,3 +1,15 @@
+/**
+ * `/browse` command — displays shared bot characters with interactive login.
+ *
+ * Shows a census-style embed of all bot characters that also exist in the
+ * `SharedToons` table, filterable by class and level range. Users can
+ * select a character from a dropdown and click "Get login" to retrieve
+ * account credentials (via `loginLogic`).
+ *
+ * Uses interactive select-menu and button collectors.
+ *
+ * @module
+ */
 import { SlashCommandBuilder } from '@discordjs/builders';
 import {
   ActionRowBuilder,

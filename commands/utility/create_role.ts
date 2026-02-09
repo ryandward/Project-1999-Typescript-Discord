@@ -1,3 +1,11 @@
+/**
+ * `/create_role` command — alternative interface for managing self-assignable roles.
+ *
+ * Functionally identical to `/roles`. Subcommands: `add`, `remove`, `list`.
+ * Requires `ManageRoles` permission.
+ *
+ * @module
+ */
 import {
   AutocompleteInteraction,
   ChatInputCommandInteraction,

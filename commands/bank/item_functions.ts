@@ -1,9 +1,23 @@
+/**
+ * Helper functions for bank/item commands that integrate with a local MediaWiki instance.
+ *
+ * Provides wiki-backed item image lookups, URL resolution, spell descriptions,
+ * and stats-block extraction. Used by `/find`, `/browse`, and other bank commands.
+ *
+ * @module
+ */
 import axios from 'axios';
 
+/**
+ * Formats an array of strings as inline-code lines for Discord embed fields.
+ * @param field - Lines to format.
+ */
 export function formatField(field: string[]): string {
   const monoField = field.map(item => `\`${item}\``);
   return '\n' + monoField.join('\n') + '\n';
 }
+
+/** Shape of the JSON response returned by the MediaWiki API. */
 interface MediaWikiResponse {
   query: {
     pages: {
@@ -16,6 +30,16 @@ interface MediaWikiResponse {
   };
 }
 
+/**
+ * Fetches the local filesystem path to an item's icon image from MediaWiki.
+ *
+ * Strips `Song: ` / `Spell: ` prefixes, queries the wiki for `lucy_img_ID`
+ * or `spellicon` template parameters, then resolves the `File:` page to a
+ * local path under `/var/lib/mediawiki`.
+ *
+ * @param itemName - In-game item or spell name.
+ * @returns Local image path, or `null` if not found.
+ */
 export async function getImageUrl(itemName: string): Promise<string | null> {
   // Standardize the item name to ensure cache consistency
   const standardizedItemName = itemName.replace('Song: ', '').replace('Spell: ', '');
@@ -89,6 +113,12 @@ export async function getImageUrl(itemName: string): Promise<string | null> {
   return null;
 }
 
+/**
+ * Resolves the full wiki URL for an item page.
+ *
+ * @param itemName - In-game item or spell name.
+ * @returns The `fullurl` of the wiki page, or `null` if not found.
+ */
 export async function getItemUrl(itemName: string): Promise<string | null> {
   // Standardize the item name to ensure cache consistency
   const standardizedItemName = itemName.replace('Song: ', '').replace('Spell: ', '');
@@ -111,6 +141,12 @@ export async function getItemUrl(itemName: string): Promise<string | null> {
   );
 }
 
+/**
+ * Extracts the `classes` and `description` template fields from a spell's wiki page.
+ *
+ * @param spellName - Spell or song name.
+ * @returns Plain-text description with HTML tags stripped, or `null`.
+ */
 export async function getSpellDescription(spellName: string): Promise<string | null> {
   // Standardize the item name to ensure cache consistency
   const standardizedItemName = spellName.replace('Song: ', '').replace('Spell: ', '');
@@ -157,6 +193,12 @@ export async function getSpellDescription(spellName: string): Promise<string | n
   }
 }
 
+/**
+ * Extracts the `statsblock` template field from an item's wiki page.
+ *
+ * @param itemName - In-game item name.
+ * @returns Plain-text stats block with HTML tags stripped, or `null`.
+ */
 export async function getStatsBlock(itemName: string): Promise<string | null> {
   // Standardize the item name to ensure cache consistency
 

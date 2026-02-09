@@ -1,3 +1,12 @@
+/**
+ * `/dkp` command — displays a user's DKP (Dragon Kill Points) balance.
+ *
+ * Supports lookup by Discord `@user` mention, character name (autocomplete),
+ * or defaults to the invoker. Shows current DKP (earned - spent) and
+ * total earned in an embed.
+ *
+ * @module
+ */
 import {
   AutocompleteInteraction,
   ChatInputCommandInteraction,

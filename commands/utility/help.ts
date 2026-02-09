@@ -1,3 +1,12 @@
+/**
+ * `/help` command — lists all available bot commands grouped by category.
+ *
+ * Dynamically scans the `commands/` directory, imports each module, and
+ * builds embed pages per folder. Commands with a `permissions` export are
+ * hidden from users who lack the required permission.
+ *
+ * @module
+ */
 import { CommandInteraction, EmbedBuilder, MessageFlags, SlashCommandBuilder } from 'discord.js';
 import fs from 'fs';
 import _ from 'lodash';

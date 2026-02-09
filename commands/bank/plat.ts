@@ -1,3 +1,12 @@
+/**
+ * `/plat` command — displays or adjusts the guild platinum balance.
+ *
+ * Without arguments, shows the current total. With an `amount` argument
+ * (requires `ManageGuild`), sets the balance to that value by inserting
+ * a corrective `Plat` transaction.
+ *
+ * @module
+ */
 import { ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
 import { AppDataSource } from '../../app_data.js';
 import { Plat } from '../../entities/Plat.js';

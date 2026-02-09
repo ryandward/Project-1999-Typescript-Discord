@@ -1,3 +1,12 @@
+/**
+ * `/assign` command — officer tool to create and assign a character to any Discord user.
+ *
+ * Requires `ManageGuild` permission. Creates a new `Census` record for
+ * the specified user. If the user is new, automatically inserts them into
+ * `Dkp` and forces the first character to `"Main"` status.
+ *
+ * @module
+ */
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { AutocompleteInteraction, ChatInputCommandInteraction, MessageFlags } from 'discord.js';
 import _ from 'lodash';

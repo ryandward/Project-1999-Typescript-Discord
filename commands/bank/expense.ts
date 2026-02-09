@@ -1,3 +1,11 @@
+/**
+ * `/expense` command — records a guild bank expense (platinum withdrawal).
+ *
+ * Requires `ManageGuild` permission. Creates a `Plat` record with a
+ * negative amount. Displays a red embed confirming the transaction.
+ *
+ * @module
+ */
 import { ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
 import { AppDataSource } from '../../app_data.js';
 import { Plat } from '../../entities/Plat.js';

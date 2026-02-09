@@ -1,3 +1,11 @@
+/**
+ * `/income` command — records a guild bank income (platinum deposit).
+ *
+ * Requires `ManageGuild` permission. Creates a `Plat` record with a
+ * positive amount. Displays a green embed confirming the transaction.
+ *
+ * @module
+ */
 import {
   ChatInputCommandInteraction,
   EmbedBuilder,

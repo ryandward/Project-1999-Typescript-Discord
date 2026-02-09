@@ -1,3 +1,11 @@
+/**
+ * `/permissions` command — displays the Discord permission flags for a given user.
+ *
+ * Resolves the target user in the guild and lists all their permission
+ * flags in an ephemeral embed.
+ *
+ * @module
+ */
 import {
   ChatInputCommandInteraction,
   CommandInteractionOptionResolver,

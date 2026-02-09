@@ -1,3 +1,12 @@
+/**
+ * `/account` command — officer tool to view or update shared account credentials.
+ *
+ * Requires the Officer role. Can retrieve account details, update the
+ * password, or change the required role for accessing the account.
+ * Creates new accounts if they don't exist when updating.
+ *
+ * @module
+ */
 import {
   AutocompleteInteraction,
   ChatInputCommandInteraction,

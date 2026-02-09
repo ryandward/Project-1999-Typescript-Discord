@@ -1,3 +1,11 @@
+/**
+ * `/ding` command — increments or sets a character's level.
+ *
+ * If no level is provided, increments by 1. Autocomplete suggests characters
+ * owned by the invoking user. Only the character's owner can ding their own toons.
+ *
+ * @module
+ */
 import {
   AutocompleteInteraction,
   ChatInputCommandInteraction,

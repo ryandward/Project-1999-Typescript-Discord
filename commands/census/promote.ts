@@ -1,3 +1,13 @@
+/**
+ * `/promote` command — elevates a user from "Probationary Member" to full "Member".
+ *
+ * Requires `ManageGuild` permission. Autocomplete shows only users who
+ * currently have the "Probationary Member" role. On promotion, removes the
+ * probationary role, adds the "Member" role, and posts a congratulations
+ * message to the general channel (`851549677815070751`).
+ *
+ * @module
+ */
 import {
   AutocompleteInteraction,
   ChannelType,

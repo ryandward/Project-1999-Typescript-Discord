@@ -1,3 +1,11 @@
+/**
+ * `/change` command — changes a character's status (Main, Alt, Bot).
+ *
+ * Enforces business rules: promoting to `"Main"` demotes existing mains to
+ * `"Alt"`, and demoting from `"Main"` is blocked if it's the user's only main.
+ *
+ * @module
+ */
 import {
   AutocompleteInteraction,
   ChatInputCommandInteraction,

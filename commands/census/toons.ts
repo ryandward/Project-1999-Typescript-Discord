@@ -1,3 +1,12 @@
+/**
+ * `/toons` command — displays all characters associated with a player.
+ *
+ * Looks up by character name (autocomplete) or defaults to the invoker.
+ * Renders an embed grouped by status (Main, Alt, Bot) with name, class,
+ * and level columns.
+ *
+ * @module
+ */
 import {
   AutocompleteInteraction,
   ChatInputCommandInteraction,

@@ -1,0 +1,132 @@
+/* ============================================
+   Project 1999 Docs – Custom Hover & Transition Styles
+   ============================================ */
+
+/* ── View Transitions: instant swap, no animation ── */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+
+/* ── Sidebar navigation links ── */
+nav.sidebar a {
+  transition: background-color 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+  border-radius: 0.25rem;
+}
+
+nav.sidebar a:hover {
+  background-color: var(--sl-color-gray-6);
+  padding-left: 0.5rem;
+}
+
+nav.sidebar a[aria-current="page"] {
+  background-color: var(--sl-color-accent);
+  color: var(--sl-color-white);
+  padding-left: 0.5rem;
+}
+
+/* ── Cards (landing page) ── */
+.card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+:root[data-theme="dark"] .card:hover {
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Link cards ── */
+.sl-link-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.sl-link-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--sl-color-accent);
+}
+
+/* ── Content links ── */
+.sl-markdown-content a {
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+  text-decoration-color: transparent;
+}
+
+.sl-markdown-content a:hover {
+  text-decoration-color: currentColor;
+}
+
+/* ── Code blocks ── */
+.expressive-code {
+  transition: box-shadow 0.25s ease;
+}
+
+.expressive-code:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+:root[data-theme="dark"] .expressive-code:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Pagination (prev/next) links ── */
+.pagination-links a {
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pagination-links a:hover {
+  transform: translateY(-2px);
+  border-color: var(--sl-color-accent);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Table rows ── */
+.sl-markdown-content table tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+.sl-markdown-content table tbody tr:hover {
+  background-color: var(--sl-color-gray-7);
+}
+
+/* ── Hero action buttons ── */
+.hero .action a {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero .action a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ── Sidebar group details toggle ── */
+nav.sidebar details > summary {
+  transition: color 0.2s ease;
+}
+
+nav.sidebar details > summary:hover {
+  color: var(--sl-color-accent);
+}
+
+/* ── Mobile menu toggle ── */
+starlight-menu-button button {
+  transition: color 0.2s ease;
+}
+
+/* ── Respect reduced motion preference ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

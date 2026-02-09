@@ -1,3 +1,11 @@
+/**
+ * `/remove` command — removes a self-assigned role from the invoker.
+ *
+ * Autocomplete only shows self-assignable roles that the user currently has.
+ * Counterpart to the `/add` command.
+ *
+ * @module
+ */
 import {
   AutocompleteInteraction,
   ChatInputCommandInteraction,

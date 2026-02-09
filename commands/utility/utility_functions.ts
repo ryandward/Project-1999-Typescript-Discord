@@ -1,3 +1,11 @@
+/**
+ * Shared helper functions for utility commands.
+ *
+ * Currently houses the {@link loginLogic} function that powers the `/login`
+ * command's three-branch flow: create toon, update toon, or display account info.
+ *
+ * @module
+ */
 import {
   ButtonInteraction,
   CommandInteraction,
@@ -7,8 +15,19 @@ import {
 } from 'discord.js';
 import { AppDataSource } from '../../app_data.js';
 import { SharedAccounts, SharedToons } from '../../entities/SharedModels.js';
-// import { SharedToons } from '../../entities/SharedToons.js';
 
+/**
+ * Core logic for the `/login` command with three branches:
+ *
+ * 1. **Toon doesn't exist + account provided** → creates the toon and links it.
+ * 2. **Toon exists + account provided** → updates the toon's account link (Officer only).
+ * 3. **Toon exists, no account** → displays the account credentials (role-gated).
+ *
+ * @param interaction - The command or button interaction that triggered this.
+ * @param toonName - Name of the shared character to look up or create.
+ * @param accountName - Optional account name; if provided, creates/updates the link.
+ * @throws If the member lacks permission or the referenced entities don't exist.
+ */
 export async function loginLogic(
   interaction: CommandInteraction | ButtonInteraction,
   toonName: string,

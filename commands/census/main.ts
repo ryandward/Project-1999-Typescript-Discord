@@ -1,3 +1,14 @@
+/**
+ * `/main` command — registers a player's primary character.
+ *
+ * Creates a new `Census` record with status `"Main"`, inserts the user
+ * into the `Dkp` table if they're new (via `insertUser`), and
+ * assigns the "Probationary Member" role to first-time declarers.
+ *
+ * Uses the shared `declareData` factory for its slash command definition.
+ *
+ * @module
+ */
 import { ChatInputCommandInteraction, MessageFlags } from 'discord.js';
 import _ from 'lodash';
 import {

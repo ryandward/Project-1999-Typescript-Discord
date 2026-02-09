@@ -1,3 +1,12 @@
+/**
+ * `/add` command — self-assigns a role from the `SelfRoles` list.
+ *
+ * Members can browse available self-assignable roles via autocomplete
+ * and add them to themselves. Only roles registered in the `self_roles`
+ * table are available.
+ *
+ * @module
+ */
 import {
   AutocompleteInteraction,
   ChatInputCommandInteraction,

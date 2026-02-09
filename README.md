@@ -1,5 +1,7 @@
 # EverQuest Discord Bot - TypeScript Edition
 
+**[Documentation](https://ryandward.github.io/Project-1999-Typescript-Discord/)**
+
 Welcome to the EverQuest Discord Bot TypeScript Edition repository! This project, originally developed in Python and meticulously reworked in TypeScript, demonstrates advanced capabilities in creating robust, type-safe, and scalable chat-interfacing bots. Leveraging TypeScript’s strict type-checking and ESNext features, along with powerful integrations like Elasticsearch, this bot enhances management and engagement within EverQuest gaming communities on Discord.
 
 ## Introduction

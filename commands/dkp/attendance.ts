@@ -1,3 +1,19 @@
+/**
+ * `/attendance` command — records raid attendance from pasted `/who` logs.
+ *
+ * Flow: officer selects a raid (autocomplete from `Raids` table) ->
+ * modal opens for pasting `/who` output -> `parseWhoLogs` extracts
+ * player names -> cross-references with `Census` -> creates
+ * `Attendance` records and awards DKP.
+ *
+ * This is the most complex command, using a modal submission flow via
+ * `handleModal` and an in-memory `pendingRaids` map to bridge
+ * the command and modal interactions.
+ *
+ * Requires `ManageRoles` permission.
+ *
+ * @module
+ */
 import {
   ActionRowBuilder,
   AutocompleteInteraction,

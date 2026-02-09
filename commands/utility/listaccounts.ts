@@ -1,3 +1,12 @@
+/**
+ * `/listaccounts` command — sends the officer a DM with all accessible shared accounts.
+ *
+ * Requires the Officer role. Filters accounts by the officer's role hierarchy,
+ * generates a plain-text file listing each account with password, role, and
+ * toons, and sends it via direct message. Logs access in a follow-up.
+ *
+ * @module
+ */
 import {
   AttachmentBuilder,
   CommandInteraction,

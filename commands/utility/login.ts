@@ -1,3 +1,12 @@
+/**
+ * `/login` command — retrieves or manages shared account login credentials.
+ *
+ * Three branches: view credentials (role-gated), link a toon to an account
+ * (Officer only), or create a new toon and link it. Displays account info
+ * in an ephemeral embed and logs access in a follow-up message.
+ *
+ * @module
+ */
 import {
   AutocompleteInteraction,
   ChatInputCommandInteraction,

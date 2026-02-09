@@ -1,3 +1,11 @@
+/**
+ * `/delete_shared_toon` command — permanently removes a shared toon entry.
+ *
+ * Requires the Officer role. Used to clean up typos or obsolete entries
+ * from the `SharedToons` table.
+ *
+ * @module
+ */
 import {
   AutocompleteInteraction,
   ChatInputCommandInteraction,

@@ -1,0 +1,22 @@
+---
+import StarlightHead from '@astrojs/starlight/components/Head.astro';
+import VtbotStarlight from 'astro-vtbot/components/starlight/Base.astro';
+---
+
+<VtbotStarlight>
+  <StarlightHead><slot /></StarlightHead>
+</VtbotStarlight>
+
+<script>
+  let sidebarScrollTop = 0;
+
+  document.addEventListener('astro:before-preparation', () => {
+    const sidebar = document.querySelector('.sidebar-pane');
+    if (sidebar) sidebarScrollTop = sidebar.scrollTop;
+  });
+
+  document.addEventListener('astro:after-swap', () => {
+    const sidebar = document.querySelector('.sidebar-pane');
+    if (sidebar) sidebar.scrollTop = sidebarScrollTop;
+  });
+</script>
